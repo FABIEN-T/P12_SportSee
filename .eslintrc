@@ -1,0 +1,10 @@
+{
+    "extends": [
+        "react-app"
+        // "plugin:react/jsx-runtime"
+    ],
+    "rules": {
+        // "react/react-in-jsx-scope": "off"
+        // "no-console": "error"
+    }
+}
