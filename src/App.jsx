@@ -3,7 +3,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>coucou !!!!</h1>
+        <h1>coucou</h1>
         <p>
           Cela permet de préciser à VSCode de formater le fichier uniquement
           quand une configuration est présente dans le projet pour Prettier.
