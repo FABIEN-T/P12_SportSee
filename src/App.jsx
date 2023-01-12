@@ -1,26 +1,28 @@
 import React from 'react'
-// import { BrowserRouter, Routes, Route } from 'react-router-dom'
-// import Header from './components/Header'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Header from './components/Header'
+import BarVertical from './components/BarVertical'
 // import Footer from './components/Footer'
-// import Home from './pages/Home'
-// import About from './pages/About'
-// import LodgingSheet from './pages/LodgingSheet'
-// import Error from './pages/Error'
+import Home from './pages/Home'
+import Profil from './pages/Profil'
+import Setting from './pages/Setting'
+import Community from './pages/Community'
+import Error from './pages/Error'
 
 function App() {
   return (
     <div className="app">
-      <h1>coucou</h1>
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <Header />
-        <Routes> */}
-      {/* <Route path="/" element={<Home />} /> */}
-      {/* <Route path="/profil" element={<Profil />} />
-          <Route path="/lodging-sheet/:id" element={<LodgingSheet />} />
-          <Route path="/*" element={<Error />} /> */}
-      {/* </Routes>
-        <Footer />
-      </BrowserRouter> */}
+        <BarVertical />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/profil" element={<Profil />} />
+          <Route path="/setting" element={<Setting />} />
+          <Route path="/community" element={<Community />} />
+          <Route path="/*" element={<Error />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }

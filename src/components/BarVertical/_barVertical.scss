@@ -1,0 +1,39 @@
+.barVertical {
+  position: relative;
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: space-between;
+  box-sizing: border-box;
+  width: 117px;
+  height: 689px;
+  padding: 80px 0;
+  background-color: black;
+  .iconsBarVertical {
+    display: flex;
+    flex-direction: column;
+    .iconBar {
+      margin: 0 auto 20px;
+      width: 64px;
+      height: 64px;
+    }
+  }
+  .copyrights {
+    // width: fit-content;
+    // height: fit-content;
+    // p {
+    //   display: block;
+    position: absolute;
+    bottom: calc(45px + 59px);
+    left: -14px;
+    // width: fit-content;
+    // height: fit-content;
+    white-space: nowrap;
+    font-weight: 500;
+    font-size: 12px;
+    color: white;
+    // margin: 0 auto;
+    // padding: 0;
+    transform: rotate(-90deg);
+    // }
+  }
+}
