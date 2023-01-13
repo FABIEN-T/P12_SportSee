@@ -18,10 +18,12 @@ body {
   .app {
     position: relative;
     margin: auto;
-    background-color: black;
+    // background-color: black;
     min-width: 1024px;
     max-width: 1024px;
+    // max-width: 1440px;
     min-height: 780px;
     max-height: 780px;
+    // max-height: 1024px;
   }
 }

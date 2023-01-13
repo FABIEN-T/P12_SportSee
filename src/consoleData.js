@@ -28,6 +28,7 @@ function ConsoleData() {
     currentUserMain.userInfos.lastName,
     currentUserMain.userInfos.age
   )
+  console.log('calorieCount', currentUserMain.keyData.calorieCount)
 
   // USER_ACTIVITY
   // const currentUserActivity = USER_ACTIVITY.find(
