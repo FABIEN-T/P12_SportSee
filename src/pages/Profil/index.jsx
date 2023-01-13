@@ -10,6 +10,8 @@ import IconCalories from '../../assets/iconNutriCalories.svg'
 import IconProtein from '../../assets/iconNutriProtein.svg'
 import IconCarbs from '../../assets/iconNutriCarbs.svg'
 import IconFat from '../../assets/iconNutriFat.svg'
+
+import NutritionContent from '../../components/NutritionContent'
 // import ConsoleData from '../../consoleData'
 
 function Profil() {
@@ -66,46 +68,37 @@ function Profil() {
           </div>
         </div>
         <aside className="nutrition">
-          {/* <NutritionContent /> */}
-          <div className="nutrition__content">
-            <div className="nutrition__content__icon">
-              <img src={IconCalories} alt="icône Calories" />
-            </div>
-            <div className="nutrition__content__text">
-              <h3>{currentUserMain.keyData.calorieCount}kCal</h3>
-              <p>Calories</p>
-            </div>
-          </div>
+          <NutritionContent
+            image={IconCalories}
+            altText={'icône Calories'}
+            data={currentUserMain.keyData.calorieCount}
+            text={'kCal'}
+            title={'Calories'}
+          />
 
-          <div className="nutrition__content">
-            <div className="nutrition__content__icon">
-              <img src={IconProtein} alt="icône Protéines" />
-            </div>
-            <div className="nutrition__content__text">
-              <h3>{currentUserMain.keyData.proteinCount}g</h3>
-              <p>Protéines</p>
-            </div>
-          </div>
+          <NutritionContent
+            image={IconProtein}
+            altText={'icône Protéines'}
+            data={currentUserMain.keyData.proteinCount}
+            text={'g'}
+            title={'Protéines'}
+          />
 
-          <div className="nutrition__content">
-            <div className="nutrition__content__icon">
-              <img src={IconCarbs} alt="icône Glucides" />
-            </div>
-            <div className="nutrition__content__text">
-              <h3>{currentUserMain.keyData.carbohydrateCount}g</h3>
-              <p>Glucides</p>
-            </div>
-          </div>
+          <NutritionContent
+            image={IconCarbs}
+            altText={'icône Glucides'}
+            data={currentUserMain.keyData.carbohydrateCount}
+            text={'g'}
+            title={'Glucides'}
+          />
 
-          <div className="nutrition__content">
-            <div className="nutrition__content__icon">
-              <img src={IconFat} alt="icône Lipides" />
-            </div>
-            <div className="nutrition__content__text">
-              <h3>{currentUserMain.keyData.lipidCount}g</h3>
-              <p>Glucides</p>
-            </div>
-          </div>
+          <NutritionContent
+            image={IconFat}
+            altText={'icône Lipides'}
+            data={currentUserMain.keyData.lipidCount}
+            text={'g'}
+            title={'Lipides'}
+          />
         </aside>
       </div>
     </div>
@@ -113,3 +106,43 @@ function Profil() {
 }
 
 export default Profil
+
+/* <div className="nutrition__content">
+            <div className="nutrition__content__icon">
+              <img src={IconCalories} alt="icône Calories" />
+            </div>
+            <div className="nutrition__content__text">
+              <h3>{currentUserMain.keyData.calorieCount}kCal</h3>
+              <p>Calories</p>
+            </div>
+          </div> 
+          
+           <div className="nutrition__content">
+            <div className="nutrition__content__icon">
+              <img src={IconProtein} alt="icône Protéines" />
+            </div>
+            <div className="nutrition__content__text">
+              <h3>{currentUserMain.keyData.proteinCount}g</h3>
+              <p>Protéines</p>
+            </div>
+          </div> 
+         
+           <div className="nutrition__content">
+            <div className="nutrition__content__icon">
+              <img src={IconCarbs} alt="icône Glucides" />
+            </div>
+            <div className="nutrition__content__text">
+              <h3>{currentUserMain.keyData.carbohydrateCount}g</h3>
+              <p>Glucides</p>
+            </div>
+          </div> 
+          
+          <div className="nutrition__content">
+            <div className="nutrition__content__icon">
+              <img src={IconFat} alt="icône Lipides" />
+            </div>
+            <div className="nutrition__content__text">
+              <h3>{currentUserMain.keyData.lipidCount}g</h3>
+              <p>Lipides</p>
+            </div>
+          </div> */

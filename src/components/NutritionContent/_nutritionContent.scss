@@ -1,0 +1,33 @@
+.nutrition__content {
+  display: flex;
+  flex-direction: row;
+
+  box-sizing: border-box;
+  height: 20.23%;
+  padding: 4%;
+  border-radius: 5px;
+
+  background-color: $backgroundClear;
+  // background-color: aqua;
+  &__icon {
+    margin: auto 0;
+  }
+  &__text {
+    margin: auto 9.3%;
+    h3 {
+      margin: 0;
+      font: {
+        size: 20px;
+        weight: 700;
+      }
+    }
+    p {
+      margin: 0;
+      color: $grey1;
+      font: {
+        size: 14px;
+        weight: 500;
+      }
+    }
+  }
+}
