@@ -4,12 +4,21 @@ import {
   USER_AVERAGE_SESSIONS,
   USER_PERFORMANCE,
 } from './data/mockData'
-
 // import mockData from './data/mockData'
 
 function ConsoleData() {
   const currentUserId = 12
 
+  // const select = mockData.USER_MAIN_DATA.find(
+  //   (userPerf) => userPerf.id === currentUserId
+  // )
+  // console.log(select.id)
+
+  function extractData(userData, typeId) {
+    return userData.find((user) => user.userId === currentUserId)
+  }
+
+  // USER_MAIN_DATA
   const currentUserMain = USER_MAIN_DATA.find(
     (userPerf) => userPerf.id === currentUserId
   )
@@ -20,31 +29,36 @@ function ConsoleData() {
     currentUserMain.userInfos.age
   )
 
-  const currentUserActivity = USER_ACTIVITY.find(
-    (user) => user.userId === currentUserId
-  )
+  // USER_ACTIVITY
+  // const currentUserActivity = USER_ACTIVITY.find(
+  //   (user) => user.userId === currentUserId
+  // )
   // console.log('********B_id**********', currentUserActivity.userId)
-  currentUserActivity.sessions.map((prop) => {
+  const currentUserActivity = extractData(USER_ACTIVITY)
+  currentUserActivity.sessions.forEach((prop) => {
     console.log('-----ACTIVITY-----')
     console.log('day', prop.day)
     console.log('kilogram', prop.kilogram)
     console.log('calories', prop.calories)
   })
 
-  const currentUserAverage = USER_AVERAGE_SESSIONS.find(
-    (user) => user.userId === currentUserId
-  )
+  // USER_AVERAGE_SESSIONS
+
+  // const currentUserAverage = USER_AVERAGE_SESSIONS.find(
+  //   (user) => user.userId === currentUserId
+  // )
+  const currentUserAverage = extractData(USER_AVERAGE_SESSIONS)
   console.log('-----AVERAGE-----')
   currentUserAverage.sessions.forEach((prop) => {
     console.log('day', prop.day)
     console.log('sessionLength', prop.sessionLength)
   })
 
-  const currentUserPerformance = USER_PERFORMANCE.find(
-    (user) => user.userId === currentUserId
-  )
-
-  // console.log(''********D_id**********'', currentUserPerformance.userId)
+  // USER_PERFORMANCE
+  // const currentUserPerformance = USER_PERFORMANCE.find(
+  //   (user) => user.userId === currentUserId
+  // )
+  const currentUserPerformance = extractData(USER_PERFORMANCE)
   console.log('-----PERFORMANCES-----')
   currentUserPerformance.data.forEach((obj) => {
     console.log(currentUserPerformance.kind[obj.kind], ' : ', obj.value)

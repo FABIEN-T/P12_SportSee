@@ -1,0 +1,51 @@
+.dashboard {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 907px;
+  height: 689px;
+  background-color: rgba(192, 247, 247, 0.5);
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    h2 {
+      margin: 0 0 41px;
+      font: {
+        size: 48px;
+        weight: 500;
+      }
+      span {
+        // margin-left: 12px;
+        color: red;
+      }
+    }
+    p {
+      margin: 0;
+      font: {
+        size: 18px;
+        weight: 400;
+      }
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .graphicsLeft {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .activity {
+      }
+      .square {
+      }
+    }
+    .graphicsRight {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+}

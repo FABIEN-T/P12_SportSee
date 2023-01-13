@@ -1,7 +1,7 @@
-import IconBike from '../../assets/iconBike.svg'
-import IconDumbbell from '../../assets/iconDumbbell.svg'
-import IconLotus from '../../assets/iconLotus.svg'
-import IconSwimming from '../../assets/iconSwimming.svg'
+import IconBike from '../../assets/iconSportBike.svg'
+import IconDumbbell from '../../assets/iconSportDumbbell.svg'
+import IconLotus from '../../assets/iconSportLotus.svg'
+import IconSwimming from '../../assets/iconSportSwimming.svg'
 
 function BarVertical() {
   return (
@@ -10,11 +10,15 @@ function BarVertical() {
         <img
           src={IconLotus}
           alt="icône poistion du lotus"
-          className="iconBar"
+          className="iconSport"
         />
-        <img src={IconSwimming} alt="icône natation" className="iconBar" />
-        <img src={IconBike} alt="icône cyclisme" className="iconBar" />
-        <img src={IconDumbbell} alt="icône haltérophilie" className="iconBar" />
+        <img src={IconSwimming} alt="icône natation" className="iconSport" />
+        <img src={IconBike} alt="icône cyclisme" className="iconSport" />
+        <img
+          src={IconDumbbell}
+          alt="icône haltérophilie"
+          className="iconSport"
+        />
       </div>
       <div className="copyrights">Copiryght, SportSee 2020</div>
     </div>
