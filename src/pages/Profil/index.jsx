@@ -31,33 +31,42 @@ function Profil() {
       </div>
       <div className="dashboard__main">
         <div className="graphics">
-          <div className="activity">
-            <div className="activity__header">
+          <div className="graphics__activity">
+            <div className="graphics__activity__header">
               <h3>Activité quotidienne</h3>
-              <div className="activity__header__legend">
-                <div className="legendPoids">
+              <div className="legend">
+                <div className="legend__poids">
                   <div>
                     <img src={OvalBlack} alt="point noir" />
                   </div>
-                  <div className="legenText">Poids (kg)</div>
+                  <div className="legend__poids__text">Poids (kg)</div>
                 </div>
-                <div className="legendPoids">
+                <div className="legend__poids">
                   <div>
                     <img src={OvalRed} alt="point rouge" />
                   </div>
-                  <div className="legenText">Calories brûlées (kCal)</div>
+                  <div className="legend__poids__text">
+                    Calories brûlées (kCal)
+                  </div>
                 </div>
               </div>
             </div>
             <div className="activity__main"></div>
           </div>
-          <div className="square">
-            <div className="objectifsAverageSessions"></div>
+          <div className="graphics__various">
+            <div className="graphics__various__square">
+              objectifsAverageSessions
+            </div>
+            <div className="graphics__various__square">radarPerformance</div>
+            <div className="graphics__various__square">kpiScore</div>
+
+            {/* <div className="objectifsAverageSessions"></div>
             <div className="radarPerformance"></div>
-            <div className="kpiScore"></div>
+            <div className="kpiScore"></div> */}
           </div>
         </div>
         <aside className="nutrition">
+          {/* <NutritionContent /> */}
           <div className="nutrition__content">
             <div className="nutrition__content__icon">
               <img src={IconCalories} alt="icône Calories" />
