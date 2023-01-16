@@ -12,19 +12,15 @@ import IconCarbs from '../../assets/iconNutriCarbs.svg'
 import IconFat from '../../assets/iconNutriFat.svg'
 
 import NutritionContent from '../../components/NutritionContent'
-// import ConsoleData from '../../consoleData'
 
 function Profil() {
   const currentUserId = 12
   const currentUserMain = USER_MAIN_DATA.find(
     (userPerf) => userPerf.id === currentUserId
   )
-  // const currentUserActivity = USER_ACTIVITY.find(
-  //   (user) => user.userId === currentUserId
-  // )
+
   return (
     <div className="dashboard">
-      {/* <ConsoleData /> */}
       <div className="dashboard__header">
         <h2>
           Bonjour <span>{currentUserMain.userInfos.firstName}</span>

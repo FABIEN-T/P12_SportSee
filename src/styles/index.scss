@@ -16,14 +16,16 @@ body {
   font-family: Roboto, Arial, Helvetica, sans-serif;
   // color: $primary;
   box-sizing: border-box;
+  background-color: bisque;
   .app {
     position: relative;
     margin: auto;
-    // background-color: black;
+    background-color: white;
     min-width: 1024px;
     max-width: 1024px;
-    // max-width: 1440px;
+    max-width: 1440px;
     min-height: 780px;
+    // height: 100vh;
     max-height: 780px;
     // max-height: 1024px;
   }

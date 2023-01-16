@@ -1,23 +1,25 @@
 .nutrition__content {
   display: flex;
   flex-direction: row;
-
   box-sizing: border-box;
   height: 20.23%;
   padding: 4%;
   border-radius: 5px;
-
+  // overflow: hidden;
   background-color: $backgroundClear;
   // background-color: aqua;
   &__icon {
     margin: auto 0;
+    width: 60px;
+    height: 60px;
   }
   &__text {
     margin: auto 9.3%;
     h3 {
       margin: 0;
       font: {
-        size: 20px;
+        size: clamp(1.125rem, 0.8173rem + 0.4808vw, 1.25rem);
+        // size: 20px;
         weight: 700;
       }
     }
