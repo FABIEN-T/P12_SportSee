@@ -14,7 +14,7 @@ function ConsoleData() {
   // )
   // console.log(select.id)
 
-  function extractData(userData, typeId) {
+  function extractData(userData) {
     return userData.find((user) => user.userId === currentUserId)
   }
 
