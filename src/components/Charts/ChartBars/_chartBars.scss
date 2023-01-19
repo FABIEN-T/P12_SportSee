@@ -1,0 +1,28 @@
+.chartBars {
+  // bottom: 200px;
+  // left: 200px;
+  width: 100%;
+  height: 100%;
+  // margin: auto;
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+
+.customTooltip {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $primary;
+  width: 39px;
+  height: 63px;
+  box-sizing: border-box;
+  padding: 6px 0px;
+  color: white;
+  font: {
+    size: 7px;
+    weight: 500;
+  }
+  p {
+    margin: auto;
+  }
+}

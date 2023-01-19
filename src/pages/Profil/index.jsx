@@ -1,9 +1,15 @@
 import {
   USER_MAIN_DATA,
-  // USER_ACTIVITY,
-  // USER_AVERAGE_SESSIONS,
-  // USER_PERFORMANCE,
+  USER_ACTIVITY,
+  USER_AVERAGE_SESSIONS,
+  USER_PERFORMANCE,
 } from '../../data/mockData'
+
+import ChartLine from '../../components/Charts/ChartLine'
+import ChartRadar from '../../components/Charts/ChartRadar'
+import ChartBars from '../../components/Charts/ChartBars'
+import ChartRadialBar from '../../components/Charts/ChartRadialBar'
+
 import OvalBlack from '../../assets/ovalBlack.svg'
 import OvalRed from '../../assets/ovalRed.svg'
 import IconCalories from '../../assets/iconNutriCalories.svg'
@@ -14,9 +20,19 @@ import IconFat from '../../assets/iconNutriFat.svg'
 import NutritionContent from '../../components/NutritionContent'
 
 function Profil() {
-  const currentUserId = 12
+  const currentUserId = 18
+
+  const currentUserAverage = USER_AVERAGE_SESSIONS.find(
+    (user) => user.userId === currentUserId
+  )
+  const currentUserPerformance = USER_PERFORMANCE.find(
+    (user) => user.userId === currentUserId
+  )
+  const currentUserActivity = USER_ACTIVITY.find(
+    (user) => user.userId === currentUserId
+  )
   const currentUserMain = USER_MAIN_DATA.find(
-    (userPerf) => userPerf.id === currentUserId
+    (user) => user.id === currentUserId
   )
 
   return (
@@ -49,14 +65,20 @@ function Profil() {
                 </div>
               </div>
             </div>
-            <div className="activity__main"></div>
+            <div className="graphics__activity__main">
+              <ChartBars activity={currentUserActivity.sessions} />
+            </div>
           </div>
           <div className="graphics__various">
             <div className="graphics__various__square">
-              objectifsAverageSessions
+              <ChartLine average={currentUserAverage.sessions} />
             </div>
-            <div className="graphics__various__square">radarPerformance</div>
-            <div className="graphics__various__square">kpiScore</div>
+            <div className="graphics__various__square">
+              <ChartRadar performance={currentUserPerformance} />
+            </div>
+            <div className="graphics__various__square">
+              <ChartRadialBar score={currentUserMain.score} />
+            </div>
 
             {/* <div className="objectifsAverageSessions"></div>
             <div className="radarPerformance"></div>

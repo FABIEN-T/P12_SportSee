@@ -1,12 +1,14 @@
-import React from 'react'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts'
+// import React from 'react'
 import {
-  // USER_MAIN_DATA,
-  // USER_ACTIVITY,
+  USER_MAIN_DATA,
+  USER_ACTIVITY,
   USER_AVERAGE_SESSIONS,
-  // USER_PERFORMANCE,
+  USER_PERFORMANCE,
 } from '../../data/mockData'
-import GraphicsA from '../../components/GraphicA'
+import ChartLine from '../../components/Charts/ChartLine'
+import ChartRadar from '../../components/Charts/ChartRadar'
+import ChartBars from '../../components/Charts/ChartBars'
+import ChartRadialBar from '../../components/Charts/ChartRadialBar'
 
 function Setting() {
   // function extractData(userData) {
@@ -18,7 +20,24 @@ function Setting() {
   const currentUserAverage = USER_AVERAGE_SESSIONS.find(
     (user) => user.userId === currentUserId
   )
+  const currentUserPerformance = USER_PERFORMANCE.find(
+    (user) => user.userId === currentUserId
+  )
+  const currentUserActivity = USER_ACTIVITY.find(
+    (user) => user.userId === currentUserId
+  )
+  const currentUserMain = USER_MAIN_DATA.find(
+    (user) => user.id === currentUserId
+  )
+  // console.log('currentUserActivity', currentUserActivity.sessions)
+  // const temp = currentUserActivity.sessions
+  // console.log('temp', temp)
+  // temp.map((obj) => (obj.day = Number(obj.day.slice(8))))
+  // console.log('temp2', temp)
+  // const activityFormatDate = temp
+  // console.log('ActivityFormatDate', activityFormatDate)
 
+  // console.log('Setting main', currentUserMain.score)
   // console.log('AVERAGE', currentUserAverage.sessions)
   // currentUserAverage.sessions.forEach((prop) => {
   //   console.log('day', prop.day)
@@ -26,8 +45,10 @@ function Setting() {
   // })
   return (
     <div className="setting">
-      {/* <h2>Réglage</h2> */}
-      <GraphicsA data={currentUserAverage.sessions} />
+      <ChartBars activity={currentUserActivity.sessions} />
+      {/* <ChartLine average={currentUserAverage.sessions} /> */}
+      {/* <ChartRadar performance={currentUserPerformance} /> */}
+      {/* <ChartRadialBar score={currentUserMain.score} /> */}
     </div>
   )
 }

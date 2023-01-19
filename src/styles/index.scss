@@ -6,7 +6,10 @@
 @import '../components/BarVertical/barVertical';
 @import '../components/Navbar/navbar';
 @import '../components/NutritionContent/nutritionContent';
-@import '../components/GraphicA/graphicA';
+@import '../components/Charts/ChartLine/chartLine';
+@import '../components/Charts/ChartRadar/chartRadar';
+@import '../components/Charts/ChartBars/chartBars';
+@import '../components/Charts/ChartRadialBar/chartRadialBar';
 
 @import '../pages/Profil/profil';
 @import '../pages/Setting/setting.scss';
