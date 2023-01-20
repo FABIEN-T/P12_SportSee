@@ -20,7 +20,7 @@ import IconFat from '../../assets/iconNutriFat.svg'
 import NutritionContent from '../../components/NutritionContent'
 
 function Profil() {
-  const currentUserId = 18
+  const currentUserId = 12
 
   const currentUserAverage = USER_AVERAGE_SESSIONS.find(
     (user) => user.userId === currentUserId
