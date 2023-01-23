@@ -8,27 +8,11 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
 } from 'recharts'
 
 import { customTickXaxis } from '../../../utils/functions'
 
-// function CustomizedAxisTick({ activitySessions }) {
-//   return (
-//     <text
-//       x={0}
-//       y={0}
-//       // dy={16}
-//       // textAnchor="end"
-//       fill="#666"
-//       fontSize={'14'}
-//       // transform="rotate(-35)"
-//     >
-//       A
-//     </text>
-//   )
-// }
-const CustomTooltip = ({ active, payload, label }) => {
+const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
       <div className="customTooltip">
@@ -41,20 +25,14 @@ const CustomTooltip = ({ active, payload, label }) => {
 }
 // }: any ????
 
-function ChartBars({ activity }) {
+function ChartBars({ dataActivity }) {
   // console.log('activity', activity)
 
   return (
     <div className="chartBars">
       <ResponsiveContainer width="100%" height="100%">
-        <BarChart
-          // width={800}
-          // height={300}
-          data={activity}
-          barGap={8}
-        >
+        <BarChart data={dataActivity} barGap={8}>
           <CartesianGrid strokeDasharray="2 2" vertical={false} />
-          {/* <XAxis dataKey="name" /> */}
           <XAxis
             dataKey="day"
             tickLine={false}
@@ -80,16 +58,12 @@ function ChartBars({ activity }) {
           />
 
           <YAxis orientation="left" hide dataKey={'calories'} />
-          {/* <Area type="monotone" dataKey="kilogram" yAxisId="kilogram" /> */}
-          {/* <ResponsiveContainer width="50%" height="50%"> */}
           <Tooltip
             cursor={{ opacity: 0.6 }}
             content={<CustomTooltip />}
             offset={21}
             wrapperStyle={{ outlineStyle: 'none' }}
           />
-          {/* </ResponsiveContainer> */}
-          {/* <Legend /> */}
 
           <Bar
             dataKey="kilogram"

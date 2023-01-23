@@ -1,5 +1,5 @@
 import mock_UserPerformance from '../../data/mock_USER_PERFORMANCE.json'
-import { fetchUserPerformance } from '../../service/mockFetch'
+import { getPerformance } from '../../service/mockFetch'
 import ModelUserPerformance from '../../models/model_USER_PERFORMANCE'
 
 // function essai(data) {
@@ -14,7 +14,7 @@ function Community() {
   // const currentUserPerformance = mock_UserPerformance.find(
   //   (user) => user.userId === currentUserId
   // )
-  fetchUserPerformance(currentUserId).then((data) => {
+  getPerformance(currentUserId).then((data) => {
     const { userId, kind, dataPerformance } = data
     console.log('userId, kind', userId, kind)
     dataPerformance.map((obj) => console.log('itération', obj.value, obj.kind))

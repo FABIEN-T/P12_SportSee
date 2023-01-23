@@ -11,7 +11,7 @@ function Home() {
   // console.log('USER_MAIN_DATA', USER_MAIN_DATA)
   return (
     <main className="mainHome">
-      <h1>Bonjour</h1>
+      {/* <h1>Bonjour</h1> */}
       {/* <ListData /> */}
     </main>
   )

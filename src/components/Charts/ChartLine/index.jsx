@@ -36,16 +36,16 @@ function CustomizedCursor({ active }) {
 //   }
 // }
 
-function ChartLine({ average }) {
-  // const jsonData = JSON.stringify(average)
-  // console.log('jsonData', average)
+function ChartLine({ dataAverage }) {
+  // const jsonData = JSON.stringify(dataAverage)
+  // console.log('jsonData', dataAverage)
 
   // const week = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
-  // average.forEach((n) => console.log('A', n.day))
-  // average.forEach((i) => {
-  //   console.log('average', i.day)
+  // dataAverage.forEach((n) => console.log('A', n.day))
+  // dataAverage.forEach((i) => {
+  //   console.log('dataAverage', i.day)
   // })
-  // average.forEach((i) => console.log('jours de la semaine', week[i.day - 1]))
+  // dataAverage.forEach((i) => console.log('jours de la semaine', week[i.day - 1]))
 
   //Modifier la légende sur l'axe X
   const daysWeek = (item) => {
@@ -61,7 +61,7 @@ function ChartLine({ average }) {
         // height="100%"
         className="responsiveContainer"
       >
-        <LineChart data={average}>
+        <LineChart data={dataAverage}>
           <Line
             // yAxisId="left-axis"
             // width="120"
@@ -127,7 +127,7 @@ function ChartLine({ average }) {
 }
 
 ChartLine.propTypes = {
-  average: PropTypes.array,
+  dataAverage: PropTypes.array,
 }
 
 export default ChartLine

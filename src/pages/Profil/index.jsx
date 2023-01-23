@@ -1,14 +1,4 @@
-import {
-  // USER_MAIN_DATA,
-  USER_ACTIVITY,
-  USER_AVERAGE_SESSIONS,
-  // USER_PERFORMANCE,
-} from '../../data/mockData'
-
-import { useState } from 'react'
-
-import { fetchUserMainData } from '../../service/mockFetch'
-import { fetchUserPerformance } from '../../service/mockFetch'
+import { useState, useEffect } from 'react'
 
 import ChartLine from '../../components/Charts/ChartLine'
 import ChartRadar from '../../components/Charts/ChartRadar'
@@ -24,8 +14,13 @@ import IconFat from '../../assets/iconNutriFat.svg'
 
 import NutritionContent from '../../components/NutritionContent'
 
+import { getMainData } from '../../service/mockFetch'
+import { getPerformance } from '../../service/mockFetch'
+import { getAverageSessions } from '../../service/mockFetch'
+import { getActivy } from '../../service/mockFetch'
+
 function Profil() {
-  const currentUserId = 12
+  const currentUserId = 18
 
   const [firstName, setFirstName] = useState('')
   const [score, setScore] = useState(0)
@@ -34,51 +29,43 @@ function Profil() {
   const [carbohydrate, setCarbohydrate] = useState(0)
   const [lipid, setLipid] = useState(0)
 
-  const [kind, setKind] = useState(0)
-  const [dataPerformance, setdataPerformance] = useState(0)
-
   // const [kind, setKind] = useState(0)
+  const [dataPerformance, setdataPerformance] = useState()
 
-  fetchUserMainData(currentUserId).then((data) => {
-    const { firstName, score, calorie, protein, carbohydrate, lipid } = data
-    setFirstName(firstName)
-    setScore(score)
-    setCalorie(calorie)
-    setProtein(protein)
-    setCarbohydrate(carbohydrate)
-    setLipid(lipid)
-    // console.log(
-    //   'firstName2',
-    //   firstName,
-    //   score,
-    //   protein,
-    //   calorie,
-    //   carbohydrate,
-    //   lipid
-    // )
-  })
+  const [dataAverage, setDataAverage] = useState()
 
-  fetchUserPerformance(currentUserId).then((data) => {
-    const { kind, dataPerformance } = data
-    setKind(kind)
-    setdataPerformance(dataPerformance)
-    // console.log('value', kind)
-    // setValue(value)
-    // setKind(kind)
-  })
+  const [dataActivity, SetDataActivity] = useState()
 
-  const currentUserAverage = USER_AVERAGE_SESSIONS.find(
-    (user) => user.userId === currentUserId
-  )
-  // const currentUserPerformance = USER_PERFORMANCE.find(
-  //   (user) => user.userId === currentUserId
-  // )
-  const currentUserActivity = USER_ACTIVITY.find(
-    (user) => user.userId === currentUserId
-  )
-  // const currentUserMain = USER_MAIN_DATA.find(
-  //   (user) => user.id === currentUserId
-  // )
+  useEffect(() => {
+    getMainData(currentUserId).then((data) => {
+      const { firstName, score, calorie, protein, carbohydrate, lipid } = data
+      setFirstName(firstName)
+      setScore(score)
+      setCalorie(calorie)
+      setProtein(protein)
+      setCarbohydrate(carbohydrate)
+      setLipid(lipid)
+    })
+
+    getPerformance(currentUserId).then((data) => {
+      const { dataPerformance } = data
+      // setKind(kind)
+      setdataPerformance(dataPerformance)
+    })
+
+    getAverageSessions(currentUserId).then((data) => {
+      const { dataAverage } = data
+      setDataAverage(dataAverage)
+      // console.log('dataAverage', userId)
+      // dataAverage.map((el) => console.log(el.day, el.sessionLength))
+    })
+
+    getActivy(currentUserId).then((data) => {
+      const { dataActivity } = data
+      // setKind(kind)
+      SetDataActivity(dataActivity)
+    })
+  }, [])
 
   return (
     <div className="dashboard">
@@ -111,23 +98,21 @@ function Profil() {
               </div>
             </div>
             <div className="graphics__activity__main">
-              <ChartBars activity={currentUserActivity.sessions} />
+              {/* <ChartBars activity={currentUserActivity.sessions} /> */}
+              <ChartBars dataActivity={dataActivity} />
             </div>
           </div>
           <div className="graphics__various">
             <div className="graphics__various__square">
-              <ChartLine average={currentUserAverage.sessions} />
+              {/* <ChartLine average={currentUserAverage.sessions} /> */}
+              <ChartLine dataAverage={dataAverage} />
             </div>
             <div className="graphics__various__square">
-              <ChartRadar performance={dataPerformance} />
+              <ChartRadar dataPerformance={dataPerformance} />
             </div>
             <div className="graphics__various__square">
               <ChartRadialBar score={score} />
             </div>
-
-            {/* <div className="objectifsAverageSessions"></div>
-            <div className="radarPerformance"></div>
-            <div className="kpiScore"></div> */}
           </div>
         </div>
         <aside className="nutrition">
@@ -169,43 +154,3 @@ function Profil() {
 }
 
 export default Profil
-
-/* <div className="nutrition__content">
-            <div className="nutrition__content__icon">
-              <img src={IconCalories} alt="icône Calories" />
-            </div>
-            <div className="nutrition__content__text">
-              <h3>{currentUserMain.keyData.calorieCount}kCal</h3>
-              <p>Calories</p>
-            </div>
-          </div> 
-          
-           <div className="nutrition__content">
-            <div className="nutrition__content__icon">
-              <img src={IconProtein} alt="icône Protéines" />
-            </div>
-            <div className="nutrition__content__text">
-              <h3>{currentUserMain.keyData.proteinCount}g</h3>
-              <p>Protéines</p>
-            </div>
-          </div> 
-         
-           <div className="nutrition__content">
-            <div className="nutrition__content__icon">
-              <img src={IconCarbs} alt="icône Glucides" />
-            </div>
-            <div className="nutrition__content__text">
-              <h3>{currentUserMain.keyData.carbohydrateCount}g</h3>
-              <p>Glucides</p>
-            </div>
-          </div> 
-          
-          <div className="nutrition__content">
-            <div className="nutrition__content__icon">
-              <img src={IconFat} alt="icône Lipides" />
-            </div>
-            <div className="nutrition__content__text">
-              <h3>{currentUserMain.keyData.lipidCount}g</h3>
-              <p>Lipides</p>
-            </div>
-          </div> */

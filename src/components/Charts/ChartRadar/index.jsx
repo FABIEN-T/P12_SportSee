@@ -10,7 +10,7 @@ import {
   Tooltip,
 } from 'recharts'
 
-function ChartRadar({ performance }) {
+function ChartRadar({ dataPerformance }) {
   const categoriesFrench = (item) => {
     let categories = [
       'Intensité',
@@ -35,8 +35,8 @@ function ChartRadar({ performance }) {
           // width={100}
           // height={100}
           // data={dataStud}
-          // data={performance.data}
-          data={performance}
+          // data={dataPerformance.data}
+          data={dataPerformance}
         >
           <PolarGrid radialLines={false} />
           {/* <PolarAngleAxis dataKey="subject" /> */}
@@ -67,7 +67,7 @@ function ChartRadar({ performance }) {
 }
 
 // ChartRadar.propTypes = {
-//   performance: PropTypes.object,
+//   dataPerformance: PropTypes.object,
 // }
 
 export default ChartRadar
