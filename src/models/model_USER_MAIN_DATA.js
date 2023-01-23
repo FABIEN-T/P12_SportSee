@@ -1,6 +1,6 @@
 export default class ModelUserData {
   constructor(data) {
-    this._id = data.id
+    // this._id = data.id
     this._firstName = data.userInfos.firstName
     this._lastName = data.userInfos.lastName
     this._age = data.userInfos.age
@@ -20,10 +20,10 @@ export default class ModelUserData {
     return this._age
   }
   get score() {
-    const bidule = this._score
-    return bidule
+    return this._score * 100
   }
   get calorie() {
+    // return (this._calorieCount / 1000).toFixed(3).replace('.', ',')
     return this._calorieCount
   }
   get protein() {

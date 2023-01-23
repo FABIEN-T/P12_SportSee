@@ -1,13 +1,14 @@
 import {
-  USER_MAIN_DATA,
+  // USER_MAIN_DATA,
   USER_ACTIVITY,
   USER_AVERAGE_SESSIONS,
-  USER_PERFORMANCE,
+  // USER_PERFORMANCE,
 } from '../../data/mockData'
 
 import { useState } from 'react'
 
-import fetch_USER_MAIN_DATA from '../../service/mockFetch'
+import { fetchUserMainData } from '../../service/mockFetch'
+import { fetchUserPerformance } from '../../service/mockFetch'
 
 import ChartLine from '../../components/Charts/ChartLine'
 import ChartRadar from '../../components/Charts/ChartRadar'
@@ -33,7 +34,12 @@ function Profil() {
   const [carbohydrate, setCarbohydrate] = useState(0)
   const [lipid, setLipid] = useState(0)
 
-  fetch_USER_MAIN_DATA(currentUserId).then((data) => {
+  const [kind, setKind] = useState(0)
+  const [dataPerformance, setdataPerformance] = useState(0)
+
+  // const [kind, setKind] = useState(0)
+
+  fetchUserMainData(currentUserId).then((data) => {
     const { firstName, score, calorie, protein, carbohydrate, lipid } = data
     setFirstName(firstName)
     setScore(score)
@@ -41,23 +47,32 @@ function Profil() {
     setProtein(protein)
     setCarbohydrate(carbohydrate)
     setLipid(lipid)
-    console.log(
-      'firstName2',
-      firstName,
-      score,
-      protein,
-      calorie,
-      carbohydrate,
-      lipid
-    )
+    // console.log(
+    //   'firstName2',
+    //   firstName,
+    //   score,
+    //   protein,
+    //   calorie,
+    //   carbohydrate,
+    //   lipid
+    // )
+  })
+
+  fetchUserPerformance(currentUserId).then((data) => {
+    const { kind, dataPerformance } = data
+    setKind(kind)
+    setdataPerformance(dataPerformance)
+    // console.log('value', kind)
+    // setValue(value)
+    // setKind(kind)
   })
 
   const currentUserAverage = USER_AVERAGE_SESSIONS.find(
     (user) => user.userId === currentUserId
   )
-  const currentUserPerformance = USER_PERFORMANCE.find(
-    (user) => user.userId === currentUserId
-  )
+  // const currentUserPerformance = USER_PERFORMANCE.find(
+  //   (user) => user.userId === currentUserId
+  // )
   const currentUserActivity = USER_ACTIVITY.find(
     (user) => user.userId === currentUserId
   )
@@ -104,7 +119,7 @@ function Profil() {
               <ChartLine average={currentUserAverage.sessions} />
             </div>
             <div className="graphics__various__square">
-              <ChartRadar performance={currentUserPerformance} />
+              <ChartRadar performance={dataPerformance} />
             </div>
             <div className="graphics__various__square">
               <ChartRadialBar score={score} />

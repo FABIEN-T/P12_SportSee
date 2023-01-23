@@ -8,9 +8,7 @@ function NutritionContent({ image, altText, data, text, title }) {
       </div>
       <div className="nutrition__content__text">
         <h3>
-          {text === 'kCal' && data >= 1000
-            ? (data / 1000).toFixed(3).replace('.', ',')
-            : data}
+          {text === 'kCal' ? (data / 1000).toFixed(3).replace('.', ',') : data}
           {text}
         </h3>
         <p>{title}</p>

@@ -8,7 +8,7 @@ import {
   ResponsiveContainer,
 } from 'recharts'
 
-function ChartLine({ dataPerf }) {
+function ChartLine({ dataPerformanceerf }) {
   const dataStud = [
     {
       subject: 'Math',
@@ -47,20 +47,20 @@ function ChartLine({ dataPerf }) {
       fullMark: 150,
     },
   ]
-  //   console.log('radar_perf', dataPerf.data)
-  //   dataPerf.data.forEach((obj) => {
-  //     console.log(dataPerf.kind[obj.kind], ' : ', obj.value)
-  //     // console.log(obj.kind, dataPerf.kind[obj.kind])
+  //   console.log('radar_perf', dataPerformanceerf.data)
+  //   dataPerformanceerf.data.forEach((obj) => {
+  //     console.log(dataPerformanceerf.kind[obj.kind], ' : ', obj.value)
+  //     // console.log(obj.kind, dataPerformanceerf.kind[obj.kind])
   //   })
-  //   console.log(dataPerf.kind)
-  const kindData = dataPerf.kind
-  // const valueData = dataPerf.data.value
-  console.log(dataPerf.kind)
+  //   console.log(dataPerformanceerf.kind)
+  const kindData = dataPerformanceerf.kind
+  // const valueData = dataPerformanceerf.data.value
+  console.log(dataPerformanceerf.kind)
   //   console.log(dataStud)
 
-  // dataPerf.data.map((dataEl) => console.log(dataEl))
-  // const perf = dataPerf.data.map((dataEl) => {
-  //   dataPerf.data.kind[dataEl.kind]
+  // dataPerformanceerf.data.map((dataEl) => console.log(dataEl))
+  // const perf = dataPerformanceerf.data.map((dataEl) => {
+  //   dataPerformanceerf.data.kind[dataEl.kind]
   // })
   // console.log('perf', perf)
 
@@ -87,7 +87,7 @@ function ChartLine({ dataPerf }) {
 }
 
 ChartLine.propTypes = {
-  dataPerf: PropTypes.object,
+  dataPerformanceerf: PropTypes.object,
 }
 
 export default ChartLine

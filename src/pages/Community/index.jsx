@@ -1,36 +1,24 @@
-// import React from 'react'
-import {
-  // USER_MAIN_DATA,
-  // USER_ACTIVITY,
-  // USER_AVERAGE_SESSIONS,
-  USER_PERFORMANCE,
-} from '../../data/mockData'
-// import ChartRadar from '../../components/ChartRadar'
+import mock_UserPerformance from '../../data/mock_USER_PERFORMANCE.json'
+import { fetchUserPerformance } from '../../service/mockFetch'
+import ModelUserPerformance from '../../models/model_USER_PERFORMANCE'
+
+// function essai(data) {
+//   console.log('hey')
+//   const bidule = new ModelUserData(data)
+//   console.log(bidule._performance)
+// }
 
 function Community() {
-  // function extractData(userData) {
-  //   return userData.find((user) => user.userId === currentUserId)
-  // }
-  // const currentUserAverage = extractData(USER_AVERAGE_SESSIONS)
   const currentUserId = 12
 
-  const currentUserPerformance = USER_PERFORMANCE.find(
-    (user) => user.userId === currentUserId
-  )
-
-  // console.log('PERFORMANCE', typeof currentUserPerformance)
-  // currentUserAverage.sessions.forEach((prop) => {
-  //   console.log('day', prop.day)
-  //   console.log('sessionLength', prop.sessionLength)
-  // })
-  return (
-    <div className="setting">
-      {/* <h2>ChartRadar</h2> */}
-      {/* <ChartRadar dataPerf={currentUserPerformance} /> */}
-    </div>
-  )
+  // const currentUserPerformance = mock_UserPerformance.find(
+  //   (user) => user.userId === currentUserId
+  // )
+  fetchUserPerformance(currentUserId).then((data) => {
+    const { userId, kind, dataPerformance } = data
+    console.log('userId, kind', userId, kind)
+    dataPerformance.map((obj) => console.log('itération', obj.value, obj.kind))
+  })
 }
 
 export default Community
-
-// <h1>Communauté</h1>

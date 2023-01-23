@@ -1,5 +1,5 @@
 import React from 'react'
-import ListData from '../../models/appliAmodel'
+// import ListData from '../../models/appliAmodel'
 // import USER_MAIN_DATA from '../../data/mock_provi.json'
 // import { USER_MAIN_DATA } from '../../data/mockData.js'
 

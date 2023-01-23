@@ -17,7 +17,7 @@ import {
 function ChartRadialBar({ score }) {
   const data = [
     {
-      uv: score * 100,
+      uv: score,
       fill: '#ff0101',
     },
   ]
@@ -55,7 +55,7 @@ function ChartRadialBar({ score }) {
             y="48%"
             textAnchor="middle"
           >
-            {score * 100}%
+            {score}%
           </text>
           <text
             fontSize="16"

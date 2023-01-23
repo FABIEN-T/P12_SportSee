@@ -35,7 +35,8 @@ function ChartRadar({ performance }) {
           // width={100}
           // height={100}
           // data={dataStud}
-          data={performance.data}
+          // data={performance.data}
+          data={performance}
         >
           <PolarGrid radialLines={false} />
           {/* <PolarAngleAxis dataKey="subject" /> */}
@@ -65,8 +66,8 @@ function ChartRadar({ performance }) {
   )
 }
 
-ChartRadar.propTypes = {
-  performance: PropTypes.object,
-}
+// ChartRadar.propTypes = {
+//   performance: PropTypes.object,
+// }
 
 export default ChartRadar
