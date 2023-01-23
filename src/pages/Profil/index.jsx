@@ -5,6 +5,10 @@ import {
   USER_PERFORMANCE,
 } from '../../data/mockData'
 
+import { useState } from 'react'
+
+import fetch_USER_MAIN_DATA from '../../service/mockFetch'
+
 import ChartLine from '../../components/Charts/ChartLine'
 import ChartRadar from '../../components/Charts/ChartRadar'
 import ChartBars from '../../components/Charts/ChartBars'
@@ -22,6 +26,32 @@ import NutritionContent from '../../components/NutritionContent'
 function Profil() {
   const currentUserId = 12
 
+  const [firstName, setFirstName] = useState('')
+  const [score, setScore] = useState(0)
+  const [calorie, setCalorie] = useState(0)
+  const [protein, setProtein] = useState(0)
+  const [carbohydrate, setCarbohydrate] = useState(0)
+  const [lipid, setLipid] = useState(0)
+
+  fetch_USER_MAIN_DATA(currentUserId).then((data) => {
+    const { firstName, score, calorie, protein, carbohydrate, lipid } = data
+    setFirstName(firstName)
+    setScore(score)
+    setCalorie(calorie)
+    setProtein(protein)
+    setCarbohydrate(carbohydrate)
+    setLipid(lipid)
+    console.log(
+      'firstName2',
+      firstName,
+      score,
+      protein,
+      calorie,
+      carbohydrate,
+      lipid
+    )
+  })
+
   const currentUserAverage = USER_AVERAGE_SESSIONS.find(
     (user) => user.userId === currentUserId
   )
@@ -31,15 +61,15 @@ function Profil() {
   const currentUserActivity = USER_ACTIVITY.find(
     (user) => user.userId === currentUserId
   )
-  const currentUserMain = USER_MAIN_DATA.find(
-    (user) => user.id === currentUserId
-  )
+  // const currentUserMain = USER_MAIN_DATA.find(
+  //   (user) => user.id === currentUserId
+  // )
 
   return (
     <div className="dashboard">
       <div className="dashboard__header">
         <h2>
-          Bonjour <span>{currentUserMain.userInfos.firstName}</span>
+          Bonjour <span>{firstName}</span>
         </h2>
         <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
       </div>
@@ -77,7 +107,7 @@ function Profil() {
               <ChartRadar performance={currentUserPerformance} />
             </div>
             <div className="graphics__various__square">
-              <ChartRadialBar score={currentUserMain.score} />
+              <ChartRadialBar score={score} />
             </div>
 
             {/* <div className="objectifsAverageSessions"></div>
@@ -89,7 +119,7 @@ function Profil() {
           <NutritionContent
             image={IconCalories}
             altText={'icône Calories'}
-            data={currentUserMain.keyData.calorieCount}
+            data={calorie}
             text={'kCal'}
             title={'Calories'}
           />
@@ -97,7 +127,7 @@ function Profil() {
           <NutritionContent
             image={IconProtein}
             altText={'icône Protéines'}
-            data={currentUserMain.keyData.proteinCount}
+            data={protein}
             text={'g'}
             title={'Protéines'}
           />
@@ -105,7 +135,7 @@ function Profil() {
           <NutritionContent
             image={IconCarbs}
             altText={'icône Glucides'}
-            data={currentUserMain.keyData.carbohydrateCount}
+            data={carbohydrate}
             text={'g'}
             title={'Glucides'}
           />
@@ -113,7 +143,7 @@ function Profil() {
           <NutritionContent
             image={IconFat}
             altText={'icône Lipides'}
-            data={currentUserMain.keyData.lipidCount}
+            data={lipid}
             text={'g'}
             title={'Lipides'}
           />

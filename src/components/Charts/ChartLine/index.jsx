@@ -113,12 +113,12 @@ function ChartLine({ average }) {
               outline: 'none',
             }}
             content={<CustomTooltip />}
-            // cursor={{
-            //   stroke: 'black',
-            //   strokeOpacity: 0.1,
-            //   strokeWidth: 40,
-            // }}
-            cursor={<CustomizedCursor />}
+            cursor={{
+              stroke: 'black',
+              strokeOpacity: 0.1,
+              strokeWidth: 40,
+            }}
+            // cursor={<CustomizedCursor />}
           />
         </LineChart>
       </ResponsiveContainer>

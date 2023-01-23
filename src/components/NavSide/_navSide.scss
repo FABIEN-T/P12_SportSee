@@ -1,42 +1,29 @@
-.barVertical {
+.navSide {
   position: absolute;
   bottom: 0;
   left: 0;
-  //   display: flex;
-  //   flex-direction: column;
-  //   justify-content: space-between;
   box-sizing: border-box;
   width: 117px;
   height: calc(100% - 91px);
   padding: 80px 0;
   background-color: black;
-  // border: 1px red solid;
-  .iconsBarVertical {
+  &__icon {
     display: flex;
     flex-direction: column;
-    .iconSport {
+    &__sport {
       margin: 0 auto 20px;
       width: 64px;
       height: 64px;
     }
   }
-  .copyrights {
-    // width: fit-content;
-    // height: fit-content;
-    // p {
-    //   display: block;
+  &__copyrights {
     position: absolute;
     bottom: calc(45px + 59px);
     left: -14px;
-    // width: fit-content;
-    // height: fit-content;
     white-space: nowrap;
     font-weight: 500;
     font-size: 12px;
     color: white;
-    // margin: 0 auto;
-    // padding: 0;
     transform: rotate(-90deg);
-    // }
   }
 }

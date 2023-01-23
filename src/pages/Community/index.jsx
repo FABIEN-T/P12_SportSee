@@ -25,7 +25,7 @@ function Community() {
   // })
   return (
     <div className="setting">
-      <h2>ChartRadar</h2>
+      {/* <h2>ChartRadar</h2> */}
       {/* <ChartRadar dataPerf={currentUserPerformance} /> */}
     </div>
   )
