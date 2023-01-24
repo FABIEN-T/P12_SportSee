@@ -16,7 +16,7 @@ export default function App() {
         <NavSide />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/profil" element={<Profil />} />
+          <Route path="/user/:userId" element={<Profil />} />
           <Route path="/setting" element={<Setting />} />
           <Route path="/community" element={<Community />} />
           <Route path="*" element={<Error />} />

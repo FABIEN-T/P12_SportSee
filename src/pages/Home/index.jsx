@@ -1,17 +1,35 @@
 import React from 'react'
-// import ListData from '../../models/appliAmodel'
-// import USER_MAIN_DATA from '../../data/mock_provi.json'
-// import { USER_MAIN_DATA } from '../../data/mockData.js'
-
-// const currentUserId = 12
-
-// const currentUserMain = USER_MAIN_DATA.find((user) => user.id === currentUserId)
+import { NavLink } from 'react-router-dom'
 
 function Home() {
-  // console.log('USER_MAIN_DATA', USER_MAIN_DATA)
   return (
-    <main className="mainHome">
-      {/* <h1>Bonjour</h1> */}
+    <main className="home">
+      <div className="menu">
+        <h2>Choisir l'utilisateur :</h2>
+        <nav className="menu__navUser">
+          <NavLink
+            to="/user/12"
+            className={({ isActive }) =>
+              `menu__navUser__link ${isActive && 'active'}`
+            }
+          >
+            KARL
+          </NavLink>
+          <NavLink
+            to="/user/18"
+            className={({ isActive }) =>
+              `menu__navUser__link ${isActive && 'active'}`
+            }
+          >
+            CECILIA
+          </NavLink>
+        </nav>
+      </div>
+      <div className="switchData">
+        <p>Mock</p>
+        <p>Api</p>
+        <p>Switch en construction</p>
+      </div>
       {/* <ListData /> */}
     </main>
   )

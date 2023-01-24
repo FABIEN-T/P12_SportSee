@@ -11,12 +11,13 @@
 @import '../components/Charts/ChartBars/chartBars';
 @import '../components/Charts/ChartRadialBar/chartRadialBar';
 
+@import '../pages/Home/home';
 @import '../pages/Profil/profil';
-@import '../pages/Setting/setting.scss';
+@import '../pages/Setting/setting';
+@import '../pages/Community/community';
 
 /* Lien des polices google */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-
 body {
   font-family: Roboto, Arial, Helvetica, sans-serif;
   // color: $primary;

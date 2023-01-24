@@ -11,7 +11,8 @@ function Navbar() {
       </NavLink>
       <NavLink
         to="/profil"
-        className={({ isActive }) => `navBarLink ${isActive && 'active'}`}
+        className="navBarLink"
+        // className={({ isActive }) => `navBarLink ${isActive && 'active'}`}
       >
         Profil
       </NavLink>

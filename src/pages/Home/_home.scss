@@ -1,0 +1,58 @@
+.home {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  float: row;
+  justify-content: space-evenly;
+  width: calc(100% - 117px);
+  height: calc(100% - 91px);
+  padding: 100px 100px 50px;
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  .menu {
+    // margin: auto;
+    padding: 50px;
+    // width: fit-content;
+    // height: fit-content;
+    // width: 300px;
+    height: 250px;
+    background-color: $backgroundClear;
+    border-radius: 30px;
+    h2 {
+      margin: 0;
+      text-align: center;
+    }
+    &__navUser {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      &__link {
+        font-size: 30px;
+        margin: 10px;
+        text-decoration: none;
+        color: $primary;
+        &:hover {
+          text-decoration: underline 3px $primary;
+        }
+      }
+    }
+  }
+  .switchData {
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    width: fit-content;
+    height: 250px;
+    background-color: $backgroundClear;
+    border-radius: 30px;
+    p {
+      margin: 0;
+      font: {
+        size: 20px;
+        weight: 500;
+      }
+    }
+  }
+}

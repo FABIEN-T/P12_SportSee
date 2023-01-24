@@ -2,8 +2,8 @@ import React from 'react'
 
 function Setting() {
   return (
-    <main className="mainHome">
-      {/* <h1>Bonjour</h1> */}
+    <main className="setting">
+      <h2>Page Réglage en construction</h2>
       {/* <ListData /> */}
     </main>
   )

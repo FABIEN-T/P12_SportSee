@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
 import ChartLine from '../../components/Charts/ChartLine'
 import ChartRadar from '../../components/Charts/ChartRadar'
@@ -14,13 +15,18 @@ import IconFat from '../../assets/iconNutriFat.svg'
 
 import NutritionContent from '../../components/NutritionContent'
 
-import { getMainData } from '../../service/mockGetData'
-import { getPerformance } from '../../service/mockGetData'
-import { getAverageSessions } from '../../service/mockGetData'
-import { getActivy } from '../../service/mockGetData'
+import { getMainData } from '../../service/getData'
+// import { getMainData2 } from '../../service/getData'
+// import { getPerformance } from '../../service/mockGetData'
+// import { getAverageSessions } from '../../service/mockGetData'
+// import { getActivy } from '../../service/mockGetData'
 
 function Profil() {
-  const currentUserId = 18
+  // const currentUserId = 12
+  // const UserId = useParams()
+  const { userId } = useParams()
+  const currentUserId = parseInt(userId)
+  // console.log('userId', userId)
 
   const [firstName, setFirstName] = useState('')
   const [score, setScore] = useState(0)
@@ -30,11 +36,11 @@ function Profil() {
   const [lipid, setLipid] = useState(0)
 
   // const [kind, setKind] = useState(0)
-  const [dataPerformance, setdataPerformance] = useState()
+  // const [dataPerformance, setdataPerformance] = useState()
 
-  const [dataAverage, setDataAverage] = useState()
+  // const [dataAverage, setDataAverage] = useState()
 
-  const [dataActivity, SetDataActivity] = useState()
+  // const [dataActivity, SetDataActivity] = useState()
 
   useEffect(() => {
     getMainData(currentUserId).then((data) => {
@@ -47,25 +53,25 @@ function Profil() {
       setLipid(lipid)
     })
 
-    getPerformance(currentUserId).then((data) => {
-      const { dataPerformance } = data
-      // setKind(kind)
-      setdataPerformance(dataPerformance)
-    })
+    // getPerformance(currentUserId).then((data) => {
+    //   const { dataPerformance } = data
+    //   // setKind(kind)
+    //   setdataPerformance(dataPerformance)
+    // })
 
-    getAverageSessions(currentUserId).then((data) => {
-      const { dataAverage } = data
-      setDataAverage(dataAverage)
-      // console.log('dataAverage', userId)
-      // dataAverage.map((el) => console.log(el.day, el.sessionLength))
-    })
+    //   getAverageSessions(currentUserId).then((data) => {
+    //     const { dataAverage } = data
+    //     setDataAverage(dataAverage)
+    //     // console.log('dataAverage', userId)
+    //     // dataAverage.map((el) => console.log(el.day, el.sessionLength))
+    //   })
 
-    getActivy(currentUserId).then((data) => {
-      const { dataActivity } = data
-      // setKind(kind)
-      SetDataActivity(dataActivity)
-    })
-  }, [])
+    //   getActivy(currentUserId).then((data) => {
+    //     const { dataActivity } = data
+    //     // setKind(kind)
+    //     SetDataActivity(dataActivity)
+    //   })
+  })
 
   return (
     <div className="dashboard">
@@ -98,17 +104,15 @@ function Profil() {
               </div>
             </div>
             <div className="graphics__activity__main">
-              {/* <ChartBars activity={currentUserActivity.sessions} /> */}
-              <ChartBars dataActivity={dataActivity} />
+              {/* <ChartBars dataActivity={dataActivity} /> */}
             </div>
           </div>
           <div className="graphics__various">
             <div className="graphics__various__square">
-              {/* <ChartLine average={currentUserAverage.sessions} /> */}
-              <ChartLine dataAverage={dataAverage} />
+              {/* <ChartLine dataAverage={dataAverage} /> */}
             </div>
             <div className="graphics__various__square">
-              <ChartRadar dataPerformance={dataPerformance} />
+              {/* <ChartRadar dataPerformance={dataPerformance} /> */}
             </div>
             <div className="graphics__various__square">
               <ChartRadialBar score={score} />
