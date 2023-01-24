@@ -16,12 +16,11 @@ import IconFat from '../../assets/iconNutriFat.svg'
 import NutritionContent from '../../components/NutritionContent'
 
 import { getMainData } from '../../service/getData'
-// import { getMainData2 } from '../../service/getData'
-// import { getPerformance } from '../../service/mockGetData'
-// import { getAverageSessions } from '../../service/mockGetData'
-// import { getActivy } from '../../service/mockGetData'
+import { getPerformance } from '../../service/getData'
+import { getAverageSessions } from '../../service/getData'
+import { getActivy } from '../../service/getData'
 
-function Profil() {
+function Profil({ switchData }) {
   // const currentUserId = 12
   // const UserId = useParams()
   const { userId } = useParams()
@@ -36,14 +35,16 @@ function Profil() {
   const [lipid, setLipid] = useState(0)
 
   // const [kind, setKind] = useState(0)
-  // const [dataPerformance, setdataPerformance] = useState()
+  const [dataPerformance, setdataPerformance] = useState()
 
-  // const [dataAverage, setDataAverage] = useState()
+  const [dataAverage, setDataAverage] = useState()
 
-  // const [dataActivity, SetDataActivity] = useState()
+  const [dataActivity, SetDataActivity] = useState()
 
   useEffect(() => {
-    getMainData(currentUserId).then((data) => {
+    const typeGetData = switchData
+    // console.log('profil switchData', typeGetData)
+    getMainData(typeGetData, currentUserId).then((data) => {
       const { firstName, score, calorie, protein, carbohydrate, lipid } = data
       setFirstName(firstName)
       setScore(score)
@@ -59,18 +60,18 @@ function Profil() {
     //   setdataPerformance(dataPerformance)
     // })
 
-    //   getAverageSessions(currentUserId).then((data) => {
-    //     const { dataAverage } = data
-    //     setDataAverage(dataAverage)
-    //     // console.log('dataAverage', userId)
-    //     // dataAverage.map((el) => console.log(el.day, el.sessionLength))
-    //   })
+    // getAverageSessions(currentUserId).then((data) => {
+    //   const { dataAverage } = data
+    //   setDataAverage(dataAverage)
+    //   // console.log('dataAverage', userId)
+    //   // dataAverage.map((el) => console.log(el.day, el.sessionLength))
+    // })
 
-    //   getActivy(currentUserId).then((data) => {
-    //     const { dataActivity } = data
-    //     // setKind(kind)
-    //     SetDataActivity(dataActivity)
-    //   })
+    // getActivy(currentUserId).then((data) => {
+    //   const { dataActivity } = data
+    //   // setKind(kind)
+    //   SetDataActivity(dataActivity)
+    // })
   })
 
   return (

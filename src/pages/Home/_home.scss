@@ -7,9 +7,13 @@
   justify-content: space-evenly;
   width: calc(100% - 117px);
   height: calc(100% - 91px);
-  padding: 100px 100px 50px;
+  padding: 50px;
   box-sizing: border-box;
   background-color: rgb(255, 255, 255);
+  h2 {
+    margin: 0;
+    text-align: center;
+  }
   .menu {
     // margin: auto;
     padding: 50px;
@@ -19,10 +23,7 @@
     height: 250px;
     background-color: $backgroundClear;
     border-radius: 30px;
-    h2 {
-      margin: 0;
-      text-align: center;
-    }
+
     &__navUser {
       margin-top: 20px;
       display: flex;
@@ -47,12 +48,32 @@
     height: 250px;
     background-color: $backgroundClear;
     border-radius: 30px;
-    p {
-      margin: 0;
-      font: {
-        size: 20px;
-        weight: 500;
+    &__groupButtons {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+      .btn {
+        cursor: pointer;
+        margin: 10px auto;
+        width: 100px;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        background-color: $backgroundDark;
+        font: {
+          size: 20px;
+          weight: 500;
+        }
+      }
+      button.active {
+        color: $primary;
       }
     }
   }
 }
+
+// &:active {
+//   color: white;
+//   border: 2px $backgroundDark solid;
+//   background-color: $primary;
+// }
