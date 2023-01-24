@@ -1,5 +1,5 @@
 import mock_UserPerformance from '../../data/mock_USER_PERFORMANCE.json'
-import { getPerformance } from '../../service/mockFetch'
+import { getPerformance } from '../../service/mockGetData'
 import ModelUserPerformance from '../../models/model_USER_PERFORMANCE'
 
 // function essai(data) {

@@ -19,7 +19,7 @@ export default function App() {
           <Route path="/profil" element={<Profil />} />
           <Route path="/setting" element={<Setting />} />
           <Route path="/community" element={<Community />} />
-          <Route path="/*" element={<Error />} />
+          <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
     </div>

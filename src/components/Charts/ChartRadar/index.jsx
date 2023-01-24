@@ -28,18 +28,8 @@ function ChartRadar({ dataPerformance }) {
   return (
     <div className="chartRadar">
       <ResponsiveContainer width="100%" height="100%">
-        <RadarChart
-          // cx={300}
-          // cy={250}
-          outerRadius="53%"
-          // width={100}
-          // height={100}
-          // data={dataStud}
-          // data={dataPerformance.data}
-          data={dataPerformance}
-        >
+        <RadarChart outerRadius="53%" data={dataPerformance}>
           <PolarGrid radialLines={false} />
-          {/* <PolarAngleAxis dataKey="subject" /> */}
           <PolarAngleAxis
             dataKey="kind"
             tickFormatter={categoriesFrench}
@@ -52,14 +42,7 @@ function ChartRadar({ dataPerformance }) {
             strokeWidth={0.5}
           />
           <PolarRadiusAxis axisLine={false} tick={false} />
-          {/* <Tooltip /> */}
-          <Radar
-            // name=""
-            dataKey="value"
-            stroke="none"
-            fill="#ff0101"
-            fillOpacity={0.6}
-          />
+          <Radar dataKey="value" fill="#ff0101" fillOpacity={0.6} />
         </RadarChart>
       </ResponsiveContainer>
     </div>

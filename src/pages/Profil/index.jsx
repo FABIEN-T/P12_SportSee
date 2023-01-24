@@ -14,10 +14,10 @@ import IconFat from '../../assets/iconNutriFat.svg'
 
 import NutritionContent from '../../components/NutritionContent'
 
-import { getMainData } from '../../service/mockFetch'
-import { getPerformance } from '../../service/mockFetch'
-import { getAverageSessions } from '../../service/mockFetch'
-import { getActivy } from '../../service/mockFetch'
+import { getMainData } from '../../service/mockGetData'
+import { getPerformance } from '../../service/mockGetData'
+import { getAverageSessions } from '../../service/mockGetData'
+import { getActivy } from '../../service/mockGetData'
 
 function Profil() {
   const currentUserId = 18

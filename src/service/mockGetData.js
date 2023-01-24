@@ -8,6 +8,12 @@ import ModelUserPerformance from '../models/model_USER_PERFORMANCE'
 import ModelUserAverageSessions from '../models/model_USER_AVERAGE_SESSIONS'
 import ModelUserActivy from '../models/model_USER_ACTIVITY'
 
+async function getId() {
+  let params = new URL(document.location).searchParams
+  let getUserId = params.get('id')
+  console.log('getUserId', getUserId)
+}
+
 const getMainData = async (userId) => {
   const user = mockUserMainData.find((user) => user.id === userId)
   return new ModelUserData(user)
@@ -28,4 +34,4 @@ const getActivy = async (userId) => {
   return new ModelUserActivy(user)
 }
 
-export { getMainData, getPerformance, getAverageSessions, getActivy }
+export { getMainData, getPerformance, getAverageSessions, getActivy, getId }
