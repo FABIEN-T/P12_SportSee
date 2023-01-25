@@ -25,10 +25,12 @@ export default class ModelPerformance {
   }
 
   get kind() {
+    // console.log('CLASS kind', this._kind)
     return this._kind
   }
 
   get dataPerformance() {
+    // console.log('CLASS dataPerf', this._dataPerformance)
     return this._dataPerformance
   }
 }

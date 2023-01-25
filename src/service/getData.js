@@ -19,7 +19,7 @@ const getMainData = async (typeGetData, userId) => {
       const response = await fetch(`http://localhost:3000/user/${userId}`)
       const data = await response.json()
       const user = data.data
-      console.log('API Main')
+      // console.log('API Main')
       return new ModelMain(user)
     } catch (error) {
       throw error
@@ -40,7 +40,7 @@ const getPerformance = async (typeGetData, userId) => {
       )
       const data = await response.json()
       const user = data.data
-      console.log('API Performance', data.data)
+      // console.log('API Performance', data.data)
       return new ModelPerformance(user)
     } catch (error) {
       throw error
@@ -60,14 +60,14 @@ const getAverageSessions = async (typeGetData, userId) => {
       )
       const data = await response.json()
       const user = data.data
-      console.log('API Average')
+      // console.log('API Average')
       return new ModelAverageSessions(user)
     } catch (error) {
       throw error
     }
   } else {
     const user = mock_UserAverageSessions.find((user) => user.userId === userId)
-    console.log('mock Average')
+    // console.log('mock Average')
     return new ModelAverageSessions(user)
   }
 }
@@ -80,14 +80,14 @@ const getActivy = async (typeGetData, userId) => {
       )
       const data = await response.json()
       const user = data.data
-      console.log('API Activity')
+      // console.log('API Activity')
       return new ModelActivy(user)
     } catch (error) {
       throw error
     }
   } else {
     const user = mock_UserActivity.find((user) => user.userId === userId)
-    console.log('mock Activity')
+    // console.log('mock Activity')
     return new ModelActivy(user)
   }
 }

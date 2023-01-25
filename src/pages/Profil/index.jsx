@@ -34,8 +34,8 @@ function Profil({ switchData }) {
   const [carbohydrate, setCarbohydrate] = useState(0)
   const [lipid, setLipid] = useState(0)
 
-  const [kind, setKind] = useState(0)
-  const [dataPerformance, setdataPerformance] = useState()
+  const [kind, setKind] = useState()
+  const [dataPerformance, setDataPerformance] = useState()
 
   const [dataAverage, setDataAverage] = useState()
 
@@ -57,8 +57,8 @@ function Profil({ switchData }) {
     getPerformance(typeGetData, currentUserId).then((data) => {
       const { kind, dataPerformance } = data
       setKind(kind)
-      setdataPerformance(dataPerformance)
-      console.log('PROFIL getPerf', kind, dataPerformance)
+      setDataPerformance(dataPerformance)
+      console.log('PROFIL getPerf', dataPerformance)
     })
 
     // getAverageSessions(typeGetData, currentUserId).then((data) => {
@@ -114,7 +114,7 @@ function Profil({ switchData }) {
               {/* <ChartLine dataAverage={dataAverage} /> */}
             </div>
             <div className="graphics__various__square">
-              {/* <ChartRadar dataPerformance={dataPerformance} /> */}
+              <ChartRadar dataPerformance={dataPerformance} />
             </div>
             <div className="graphics__various__square">
               <ChartRadialBar score={score} />
