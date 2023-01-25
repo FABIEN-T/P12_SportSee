@@ -25,7 +25,7 @@ function Profil({ switchData }) {
   // const UserId = useParams()
   const { userId } = useParams()
   const currentUserId = parseInt(userId)
-  // console.log('userId', userId)
+  // console.log('Page Profil ouverte', userId, switchData)
 
   const [firstName, setFirstName] = useState('')
   const [score, setScore] = useState(0)
@@ -34,7 +34,7 @@ function Profil({ switchData }) {
   const [carbohydrate, setCarbohydrate] = useState(0)
   const [lipid, setLipid] = useState(0)
 
-  // const [kind, setKind] = useState(0)
+  const [kind, setKind] = useState(0)
   const [dataPerformance, setdataPerformance] = useState()
 
   const [dataAverage, setDataAverage] = useState()
@@ -54,20 +54,21 @@ function Profil({ switchData }) {
       setLipid(lipid)
     })
 
-    // getPerformance(currentUserId).then((data) => {
-    //   const { dataPerformance } = data
-    //   // setKind(kind)
-    //   setdataPerformance(dataPerformance)
-    // })
+    getPerformance(typeGetData, currentUserId).then((data) => {
+      const { kind, dataPerformance } = data
+      setKind(kind)
+      setdataPerformance(dataPerformance)
+      console.log('PROFIL getPerf', kind, dataPerformance)
+    })
 
-    // getAverageSessions(currentUserId).then((data) => {
+    // getAverageSessions(typeGetData, currentUserId).then((data) => {
     //   const { dataAverage } = data
     //   setDataAverage(dataAverage)
     //   // console.log('dataAverage', userId)
     //   // dataAverage.map((el) => console.log(el.day, el.sessionLength))
     // })
 
-    // getActivy(currentUserId).then((data) => {
+    // getActivy(typeGetData, currentUserId).then((data) => {
     //   const { dataActivity } = data
     //   // setKind(kind)
     //   SetDataActivity(dataActivity)

@@ -1,27 +1,29 @@
-class ModelDataPerformance {
-  constructor(data) {
-    this._value = data.value
-    this._kind = data.kind
-  }
-  get value() {
-    return this._value
-  }
-  get kind() {
-    return this._kind
-  }
-}
+// class ModelDataPerformance {
+//   constructor(data) {
+//     this._value = data.value
+//     this._kind = data.kind
+//   }
+//   get value() {
+//     console.log('CLASS value', this._value)
+//     return this._value
+//   }
+//   get kind() {
+//     return this._kind
+//   }
+// }
 
-export default class ModelUserPerformance {
+// import ModelDataPerformance from './ModelDataPerformance'
+
+export default class ModelPerformance {
   constructor(data) {
-    // this._userId = data.userId
     this._kind = data.kind
-    this._dataPerformance = data.data.map(
-      (element) => new ModelDataPerformance(element)
-    )
+    this._dataPerformance = data.data
+    // this._dataPerformance = data.data.forEach((element) => {
+    //   new ModelDataPerformance(element)
+    //   console.log('CLASS element', element.value)
+    // })
   }
-  // get userId() {
-  //   return this._userId
-  // }
+
   get kind() {
     return this._kind
   }

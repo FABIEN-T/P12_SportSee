@@ -1,22 +1,23 @@
-class ModelSessions {
-  constructor(data) {
-    this._day = data.day
-    this._sessionLength = data.sessionLength
-  }
-  get day() {
-    return this._day
-  }
-  get sessionLength() {
-    return this._sessionLength
-  }
-}
+// class ModelDataSessions {
+//   constructor(data) {
+//     this._day = data.day
+//     this._sessionLength = data.sessionLength
+//   }
+//   get day() {
+//     return this._day
+//   }
+//   get sessionLength() {
+//     return this._sessionLength
+//   }
+// }
 
-export default class ModelUserAverageSessions {
+export default class ModelAverageSessions {
   constructor(data) {
     this._userId = data.userId
-    this._dataAverage = data.sessions.map(
-      (element) => new ModelSessions(element)
-    )
+    this._dataAverage = data.sessions
+    // this._dataAverage = data.sessions.map(
+    //   (element) => new ModelDataSessions(element)
+    // )
   }
   get userId() {
     return this._userId
