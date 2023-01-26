@@ -41,6 +41,8 @@ function Profil({ switchData }) {
 
   const [dataActivity, SetDataActivity] = useState()
 
+  // const [getDataPerformance, setGetDataPerformance] = useState(false)
+
   useEffect(() => {
     const typeGetData = switchData
     // console.log('profil switchData', typeGetData)
@@ -58,22 +60,24 @@ function Profil({ switchData }) {
       const { kind, dataPerformance } = data
       setKind(kind)
       setDataPerformance(dataPerformance)
-      console.log('PROFIL getPerf', dataPerformance)
+      // setGetDataPerformance(true)
+      // console.log('PROFIL getPerf', dataPerformance)
+      // console.log('getDataPerformance', getDataPerformance)
     })
 
-    // getAverageSessions(typeGetData, currentUserId).then((data) => {
-    //   const { dataAverage } = data
-    //   setDataAverage(dataAverage)
-    //   // console.log('dataAverage', userId)
-    //   // dataAverage.map((el) => console.log(el.day, el.sessionLength))
-    // })
+    getAverageSessions(typeGetData, currentUserId).then((data) => {
+      const { dataAverage } = data
+      setDataAverage(dataAverage)
+      // console.log('dataAverage', dataAverage)
+    })
 
-    // getActivy(typeGetData, currentUserId).then((data) => {
-    //   const { dataActivity } = data
-    //   // setKind(kind)
-    //   SetDataActivity(dataActivity)
-    // })
-  })
+    getActivy(typeGetData, currentUserId).then((data) => {
+      const { dataActivity } = data
+      // setKind(kind)
+      SetDataActivity(dataActivity)
+      // console.log('dataActivity', dataActivity)
+    })
+  }, [switchData, currentUserId])
 
   return (
     <div className="dashboard">
@@ -106,18 +110,24 @@ function Profil({ switchData }) {
               </div>
             </div>
             <div className="graphics__activity__main">
-              {/* <ChartBars dataActivity={dataActivity} /> */}
+              <ChartBars dataActivity={dataActivity} />
+              {/* OK */}
             </div>
           </div>
           <div className="graphics__various">
             <div className="graphics__various__square">
-              {/* <ChartLine dataAverage={dataAverage} /> */}
+              <ChartLine dataAverage={dataAverage} />
+              {/* OK */}
             </div>
             <div className="graphics__various__square">
-              <ChartRadar dataPerformance={dataPerformance} />
+              <ChartRadar
+                dataPerformance={dataPerformance ? dataPerformance : null}
+                // dataPerformance={dataPerformance}
+              />
             </div>
             <div className="graphics__various__square">
               <ChartRadialBar score={score} />
+              {/* OK */}
             </div>
           </div>
         </div>

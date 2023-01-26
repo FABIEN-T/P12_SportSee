@@ -12,6 +12,7 @@ import {
 
 function ChartRadar({ dataPerformance }) {
   const categoriesFrench = (item) => {
+    // console.log('item', item)
     let categories = [
       'Intensité',
       'Vitesse',
@@ -24,29 +25,32 @@ function ChartRadar({ dataPerformance }) {
   }
 
   // console.log('categoriesFrench : ', categoriesFrench(6))
+  console.log('radialchart dataPerformance', dataPerformance)
 
-  return (
-    <div className="chartRadar">
-      <ResponsiveContainer width="100%" height="100%">
-        <RadarChart outerRadius="53%" data={dataPerformance}>
-          <PolarGrid radialLines={false} />
-          <PolarAngleAxis
-            dataKey="kind"
-            tickFormatter={categoriesFrench}
-            tickLine={false}
-            // orient={10}
-            // style={{ color: '#fff' }}
-            stroke={'#fff'}
-            // radius={10}
-            fontSize={12}
-            strokeWidth={0.5}
-          />
-          <PolarRadiusAxis axisLine={false} tick={false} />
-          <Radar dataKey="value" fill="#ff0101" fillOpacity={0.6} />
-        </RadarChart>
-      </ResponsiveContainer>
-    </div>
-  )
+  console.log(dataPerformance)
+
+  if (dataPerformance !== null) {
+    // if (dataPerformance.length > 0) {
+    return (
+      <div className="chartRadar">
+        <ResponsiveContainer width="100%" height="100%">
+          <RadarChart outerRadius="53%" data={dataPerformance}>
+            <PolarGrid radialLines={false} />
+            <PolarAngleAxis
+              dataKey="kind"
+              tickFormatter={categoriesFrench}
+              tickLine={false}
+              stroke={'#fff'}
+              fontSize={12}
+              strokeWidth={0.5}
+            />
+            <PolarRadiusAxis axisLine={false} tick={false} />
+            <Radar dataKey="value" fill="#ff0101" fillOpacity={0.6} />
+          </RadarChart>
+        </ResponsiveContainer>
+      </div>
+    )
+  }
 }
 
 // ChartRadar.propTypes = {
