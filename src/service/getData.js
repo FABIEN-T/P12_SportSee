@@ -8,6 +8,9 @@ import ModelPerformance from '../models/model_USER_PERFORMANCE'
 import ModelAverageSessions from '../models/model_USER_AVERAGE_SESSIONS'
 import ModelActivy from '../models/model_USER_ACTIVITY'
 
+// import React from 'react'
+import { useFetch } from '../utils/hook'
+
 // ******CHOIX DU TYPE DE DONNEES : API OU MOCK***
 // const typeGetData = false
 // ***********************************************
@@ -22,8 +25,16 @@ const getMainData = async (typeGetData, userId) => {
       // console.log('API Main')
       return new ModelMain(user)
     } catch (error) {
+      // console.error(error)
       throw error
     }
+
+    // const { data, isLoading, error } = useFetch(
+    //   `http://localhost:3000/user/${userId}`
+    // )
+    // const userData = ModelMain(data.data)
+    // console.log(userData)
+    // return { isLoading, userData, error }
   } else {
     const user = mockUserMainData.find((user) => user.id === userId)
     // console.log('MOCK Main')

@@ -7,30 +7,27 @@ import {
   PolarGrid,
   PolarAngleAxis,
   PolarRadiusAxis,
-  Tooltip,
 } from 'recharts'
 
-function ChartRadar({ dataPerformance }) {
-  const categoriesFrench = (item) => {
-    // console.log('item', item)
-    let categories = [
-      'Intensité',
-      'Vitesse',
-      'Force',
-      'Endurance',
-      'Energie',
-      'Cardio',
-    ]
-    return `${categories[item - 1]}`
-  }
+function ChartRadar({ kindP, dataPerformance }) {
+  // const categoriesFrench = (item) => {
+  //   // console.log('item', item)
+  //   let categories = [
+  //     'Intensité',
+  //     'Vitesse',
+  //     'Force',
+  //     'Endurance',
+  //     'Energie',
+  //     'Cardio',
+  //   ]
+  //   return `${categories[item - 1]}`
+  // }
 
   // console.log('categoriesFrench : ', categoriesFrench(6))
-  console.log('radialchart dataPerformance', dataPerformance)
+  // console.log('radialchart dataPerformance', dataPerformance)
 
-  console.log(dataPerformance)
-
-  if (dataPerformance !== null) {
-    // if (dataPerformance.length > 0) {
+  // if (dataPerformance !== null) {
+  if (dataPerformance.length > 0) {
     return (
       <div className="chartRadar">
         <ResponsiveContainer width="100%" height="100%">
@@ -38,7 +35,7 @@ function ChartRadar({ dataPerformance }) {
             <PolarGrid radialLines={false} />
             <PolarAngleAxis
               dataKey="kind"
-              tickFormatter={categoriesFrench}
+              // tickFormatter={categoriesFrench}
               tickLine={false}
               stroke={'#fff'}
               fontSize={12}

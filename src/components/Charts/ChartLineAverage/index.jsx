@@ -8,6 +8,7 @@ import {
   XAxis,
   YAxis,
   Tooltip,
+  Rectangle,
 } from 'recharts'
 
 const CustomTooltip = ({ active, payload }) => {
@@ -21,10 +22,22 @@ const CustomTooltip = ({ active, payload }) => {
   return null
 }
 
-function CustomizedCursor({ active }) {
-  if (active) {
-    return <div className="rectangleCursor"></div>
-  }
+// function CustomizedCursor({ active }) {
+//   if (active) {
+//     // return <div className="rectangleCursor"></div>
+//   }
+// }
+
+function CustomizedCursor({ points }) {
+  return (
+    <Rectangle
+      fill="black"
+      opacity={0.1}
+      x={points[0].x}
+      width={1000}
+      height={200}
+    />
+  )
 }
 
 // function CustomizedActiveDot() {
@@ -48,10 +61,12 @@ function ChartLine({ dataAverage }) {
   // dataAverage.forEach((i) => console.log('jours de la semaine', week[i.day - 1]))
 
   //Modifier la légende sur l'axe X
-  const daysWeek = (item) => {
-    let week = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
-    return `${week[item - 1]}`
-  }
+  // const daysWeek = (item) => {
+  //   let week = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
+  //   return `${week[item - 1]}`
+  // }
+
+  // console.log('ChartLine dataAverage', dataAverage)
 
   return (
     <div className="chartLine">
@@ -82,7 +97,7 @@ function ChartLine({ dataAverage }) {
           />
           <XAxis
             dataKey="day"
-            tickFormatter={daysWeek}
+            // tickFormatter={daysWeek}
             axisLine={false}
             tickLine={false}
             opacity={0.5}
@@ -108,17 +123,17 @@ function ChartLine({ dataAverage }) {
             domain={['dataMin-10', 'dataMax-10']}
           />
           <Tooltip
-            wrapperStyle={{
-              background: '#FFF',
-              outline: 'none',
-            }}
+            // wrapperStyle={{
+            //   background: '#FFF',
+            //   outline: 'none',
+            // }}
             content={<CustomTooltip />}
-            cursor={{
-              stroke: 'black',
-              strokeOpacity: 0.1,
-              strokeWidth: 40,
-            }}
-            // cursor={<CustomizedCursor />}
+            // cursor={{
+            //   stroke: 'black',
+            //   strokeOpacity: 0.1,
+            //   strokeWidth: 60,
+            // }}
+            cursor={<CustomizedCursor />}
           />
         </LineChart>
       </ResponsiveContainer>

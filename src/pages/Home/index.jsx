@@ -6,29 +6,6 @@ function Home({ setSwitchData }) {
   // const [activeButton, setActiveButton] = useState('1')
   return (
     <main className="home">
-      <div className="menu">
-        <h2>Choix</h2>
-        <h2>de l'utilisateur :</h2>
-        <nav className="menu__navUser">
-          <NavLink
-            to="/user/12"
-            className={({ isActive }) =>
-              `menu__navUser__link ${isActive && 'active'}`
-            }
-          >
-            KARL
-          </NavLink>
-          <NavLink
-            to="/user/18"
-            className={({ isActive }) =>
-              `menu__navUser__link ${isActive && 'active'}`
-            }
-          >
-            CECILIA
-          </NavLink>
-        </nav>
-      </div>
-
       <div className="switchData">
         <h2>Choix</h2>
         <h2>du type de données : </h2>
@@ -55,6 +32,29 @@ function Home({ setSwitchData }) {
             API
           </button>
         </div>
+      </div>
+
+      <div className="menu">
+        <h2>Choix</h2>
+        <h2>de l'utilisateur :</h2>
+        <nav className="menu__navUser">
+          <NavLink
+            to="/user/12"
+            className={({ isActive }) =>
+              `menu__navUser__link ${isActive && 'active'}`
+            }
+          >
+            KARL
+          </NavLink>
+          <NavLink
+            to="/user/18"
+            className={({ isActive }) =>
+              `menu__navUser__link ${isActive && 'active'}`
+            }
+          >
+            CECILIA
+          </NavLink>
+        </nav>
       </div>
     </main>
   )

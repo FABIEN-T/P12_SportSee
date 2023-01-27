@@ -6,10 +6,10 @@
 @import '../components/NavSide/navSide';
 @import '../components/Navbar/navbar';
 @import '../components/NutritionContent/nutritionContent';
-@import '../components/Charts/ChartLine/chartLine';
-@import '../components/Charts/ChartRadar/chartRadar';
-@import '../components/Charts/ChartBars/chartBars';
-@import '../components/Charts/ChartRadialBar/chartRadialBar';
+@import '../components/Charts/ChartLineAverage/chartLine';
+@import '../components/Charts/ChartRadarperformance/chartRadar';
+@import '../components/Charts/ChartBarsActivity/chartBars';
+@import '../components/Charts/ChartRadialBarScore/chartRadialBar';
 
 @import '../pages/Home/home';
 @import '../pages/Profil/profil';

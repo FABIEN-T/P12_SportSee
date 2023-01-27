@@ -93,13 +93,13 @@ export default ConsoleData
 //   })
 // })
 
-//USER_PERFORMANCE.forEach((el) => {
-//   console.log('*********userId **********', el.userId)
-//   // console.log('el.kind', el.kind)
-//   // console.log(Object.keys(el.kind).length)
-//   // Object.keys(el.kind).forEach((key) => console.log('key', el.kind[key]))
-//   el.data.forEach((obj) => {
-//     console.log(el.kind[obj.kind], ' : ', obj.value)
-//     // console.log(obj.kind, el.kind[obj.kind])
-//   })
-// })
+USER_PERFORMANCE.forEach((el) => {
+  // console.log('*********userId **********', el.userId)
+  // console.log('el.kind', el.kind)
+  // console.log(Object.keys(el.kind).length)
+  // Object.keys(el.kind).forEach((key) => console.log('key', el.kind[key]))
+  el.data.forEach((obj) => {
+    console.log(el.kind[obj.kind], ' : ', obj.value)
+    // console.log(obj.kind, el.kind[obj.kind])
+  })
+})

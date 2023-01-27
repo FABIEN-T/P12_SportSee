@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
-import ChartLine from '../../components/Charts/ChartLine'
-import ChartRadar from '../../components/Charts/ChartRadar'
-import ChartBars from '../../components/Charts/ChartBars'
-import ChartRadialBar from '../../components/Charts/ChartRadialBar'
+import ChartLine from '../../components/Charts/ChartLineAverage'
+import ChartRadar from '../../components/Charts/ChartRadarPerformance'
+import ChartBars from '../../components/Charts/ChartBarsActivity'
+import ChartRadialBar from '../../components/Charts/ChartRadialBarScore'
 
 import OvalBlack from '../../assets/ovalBlack.svg'
 import OvalRed from '../../assets/ovalRed.svg'
@@ -15,10 +15,15 @@ import IconFat from '../../assets/iconNutriFat.svg'
 
 import NutritionContent from '../../components/NutritionContent'
 
-import { getMainData } from '../../service/getData'
-import { getPerformance } from '../../service/getData'
-import { getAverageSessions } from '../../service/getData'
-import { getActivy } from '../../service/getData'
+import {
+  getMainData,
+  getPerformance,
+  getAverageSessions,
+  getActivy,
+} from '../../service/getData'
+// import { getPerformance } from '../../service/getData'
+// import { getAverageSessions } from '../../service/getData'
+// import { getActivy } from '../../service/getData'
 
 function Profil({ switchData }) {
   // const currentUserId = 12
@@ -34,12 +39,12 @@ function Profil({ switchData }) {
   const [carbohydrate, setCarbohydrate] = useState(0)
   const [lipid, setLipid] = useState(0)
 
-  const [kind, setKind] = useState()
-  const [dataPerformance, setDataPerformance] = useState()
+  const [kind, setKind] = useState(1)
+  const [dataPerformance, setDataPerformance] = useState([])
 
-  const [dataAverage, setDataAverage] = useState()
+  const [dataAverage, setDataAverage] = useState([])
 
-  const [dataActivity, SetDataActivity] = useState()
+  const [dataActivity, SetDataActivity] = useState([])
 
   // const [getDataPerformance, setGetDataPerformance] = useState(false)
 
@@ -58,6 +63,8 @@ function Profil({ switchData }) {
 
     getPerformance(typeGetData, currentUserId).then((data) => {
       const { kind, dataPerformance } = data
+      // Object.keys(kind).map((el) => console.log('kindPerf', kind.el))
+      // console.log('kindPerf', kind)
       setKind(kind)
       setDataPerformance(dataPerformance)
       // setGetDataPerformance(true)
@@ -73,7 +80,7 @@ function Profil({ switchData }) {
 
     getActivy(typeGetData, currentUserId).then((data) => {
       const { dataActivity } = data
-      // setKind(kind)
+      setKind(kind)
       SetDataActivity(dataActivity)
       // console.log('dataActivity', dataActivity)
     })
@@ -121,8 +128,9 @@ function Profil({ switchData }) {
             </div>
             <div className="graphics__various__square">
               <ChartRadar
-                dataPerformance={dataPerformance ? dataPerformance : null}
-                // dataPerformance={dataPerformance}
+                // kindP={kind}
+                // dataPerformance={dataPerformance ? dataPerformance : null}
+                dataPerformance={dataPerformance}
               />
             </div>
             <div className="graphics__various__square">

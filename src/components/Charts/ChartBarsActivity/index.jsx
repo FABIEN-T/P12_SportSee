@@ -12,10 +12,10 @@ import {
 
 // import { customTickXaxis } from '../../../utils/functions'
 
-function customTickXaxis(day) {
-  // console.log('day', day)
-  return day && Number(day.slice(8)) // Number : "01" devient "1" - "11" reste "11"
-}
+// function customTickXaxis(day) {
+//   // console.log('day', day)
+//   return day && Number(day.slice(8)) // Number : "01" devient "1" - "11" reste "11"
+// }
 
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
@@ -37,32 +37,29 @@ function ChartBars({ dataActivity }) {
     <div className="chartBars">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={dataActivity} barGap={8}>
-          <CartesianGrid strokeDasharray="2 2" vertical={false} />
+          <CartesianGrid strokeDasharray="3 3" vertical={false} />
           <XAxis
             dataKey="day"
             tickLine={false}
             padding={{ left: -23, right: -24 }}
-            tickMargin={16} //pb!
-            tickFormatter={customTickXaxis}
-            // axisLine={false}
-            // domain={['dataMin + 1', 'dataMax + 1']}
+            tickMargin={16}
+            // tickFormatter={customTickXaxis}
+            minTickGap={30}
+            domain={['dataMin', 'dataMax']}
           />
           <YAxis
             orientation="right"
+            yAxisId="kilogram"
             tickLine={false}
             axisLine={false}
             tickMargin={42}
-            minTickGap={27}
+            tickCount={3}
+            // minTickGap={14}
             tick={{ fontSize: 14 }}
-            interval={'preserveStartEnd'}
-            // axisLine={false}
-            allowDecimals={false}
-            dataKey={'kilogram'}
-            yAxisId="kilogram"
-            domain={['dataMin - 10', 'dataMax']}
+            domain={['dataMin-1', 'dataMax']}
           />
 
-          <YAxis orientation="left" hide dataKey={'calories'} />
+          <YAxis orientation="left" yAxisId="calories" hide />
           <Tooltip
             cursor={{ opacity: 0.6 }}
             content={<CustomTooltip />}
@@ -71,12 +68,14 @@ function ChartBars({ dataActivity }) {
           />
 
           <Bar
+            yAxisId="kilogram"
             dataKey="kilogram"
             fill="#000"
             barSize={7}
             radius={[4, 4, 0, 0]}
           />
           <Bar
+            yAxisId="calories"
             dataKey="calories"
             fill="#ff0101"
             barSize={7}

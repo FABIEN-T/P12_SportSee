@@ -22,7 +22,10 @@ export default class ModelUserData {
     return this._score * 100
   }
   get calorie() {
-    // return (this._calorieCount / 1000).toFixed(3).replace('.', ',')
+    // const calorieParse = (this._calorieCount / 1000)
+    //   .toFixed(3)
+    //   .replace('.', ',')
+    // return calorieParse
     return this._calorieCount
   }
   get protein() {
