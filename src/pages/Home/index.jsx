@@ -1,8 +1,8 @@
 import React from 'react'
-import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
-function Home({ setSwitchData }) {
+function Home({ setTypeGetData }) {
   // const [activeButton, setActiveButton] = useState('1')
   return (
     <main className="home">
@@ -15,7 +15,7 @@ function Home({ setSwitchData }) {
             className="btn"
             onClick={() => {
               // setActiveButton(true)
-              setSwitchData(false)
+              setTypeGetData(false)
               console.log('bouton Mock')
             }}
           >
@@ -25,7 +25,7 @@ function Home({ setSwitchData }) {
             className="btn"
             // className={({ isActive }) => `btn ${isActive && 'active'}`}
             onClick={() => {
-              setSwitchData(true)
+              setTypeGetData(true)
               console.log('bouton API')
             }}
           >
@@ -58,6 +58,10 @@ function Home({ setSwitchData }) {
       </div>
     </main>
   )
+}
+
+Home.propTypes = {
+  setTypeGetData: PropTypes.func,
 }
 
 export default Home

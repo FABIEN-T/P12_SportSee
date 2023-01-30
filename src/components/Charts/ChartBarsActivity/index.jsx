@@ -1,5 +1,7 @@
 // import React from 'react'
 // import React, { FunctionComponent } from 'react'
+import PropTypes from 'prop-types'
+
 import {
   ResponsiveContainer,
   BarChart,
@@ -31,7 +33,7 @@ const CustomTooltip = ({ active, payload }) => {
 // }: any ????
 
 function ChartBars({ dataActivity }) {
-  // console.log('activity', activity)
+  // console.log('activity', typeof dataActivity)
 
   return (
     <div className="chartBars">
@@ -85,6 +87,10 @@ function ChartBars({ dataActivity }) {
       </ResponsiveContainer>
     </div>
   )
+}
+
+ChartBars.propTypes = {
+  dataAverage: PropTypes.object,
 }
 
 export default ChartBars

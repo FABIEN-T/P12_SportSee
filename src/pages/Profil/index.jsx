@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 import ChartLine from '../../components/Charts/ChartLineAverage'
 import ChartRadar from '../../components/Charts/ChartRadarPerformance'
@@ -16,81 +17,62 @@ import IconFat from '../../assets/iconNutriFat.svg'
 import NutritionContent from '../../components/NutritionContent'
 
 import {
-  getMainData,
+  getDataMain,
   getPerformance,
   getAverageSessions,
   getActivy,
 } from '../../service/getData'
-// import { getPerformance } from '../../service/getData'
-// import { getAverageSessions } from '../../service/getData'
-// import { getActivy } from '../../service/getData'
 
-function Profil({ switchData }) {
-  // const currentUserId = 12
-  // const UserId = useParams()
+function Profil({ typeGetData }) {
+  const navigate = useNavigate()
   const { userId } = useParams()
   const currentUserId = parseInt(userId)
-  // console.log('Page Profil ouverte', userId, switchData)
 
-  const [firstName, setFirstName] = useState('')
-  const [score, setScore] = useState(0)
-  const [calorie, setCalorie] = useState(0)
-  const [protein, setProtein] = useState(0)
-  const [carbohydrate, setCarbohydrate] = useState(0)
-  const [lipid, setLipid] = useState(0)
+  // const [allDatas, setAllDatas] = useState({})
+  const [dataMain, setDataMain] = useState({})
+  const [dataPerformance, setDataPerformance] = useState({})
+  const [dataAverage, setDataAverage] = useState({})
+  const [dataActivity, setDataActivity] = useState({})
 
-  const [kind, setKind] = useState(1)
-  const [dataPerformance, setDataPerformance] = useState([])
-
-  const [dataAverage, setDataAverage] = useState([])
-
-  const [dataActivity, SetDataActivity] = useState([])
-
-  // const [getDataPerformance, setGetDataPerformance] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+  // const typeGetData = switchData
+  getDataMain(typeGetData, currentUserId)
 
   useEffect(() => {
-    const typeGetData = switchData
-    // console.log('profil switchData', typeGetData)
-    getMainData(typeGetData, currentUserId).then((data) => {
-      const { firstName, score, calorie, protein, carbohydrate, lipid } = data
-      setFirstName(firstName)
-      setScore(score)
-      setCalorie(calorie)
-      setProtein(protein)
-      setCarbohydrate(carbohydrate)
-      setLipid(lipid)
-    })
+    async function getAllDatas() {
+      try {
+        const dataMain = await getDataMain(typeGetData, currentUserId)
+        setDataMain(dataMain)
 
-    getPerformance(typeGetData, currentUserId).then((data) => {
-      const { kind, dataPerformance } = data
-      // Object.keys(kind).map((el) => console.log('kindPerf', kind.el))
-      // console.log('kindPerf', kind)
-      setKind(kind)
-      setDataPerformance(dataPerformance)
-      // setGetDataPerformance(true)
-      // console.log('PROFIL getPerf', dataPerformance)
-      // console.log('getDataPerformance', getDataPerformance)
-    })
+        const dataPerformance = await getPerformance(typeGetData, currentUserId)
+        setDataPerformance(dataPerformance.dataPerformance)
 
-    getAverageSessions(typeGetData, currentUserId).then((data) => {
-      const { dataAverage } = data
-      setDataAverage(dataAverage)
-      // console.log('dataAverage', dataAverage)
-    })
+        const dataAverage = await getAverageSessions(typeGetData, currentUserId)
+        setDataAverage(dataAverage.dataAverage)
 
-    getActivy(typeGetData, currentUserId).then((data) => {
-      const { dataActivity } = data
-      setKind(kind)
-      SetDataActivity(dataActivity)
-      // console.log('dataActivity', dataActivity)
-    })
-  }, [switchData, currentUserId])
+        const dataActivity = await getActivy(typeGetData, currentUserId)
+        setDataActivity(dataActivity.dataActivity)
 
-  return (
+        setIsLoading(false)
+        // setAllDatas({ dataMain })
+        // console.log('allDatas1', allDatas)
+      } catch (error) {
+        console.log('=====error=====', error)
+        navigate('/*')
+      }
+    }
+    getAllDatas()
+    console.log('dataPerformance', dataPerformance.length, dataPerformance)
+    // console.log('dataMain2', dataAverage.dataAverage)
+  }, [navigate, currentUserId, typeGetData])
+
+  return isLoading ? (
+    <h2>Données en chargement...</h2>
+  ) : (
     <div className="dashboard">
       <div className="dashboard__header">
         <h2>
-          Bonjour <span>{firstName}</span>
+          Bonjour <span>{dataMain.firstName}</span>
         </h2>
         <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
       </div>
@@ -118,24 +100,17 @@ function Profil({ switchData }) {
             </div>
             <div className="graphics__activity__main">
               <ChartBars dataActivity={dataActivity} />
-              {/* OK */}
             </div>
           </div>
           <div className="graphics__various">
             <div className="graphics__various__square">
               <ChartLine dataAverage={dataAverage} />
-              {/* OK */}
             </div>
             <div className="graphics__various__square">
-              <ChartRadar
-                // kindP={kind}
-                // dataPerformance={dataPerformance ? dataPerformance : null}
-                dataPerformance={dataPerformance}
-              />
+              <ChartRadar dataPerformance={dataPerformance} />
             </div>
             <div className="graphics__various__square">
-              <ChartRadialBar score={score} />
-              {/* OK */}
+              <ChartRadialBar score={dataMain.score} />
             </div>
           </div>
         </div>
@@ -143,7 +118,7 @@ function Profil({ switchData }) {
           <NutritionContent
             image={IconCalories}
             altText={'icône Calories'}
-            data={calorie}
+            data={dataMain.calorie}
             text={'kCal'}
             title={'Calories'}
           />
@@ -151,7 +126,7 @@ function Profil({ switchData }) {
           <NutritionContent
             image={IconProtein}
             altText={'icône Protéines'}
-            data={protein}
+            data={dataMain.protein}
             text={'g'}
             title={'Protéines'}
           />
@@ -159,7 +134,7 @@ function Profil({ switchData }) {
           <NutritionContent
             image={IconCarbs}
             altText={'icône Glucides'}
-            data={carbohydrate}
+            data={dataMain.carbohydrate}
             text={'g'}
             title={'Glucides'}
           />
@@ -167,7 +142,7 @@ function Profil({ switchData }) {
           <NutritionContent
             image={IconFat}
             altText={'icône Lipides'}
-            data={lipid}
+            data={dataMain.lipid}
             text={'g'}
             title={'Lipides'}
           />
@@ -175,6 +150,10 @@ function Profil({ switchData }) {
       </div>
     </div>
   )
+}
+
+Profil.propTypes = {
+  typeGetData: PropTypes.bool,
 }
 
 export default Profil

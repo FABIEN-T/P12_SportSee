@@ -9,24 +9,9 @@ import {
   PolarRadiusAxis,
 } from 'recharts'
 
-function ChartRadar({ kindP, dataPerformance }) {
-  // const categoriesFrench = (item) => {
-  //   // console.log('item', item)
-  //   let categories = [
-  //     'Intensité',
-  //     'Vitesse',
-  //     'Force',
-  //     'Endurance',
-  //     'Energie',
-  //     'Cardio',
-  //   ]
-  //   return `${categories[item - 1]}`
-  // }
-
-  // console.log('categoriesFrench : ', categoriesFrench(6))
-  // console.log('radialchart dataPerformance', dataPerformance)
-
-  // if (dataPerformance !== null) {
+function ChartRadar({ dataPerformance }) {
+  console.log('radialchart dataPerformance', typeof dataPerformance)
+  // console.log('Radar', dataPerformance.length)
   if (dataPerformance.length > 0) {
     return (
       <div className="chartRadar">
@@ -50,8 +35,8 @@ function ChartRadar({ kindP, dataPerformance }) {
   }
 }
 
-// ChartRadar.propTypes = {
-//   dataPerformance: PropTypes.object,
-// }
+ChartRadar.propTypes = {
+  dataPerformance: PropTypes.array,
+}
 
 export default ChartRadar

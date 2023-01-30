@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {
   ResponsiveContainer,
   RadialBarChart,
@@ -15,6 +16,7 @@ import {
 // ]
 
 function ChartRadialBar({ score }) {
+  // console.log(typeof score)
   const data = [
     {
       uv: score,
@@ -81,6 +83,10 @@ function ChartRadialBar({ score }) {
       </ResponsiveContainer>
     </div>
   )
+}
+
+ChartRadialBar.propTypes = {
+  score: PropTypes.number,
 }
 
 export default ChartRadialBar

@@ -50,23 +50,7 @@ function CustomizedCursor({ points }) {
 // }
 
 function ChartLine({ dataAverage }) {
-  // const jsonData = JSON.stringify(dataAverage)
-  // console.log('jsonData', dataAverage)
-
-  // const week = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
-  // dataAverage.forEach((n) => console.log('A', n.day))
-  // dataAverage.forEach((i) => {
-  //   console.log('dataAverage', i.day)
-  // })
-  // dataAverage.forEach((i) => console.log('jours de la semaine', week[i.day - 1]))
-
-  //Modifier la légende sur l'axe X
-  // const daysWeek = (item) => {
-  //   let week = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
-  //   return `${week[item - 1]}`
-  // }
-
-  // console.log('ChartLine dataAverage', dataAverage)
+  console.log('ChartLine dataAverage', typeof dataAverage)
 
   return (
     <div className="chartLine">

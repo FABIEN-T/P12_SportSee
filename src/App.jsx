@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
 import Header from './components/Header'
 import NavSide from './components/NavSide'
 import Home from './pages/Home'
@@ -10,25 +11,23 @@ import Community from './pages/Community'
 import Error from './pages/Error'
 
 export default function App() {
-  const [switchData, setSwitchData] = useState(false)
+  const [typeGetData, setTypeGetData] = useState(false)
   return (
     <div className="app">
       <BrowserRouter>
         <Header />
         <NavSide />
         <Routes>
-          <Route path="/" element={<Home setSwitchData={setSwitchData} />} />
+          <Route path="/" element={<Home setTypeGetData={setTypeGetData} />} />
           <Route
             path="/user/:userId"
-            element={<Profil switchData={switchData} />}
+            element={<Profil typeGetData={typeGetData} />}
           />
           <Route path="/setting" element={<Setting />} />
           <Route path="/community" element={<Community />} />
-          <Route path="*" element={<Error />} />
+          <Route path="/*" element={<Error />} />
         </Routes>
       </BrowserRouter>
     </div>
   )
 }
-
-// export default App

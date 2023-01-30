@@ -3,7 +3,7 @@ import {
   USER_ACTIVITY,
   USER_AVERAGE_SESSIONS,
   USER_PERFORMANCE,
-} from './data/mockData'
+} from '../data/mockData'
 // import mockData from './data/mockData'
 
 function ConsoleData() {
