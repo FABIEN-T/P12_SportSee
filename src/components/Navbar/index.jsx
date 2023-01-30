@@ -9,25 +9,25 @@ function Navbar() {
       >
         Accueil
       </NavLink>
-      <NavLink
+      {/* <NavLink
         to="/profil"
         className="navBarLink"
         // className={({ isActive }) => `navBarLink ${isActive && 'active'}`}
-      >
-        Profil
-      </NavLink>
+      > */}
+      <p className="navBarLink">Profil</p>
+      {/* </NavLink>
       <NavLink
         to="/setting"
         className={({ isActive }) => `navBarLink ${isActive && 'active'}`}
-      >
-        Réglage
-      </NavLink>
-      <NavLink
-        to="/community"
+      > */}
+      <p className="navBarLink"> Réglage</p>
+      {/* </NavLink>
+      <NavLink */}
+      {/* to="/community"
         className={({ isActive }) => `navBarLink ${isActive && 'active'}`}
-      >
-        Communauté
-      </NavLink>
+      > */}
+      <p className="navBarLink"> Communauté</p>
+      {/* </NavLink> */}
     </nav>
   )
 }

@@ -6,9 +6,10 @@ import Header from './components/Header'
 import NavSide from './components/NavSide'
 import Home from './pages/Home'
 import Profil from './pages/Profil'
-import Setting from './pages/Setting'
-import Community from './pages/Community'
+// import Setting from './pages/Setting'
+// import Community from './pages/Community'
 import Error from './pages/Error'
+import ErrorAPI from './pages/ErrorAPI'
 
 export default function App() {
   const [typeGetData, setTypeGetData] = useState(false)
@@ -23,8 +24,9 @@ export default function App() {
             path="/user/:userId"
             element={<Profil typeGetData={typeGetData} />}
           />
-          <Route path="/setting" element={<Setting />} />
-          <Route path="/community" element={<Community />} />
+          {/* <Route path="/setting" element={<Setting />} />
+          <Route path="/community" element={<Community />} /> */}
+          <Route path="/erreurAPI" element={<ErrorAPI />} />
           <Route path="/*" element={<Error />} />
         </Routes>
       </BrowserRouter>

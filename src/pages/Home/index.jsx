@@ -16,7 +16,7 @@ function Home({ setTypeGetData }) {
             onClick={() => {
               // setActiveButton(true)
               setTypeGetData(false)
-              console.log('bouton Mock')
+              console.log('Données Mock')
             }}
           >
             MOCK
@@ -26,7 +26,7 @@ function Home({ setTypeGetData }) {
             // className={({ isActive }) => `btn ${isActive && 'active'}`}
             onClick={() => {
               setTypeGetData(true)
-              console.log('bouton API')
+              console.log('Données API')
             }}
           >
             API

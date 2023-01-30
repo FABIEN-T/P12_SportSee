@@ -13,43 +13,54 @@ import ModelActivy from '../models/model_USER_ACTIVITY'
 // ******************************************²*****
 
 const getDataMain = async (typeGetData, userId) => {
-  // console.log('typeGetData', typeGetData)
+  console.log('typeGetData', typeGetData)
   if (typeGetData) {
     try {
       const response = await fetch(`http://localhost:3000/user/${userId}`)
-      const data = await response.json()
-      const user = data.data
-      // console.log('API Main')
-      return new ModelMain(user)
-    } catch (error) {
-      // console.error(error)
-      // return error
+      if (response.ok) {
+        console.log(response.ok)
+        const data = await response.json()
+        const user = data.data
+        // console.log('API Main')
+        return new ModelMain(user)
+      } else {
+        console.log(response.ok)
+        // throw new Error(`HTTP error! status: ${response.status response.ok}`)
+      }
+    } catch (errorData) {
+      // console.log(error.message)
+      return errorData
       // alert('Erreur 503 : le serveur est déconnecté')
-      throw error
+      // throw error
     }
   } else {
     const user = mockUserMainData.find((user) => user.id === userId)
-    return new ModelMain(user)
+    return user ? new ModelMain(user) : null
+    // return new ModelMain(user)
   }
 }
 
 const getPerformance = async (typeGetData, userId) => {
   // console.log('Perf TYPE_GET_DATA')
   if (typeGetData) {
-    try {
-      const response = await fetch(
-        `http://localhost:3000/user/${userId}/performance`
-      )
+    // try {
+    const response = await fetch(
+      `http://localhost:3000/user/${userId}/performance`
+    )
+    if (response.ok) {
       const data = await response.json()
       const user = data.data
       // console.log('API Performance', data.data)
       return new ModelPerformance(user)
-    } catch (error) {
-      // console.error('Erreur :', error)
-      // alert('Erreur 503 : The serveur is en panne')
-      throw error
-      // return error
+    } else {
+      throw new Error(`HTTP error! status: ${response.status}`)
     }
+    // } catch (errorData) {
+    //   // console.error('Erreur :', error)
+    //   // alert('Erreur 503 : The serveur is en panne')
+    //   // throw error
+    //   // return error
+    // }
   } else {
     const user = mock_UserPerformance.find((user) => user.userId === userId)
     // console.log('mock Performance', user)
@@ -59,19 +70,25 @@ const getPerformance = async (typeGetData, userId) => {
 
 const getAverageSessions = async (typeGetData, userId) => {
   if (typeGetData) {
-    try {
-      const response = await fetch(
-        `http://localhost:3000/user/${userId}/average-sessions`
-      )
+    // try {
+    const response = await fetch(
+      `http://localhost:3000/user/${userId}/average-sessions`
+    )
+    if (response.ok) {
       const data = await response.json()
       const user = data.data
       // console.log('API Average')
       return new ModelAverageSessions(user)
-    } catch (error) {
-      // alert('Erreur 503 : The serveur is en panne')
-      throw error
-      // return error
     }
+    //   else {
+    //     throw new Error(`HTTP error! status: ${response.status}`)
+    //   }
+    // } catch (errorData) {
+    //   console.log('errorData.message', errorData.message)
+    //   // alert('Erreur 503 : The serveur is en panne')
+    //   // throw error
+    //   return 'errorData'
+    // }
   } else {
     const user = mock_UserAverageSessions.find((user) => user.userId === userId)
     // console.log('mock Average')
@@ -81,19 +98,24 @@ const getAverageSessions = async (typeGetData, userId) => {
 
 const getActivy = async (typeGetData, userId) => {
   if (typeGetData) {
-    try {
-      const response = await fetch(
-        `http://localhost:3000/user/${userId}/activity`
-      )
+    // try {
+    const response = await fetch(
+      `http://localhost:3000/user/${userId}/activity`
+    )
+    if (response.ok) {
       const data = await response.json()
       const user = data.data
       // console.log('API Activity')
       return new ModelActivy(user)
-    } catch (error) {
-      // alert('Erreur 503 : The serveur is en panne')
-      throw error
-      // return error
     }
+    //   else {
+    //     throw new Error(`HTTP error! status: ${response.status}`)
+    //   }
+    // } catch (errorData) {
+    //   // alert('Erreur 503 : The serveur is en panne')
+    //   // throw error
+    //   // return error
+    // }
   } else {
     const user = mock_UserActivity.find((user) => user.userId === userId)
     // console.log('mock Activity')

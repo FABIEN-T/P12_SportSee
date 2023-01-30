@@ -28,7 +28,7 @@ function Profil({ typeGetData }) {
   const { userId } = useParams()
   const currentUserId = parseInt(userId)
 
-  // const [allDatas, setAllDatas] = useState({})
+  const [allDatas, setAllDatas] = useState({})
   const [dataMain, setDataMain] = useState({})
   const [dataPerformance, setDataPerformance] = useState({})
   const [dataAverage, setDataAverage] = useState({})
@@ -39,34 +39,72 @@ function Profil({ typeGetData }) {
   getDataMain(typeGetData, currentUserId)
 
   useEffect(() => {
-    async function getAllDatas() {
+    // async function getAllDatas() {
+    const getAllDatas = async () => {
       try {
-        const dataMain = await getDataMain(typeGetData, currentUserId)
+        const [dataMain, dataPerformance, dataAverage, dataActivity] =
+          await Promise.all([
+            getDataMain(typeGetData, currentUserId),
+            getPerformance(typeGetData, currentUserId),
+            getAverageSessions(typeGetData, currentUserId),
+            getActivy(typeGetData, currentUserId),
+          ])
+
+        // const allDatas = await Promise.all([
+        //   getDataMain(typeGetData, currentUserId),
+        //   getPerformance(typeGetData, currentUserId),
+        //   getAverageSessions(typeGetData, currentUserId),
+        //   getActivy(typeGetData, currentUserId),
+        // ])
+
+        const allDatas = {
+          dataMain,
+          dataPerformance,
+          dataAverage,
+          dataActivity,
+        }
+
+        setAllDatas(allDatas)
+        console.log('allDatas', allDatas)
+        // const dataMain = await getDataMain(typeGetData, currentUserId)
         setDataMain(dataMain)
 
-        const dataPerformance = await getPerformance(typeGetData, currentUserId)
+        // console.log('dataMain', allDatas.dataMain)
+        // const dataPerformance = await getPerformance(typeGetData, currentUserId)
         setDataPerformance(dataPerformance.dataPerformance)
 
-        const dataAverage = await getAverageSessions(typeGetData, currentUserId)
+        // const dataAverage = await getAverageSessions(typeGetData, currentUserId)
         setDataAverage(dataAverage.dataAverage)
 
-        const dataActivity = await getActivy(typeGetData, currentUserId)
+        // const dataActivity = await getActivy(typeGetData, currentUserId)
         setDataActivity(dataActivity.dataActivity)
 
         setIsLoading(false)
         // setAllDatas({ dataMain })
         // console.log('allDatas1', allDatas)
-      } catch (error) {
-        console.log('=====error=====', error)
-        navigate('/*')
+      } catch (errorServeur) {
+        console.log('=====Profil-error=====', errorServeur.message)
+        if (errorServeur.message === 'Failed to fetch') {
+          console.log(
+            'error.message',
+            errorServeur.message,
+            errorServeur.message === 'Failed to fetch'
+          )
+          navigate('/erreurAPI')
+        } else {
+          navigate('/*')
+        }
       }
     }
     getAllDatas()
-    console.log('dataPerformance', dataPerformance.length, dataPerformance)
+    // console.log('getAllDatas', getAllDatas())
+    // console.log('dataPerformance', dataPerformance.length, dataPerformance)
     // console.log('dataMain2', dataAverage.dataAverage)
   }, [navigate, currentUserId, typeGetData])
 
-  return isLoading ? (
+  console.log('allDatas2', allDatas)
+  // return isLoading && allDatas ? (
+  return isLoading && allDatas ? (
     <h2>Données en chargement...</h2>
   ) : (
     <div className="dashboard">
