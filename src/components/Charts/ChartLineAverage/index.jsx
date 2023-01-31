@@ -50,7 +50,7 @@ function CustomizedCursor({ points }) {
 // }
 
 function ChartLine({ dataAverage }) {
-  console.log('ChartLine dataAverage', typeof dataAverage)
+  // console.log('ChartLine dataAverage', typeof dataAverage)
 
   return (
     <div className="chartLine">

@@ -1,3 +1,18 @@
+.loader {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  // align-content: center;
+  h2 {
+    margin: 35% auto 0;
+    color: $primary;
+    font-size: 30px;
+  }
+}
+
 .dashboard {
   position: absolute;
   bottom: 0;

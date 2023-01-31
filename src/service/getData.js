@@ -13,7 +13,7 @@ import ModelActivy from '../models/model_USER_ACTIVITY'
 // ******************************************²*****
 
 const getDataMain = async (typeGetData, userId) => {
-  console.log('typeGetData', typeGetData)
+  // console.log('typeGetData', typeGetData)
   if (typeGetData) {
     try {
       const response = await fetch(`http://localhost:3000/user/${userId}`)
@@ -21,17 +21,15 @@ const getDataMain = async (typeGetData, userId) => {
         console.log(response.ok)
         const data = await response.json()
         const user = data.data
-        // console.log('API Main')
         return new ModelMain(user)
-      } else {
-        console.log(response.ok)
-        // throw new Error(`HTTP error! status: ${response.status response.ok}`)
       }
+      // else {
+      //   console.log('response.ok', response.ok)
+      //   // throw new Error(`HTTP error! status: ${response.status response.ok}`)
+      // }
     } catch (errorData) {
-      // console.log(error.message)
       return errorData
       // alert('Erreur 503 : le serveur est déconnecté')
-      // throw error
     }
   } else {
     const user = mockUserMainData.find((user) => user.id === userId)
@@ -52,8 +50,8 @@ const getPerformance = async (typeGetData, userId) => {
       const user = data.data
       // console.log('API Performance', data.data)
       return new ModelPerformance(user)
-    } else {
-      throw new Error(`HTTP error! status: ${response.status}`)
+      // } else {
+      //   throw new Error(`HTTP error! status: ${response.status}`)
     }
     // } catch (errorData) {
     //   // console.error('Erreur :', error)
@@ -64,7 +62,7 @@ const getPerformance = async (typeGetData, userId) => {
   } else {
     const user = mock_UserPerformance.find((user) => user.userId === userId)
     // console.log('mock Performance', user)
-    return new ModelPerformance(user)
+    return user ? new ModelPerformance(user) : null
   }
 }
 
@@ -85,14 +83,14 @@ const getAverageSessions = async (typeGetData, userId) => {
     //   }
     // } catch (errorData) {
     //   console.log('errorData.message', errorData.message)
-    //   // alert('Erreur 503 : The serveur is en panne')
+    //   // alert('Erreur 503 : serveur déconnecté')
     //   // throw error
     //   return 'errorData'
     // }
   } else {
     const user = mock_UserAverageSessions.find((user) => user.userId === userId)
     // console.log('mock Average')
-    return new ModelAverageSessions(user)
+    return user ? new ModelAverageSessions(user) : null
   }
 }
 
@@ -119,7 +117,7 @@ const getActivy = async (typeGetData, userId) => {
   } else {
     const user = mock_UserActivity.find((user) => user.userId === userId)
     // console.log('mock Activity')
-    return new ModelActivy(user)
+    return user ? new ModelActivy(user) : null
   }
 }
 

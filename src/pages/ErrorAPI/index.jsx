@@ -1,14 +1,19 @@
 import { Link } from 'react-router-dom'
 
+import HeaderLogo from '../../components/HeaderLogo'
+
 function ErrorAPI() {
   return (
-    <main className="mainError">
-      <h2>503</h2>
-      <p>Oups! L'Api n'est pas disponible.</p>
-      <Link to="/" className="errorLink">
-        Retourner sur la page d’accueil
-      </Link>
-    </main>
+    <>
+      <HeaderLogo />
+      <main className="errorApi">
+        <h2 className="errorApi__titleError">503</h2>
+        <p className="errorApi__paragraph">Oups! L'Api n'est pas disponible.</p>
+        <Link to="/" className="errorApi__errorLink">
+          Retourner sur la page d’accueil
+        </Link>
+      </main>
+    </>
   )
 }
 
