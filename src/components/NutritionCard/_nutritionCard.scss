@@ -1,17 +1,12 @@
-.nutrition__content {
+.nutrition__card {
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
-  // height: 20.23%;
   height: 22.1%;
   max-height: 124px;
-  // height: 124px;
-  // max-height: 20.23%;
   padding: 4%;
   border-radius: 5px;
-  // overflow: hidden;
   background-color: $backgroundClear;
-  // background-color: aqua;
   &__icon {
     margin: auto 0;
     width: 60px;
@@ -22,8 +17,8 @@
     h3 {
       margin: 0;
       font: {
-        size: clamp(1rem, 1.25rem, 1.25rem); // 1.25rem=20px || 1rem=16x
-        // size: 20px;
+        // size: clamp(1rem, 1.25rem, 1.25rem); // 1.25rem=20px || 1rem=16x
+        size: 18px; //valeur maquette : 20px mais trop juste en 1024x780
         weight: 700;
       }
     }

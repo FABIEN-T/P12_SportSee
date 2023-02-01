@@ -5,16 +5,17 @@
 @import '../components/Header/header';
 @import '../components/NavSide/navSide';
 @import '../components/Navbar/navbar';
-@import '../components/NutritionContent/nutritionContent';
+
+@import '../components/Charts/ChartBarsHeader/chartBarsHeader';
+@import '../components/Charts/ChartBarsActivity/chartBars';
 @import '../components/Charts/ChartLineAverage/chartLine';
 @import '../components/Charts/ChartRadarperformance/chartRadar';
-@import '../components/Charts/ChartBarsActivity/chartBars';
 @import '../components/Charts/ChartRadialBarScore/chartRadialBar';
+@import '../components/NutritionAside/nutritionAside';
+@import '../components/NutritionCard/nutritionCard';
 
 @import '../pages/Home/home';
 @import '../pages/Profil/profil';
-@import '../pages/Setting/setting';
-@import '../pages/Community/community';
 @import '../pages/Error/error';
 @import '../pages/ErrorAPI/errorAPI';
 
@@ -22,7 +23,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 body {
   font-family: Roboto, Arial, Helvetica, sans-serif;
-  // color: $primary;
   box-sizing: border-box;
   background-color: bisque;
   .app {

@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types'
 
-function NutritionContent({ image, altText, data, text, title }) {
+function NutritionCard({ image, altText, data, text, title }) {
   // console.log('typeof', data, typeof data)
   return (
-    <div className="nutrition__content">
-      <div className="nutrition__content__icon">
+    <div className="nutrition__card">
+      <div className="nutrition__card__icon">
         <img src={image} alt={altText} />
       </div>
-      <div className="nutrition__content__text">
+      <div className="nutrition__card__text">
         <h3>
           {text === 'kCal' ? (data / 1000).toFixed(3).replace('.', ',') : data}
           {/* {text === 'kCal' ? data.toFixed(3).replace('.', ',') : data} */}
@@ -20,7 +20,7 @@ function NutritionContent({ image, altText, data, text, title }) {
   )
 }
 
-NutritionContent.propTypes = {
+NutritionCard.propTypes = {
   image: PropTypes.string,
   altText: PropTypes.string,
   data: PropTypes.number,
@@ -28,4 +28,4 @@ NutritionContent.propTypes = {
   title: PropTypes.string,
 }
 
-export default NutritionContent
+export default NutritionCard

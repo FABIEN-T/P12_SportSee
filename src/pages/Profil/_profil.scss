@@ -5,7 +5,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  // align-content: center;
   h2 {
     margin: 35% auto 0;
     color: $primary;
@@ -13,23 +12,19 @@
   }
 }
 
-.dashboard {
+.profil {
   position: absolute;
   bottom: 0;
   right: 0;
   width: calc(100% - 117px);
   height: calc(100% - 91px);
-  // border: 3px solid blue;
   padding: 4.72% 6.25% 6.25% 7.43%;
   box-sizing: border-box;
-  // padding: 2% 4% 4% 4%;
-  // background-color: rgba(118, 135, 243, 0.1);
 
   &__header {
     display: flex;
     flex-direction: column;
     margin-bottom: 6%;
-    // border: 1px solid red;
     h2 {
       margin: 0 0 2%;
       font: {
@@ -37,7 +32,6 @@
         weight: 500;
       }
       span {
-        // margin-left: 12px;
         color: $primary;
       }
     }
@@ -50,25 +44,18 @@
     }
   }
 
-  &__main {
+  &__dashboard {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     min-height: 75%;
-    // height: 90%;
-
-    // background-color: rgb(236, 235, 233);
-    .graphics {
+    &__charts {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       width: 74.23%;
-      // box-sizing: border-box;
-      // min-height: 100%;
-      // border: 1px solid red;
 
       &__activity {
-        // border: 1px rgb(55, 255, 0) solid;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -78,105 +65,13 @@
         height: 52%;
         background-color: $backgroundClear;
         border-radius: 5px;
-        &__header {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          // margin: 0 auto 0;
-          // border: 1px rgb(55, 255, 0) solid;
-          // padding: 0 26px 0 32px;
-          // background-color: antiquewhite;
-          h3 {
-            margin: 0;
-            font: {
-              size: 15px;
-              weight: 500;
-            }
-          }
-          .legend {
-            display: flex;
-            flex-direction: row;
-            color: $grey1;
-            font: {
-              size: 14px;
-              weight: 500;
-            }
-            &__poids {
-              display: flex;
-              flex-direction: row;
-              margin-left: 36px;
-              &__text {
-                margin-left: 10px;
-              }
-            }
-          }
-        }
-        &__main {
-          // border: 1px blue solid;
-          width: 100%;
-          height: 100%;
-          max-height: 100%;
-          // padding-top: 20px;
-          // background-color: rgb(137, 163, 23);
-        }
       }
-      &__various {
+      &__threeCharts {
         display: flex;
         justify-content: space-between;
         width: 100%;
         height: 43%;
-        // background-color: rgb(205, 224, 202);
-        &__square {
-          width: 30.1%;
-          overflow: hidden;
-          border-radius: 5px;
-          // background-color: rgb(240, 255, 255);
-          font-size: 10px;
-        }
       }
-    }
-    .nutrition {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      flex: 1;
-      width: 22.95%;
-      min-height: 100%;
-      margin-left: 3%;
-      // background-color: rgb(240, 230, 242);
-      // &__content {
-      //   display: flex;
-      //   flex-direction: row;
-
-      //   box-sizing: border-box;
-      //   height: 20.23%;
-      //   padding: 4%;
-      //   border-radius: 5px;
-
-      //   background-color: $backgroundClear;
-      //   // background-color: aqua;
-      //   &__icon {
-      //     margin: auto 0;
-      //   }
-      //   &__text {
-      //     margin: auto 9.3%;
-      //     h3 {
-      //       margin: 0;
-      //       font: {
-      //         size: 20px;
-      //         weight: 700;
-      //       }
-      //     }
-      //     p {
-      //       margin: 0;
-      //       color: $grey1;
-      //       font: {
-      //         size: 14px;
-      //         weight: 500;
-      //       }
-      //     }
-      //   }
-      // }
     }
   }
 }

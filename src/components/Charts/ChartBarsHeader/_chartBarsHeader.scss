@@ -1,0 +1,29 @@
+.chartBarsHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  h3 {
+    margin: 0;
+    font: {
+      size: 15px;
+      weight: 500;
+    }
+  }
+  .legend {
+    display: flex;
+    flex-direction: row;
+    color: $grey1;
+    font: {
+      size: 14px;
+      weight: 500;
+    }
+    &__poids {
+      display: flex;
+      flex-direction: row;
+      margin-left: 36px;
+      &__text {
+        margin-left: 10px;
+      }
+    }
+  }
+}

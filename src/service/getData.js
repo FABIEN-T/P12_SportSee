@@ -15,22 +15,22 @@ import ModelActivy from '../models/model_USER_ACTIVITY'
 const getDataMain = async (typeGetData, userId) => {
   // console.log('typeGetData', typeGetData)
   if (typeGetData) {
-    try {
-      const response = await fetch(`http://localhost:3000/user/${userId}`)
-      if (response.ok) {
-        console.log(response.ok)
-        const data = await response.json()
-        const user = data.data
-        return new ModelMain(user)
-      }
-      // else {
-      //   console.log('response.ok', response.ok)
-      //   // throw new Error(`HTTP error! status: ${response.status response.ok}`)
-      // }
-    } catch (errorData) {
-      return errorData
-      // alert('Erreur 503 : le serveur est déconnecté')
+    // try {
+    const response = await fetch(`http://localhost:3000/user/${userId}`)
+    if (response.ok) {
+      console.log(response.ok)
+      const data = await response.json()
+      const user = data.data
+      return new ModelMain(user)
     }
+    // else {
+    //   console.log('response.ok', response.ok)
+    //   // throw new Error(`HTTP error! status: ${response.status response.ok}`)
+    // }
+    // } catch (errorData) {
+    //   return errorData
+    //   // alert('Erreur 503 : le serveur est déconnecté')
+    // }
   } else {
     const user = mockUserMainData.find((user) => user.id === userId)
     return user ? new ModelMain(user) : null

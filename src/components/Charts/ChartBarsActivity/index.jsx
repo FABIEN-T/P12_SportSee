@@ -1,5 +1,3 @@
-// import React from 'react'
-// import React, { FunctionComponent } from 'react'
 import PropTypes from 'prop-types'
 
 import {
@@ -11,13 +9,6 @@ import {
   CartesianGrid,
   Tooltip,
 } from 'recharts'
-
-// import { customTickXaxis } from '../../../utils/functions'
-
-// function customTickXaxis(day) {
-//   // console.log('day', day)
-//   return day && Number(day.slice(8)) // Number : "01" devient "1" - "11" reste "11"
-// }
 
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {

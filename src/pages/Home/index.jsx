@@ -11,10 +11,10 @@ function Home({ setTypeGetData }) {
       <Header />
       <NavSide />
       <main className="home">
-        <div className="switchData">
+        <div className="typeGetData">
           <h2>Choix</h2>
           <h2>du type de données : </h2>
-          <div className="switchData__groupButtons">
+          <div className="typeGetData__groupButtons">
             <button
               // className=${`btn {activeButton === "1" && 'active'}`}
               className="btn"

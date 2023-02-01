@@ -1,6 +1,5 @@
-// import React from 'react'
 import PropTypes from 'prop-types'
-// import { func } from 'prop-types'
+
 import {
   ResponsiveContainer,
   LineChart,
@@ -22,12 +21,6 @@ const CustomTooltip = ({ active, payload }) => {
   return null
 }
 
-// function CustomizedCursor({ active }) {
-//   if (active) {
-//     // return <div className="rectangleCursor"></div>
-//   }
-// }
-
 function CustomizedCursor({ points }) {
   return (
     <Rectangle
@@ -39,15 +32,6 @@ function CustomizedCursor({ points }) {
     />
   )
 }
-
-// function CustomizedActiveDot() {
-//   style={
-//     transform: 'scaleX(0.9)',
-//     transformOrigin: 'bottom',
-//     fontSize: '12px',
-//     stroke: 'white',
-//   }
-// }
 
 function ChartLine({ dataAverage }) {
   // console.log('ChartLine dataAverage', typeof dataAverage)

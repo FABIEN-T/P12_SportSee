@@ -1,15 +1,3 @@
-// Breakpoints
-// $breakpoints: (
-// tablet : gallerie, justify-content passe de space-between à center
-// tablet: 1024px,
-// mobile: 600px,
-// mobile2: réagencement du header, logo et navbar en colonne et centrés
-// mobile2: 338px
-// );
-
-// Largeur des pages par rapport au footer
-// $widthPage: 88.8%;
-
 // Couleur principale
 $primary: #e60000;
 
@@ -21,8 +9,5 @@ $grey2: #9b9eac;
 $backgroundClear: #f6f5f5; // !!! remettre bonne valeur !!!
 $backgroundDark: #282d30;
 
-// Couleur de la police claire
-// $fontColorLight: white;
-
-// Couleur du fond (gallerie)
-// $backgroundColor: #f6f6f6;
+// Largeur des trois charts du bas
+$widthChart: 30.9%;

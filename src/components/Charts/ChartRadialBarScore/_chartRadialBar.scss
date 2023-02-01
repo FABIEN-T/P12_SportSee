@@ -1,10 +1,12 @@
 .chartRadialBar {
   position: relative;
-  //   display: flex;
-  width: 100%;
+  width: $widthChart;
   height: 100%;
   border-radius: 5px;
+  overflow: hidden;
+  font-size: 10px;
   background-color: $backgroundClear;
+
   h3 {
     position: absolute;
     top: 4%;
@@ -15,10 +17,4 @@
       weight: 500;
     }
   }
-  //   .positionRadial {
-  //     // position: absolute;
-  //     // top: 0;
-  //     // left: 500%;
-  //     // margin: auto;
-  //   }
 }
