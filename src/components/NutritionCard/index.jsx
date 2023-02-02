@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types'
 let unit = 'KCal'
 
-function NutritionCard({ image, typeValue, title }) {
+function NutritionCard({ image, energeticValue, title }) {
+  // console
   // console.log('typeof', typeof image, typeof typeValue, typeof title)
-  typeValue.includes(',') ? (unit = 'kCal') : (unit = 'g')
+  energeticValue.includes(',') ? (unit = 'kCal') : (unit = 'g')
   return (
     <div className="nutrition__card">
       <div className="nutrition__card__icon">
@@ -11,7 +12,7 @@ function NutritionCard({ image, typeValue, title }) {
       </div>
       <div className="nutrition__card__text">
         <h3>
-          {typeValue}
+          {energeticValue}
           {unit}
         </h3>
         <p>{title}</p>

@@ -95,7 +95,7 @@ function Profil({ typeData }) {
 
             <div className="profil__dashboard__charts__threeCharts">
               <ChartLine dataAverage={dataAverage} />
-              {/* <ChartRadar dataPerformance={dataPerformance} /> */}
+              <ChartRadar dataPerformance={dataPerformance} />
               <ChartRadialBar score={dataMain._score} />
             </div>
           </div>

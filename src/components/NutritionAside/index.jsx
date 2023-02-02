@@ -7,33 +7,31 @@ import IconCarbs from '../../assets/iconNutriCarbs.svg'
 import IconFat from '../../assets/iconNutriFat.svg'
 
 function NutritionAside({ dataMain }) {
-  // const nutritionData = [
-  //   ['IconCalories', dataMain._calorie, 'Calories'],
-  //   ['IconProtein', dataMain._protein, 'Protéines'],
-  // ]
+  console.log('dataMain', typeof dataMain._calorie, typeof dataMain._protein)
   const nutritionData = [
     {
       image: IconCalories,
-      typeValue: dataMain._calorie,
+      energeticValue: dataMain._calorie,
       title: 'Calories',
     },
     {
       image: IconProtein,
-      typeValue: dataMain._protein,
+      energeticValue: dataMain._protein,
       title: 'Protéines',
     },
     {
       image: IconCarbs,
-      typeValue: dataMain._carbohydrate,
+      energeticValue: dataMain._carbohydrate,
       title: 'Glucides',
     },
     {
       image: IconFat,
-      typeValue: dataMain._lipid,
+      energeticValue: dataMain._lipid,
       title: 'Lipides',
     },
   ]
-  // nutritionData.map((el) => console.log(el.image, el.type, el.title))
+  // nutritionData.map((el) => console.log(el.image, el.typeValue, el.title))
+  // nutritionData.map((el) => console.log(el.typeValue))
   return (
     <div className="nutrition">
       {nutritionData.map((object) => {
@@ -41,7 +39,7 @@ function NutritionAside({ dataMain }) {
           <NutritionCard
             key={object.title}
             image={object.image}
-            typeValue={object.typeValue}
+            energeticValue={object.energeticValue}
             title={object.title}
           />
         )

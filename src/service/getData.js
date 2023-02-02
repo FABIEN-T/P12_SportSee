@@ -9,55 +9,6 @@ import ModelAverageSessions from '../models/model_USER_AVERAGE_SESSIONS'
 import ModelActivy from '../models/model_USER_ACTIVITY'
 
 const userId = 1
-const urlModel = [
-  {
-    url: `http://localhost:3000/user/${userId}`,
-    mock: mock_UserMainData,
-    Model: ModelMain,
-  },
-  {
-    url: `http://localhost:3000/user/${userId}/performance`,
-    mock: mock_UserPerformance,
-    Model: ModelPerformance,
-  },
-  {
-    url: `http://localhost:3000/user/${userId}/average-sessions`,
-    mock: mock_UserAverageSessions,
-    Model: ModelAverageSessions,
-  },
-  {
-    url: `http://localhost:3000/user/${userId}/activity`,
-    mock: mock_UserActivity,
-    Model: ModelActivy,
-  },
-]
-
-async function getDataFunc(userId) {
-  urlModel.forEach((el) => {
-    // const data = mockUserMainData.find((user) => user.id === userId)
-    // console.log(new ModelMain(data))
-    // console.log('url', el.url)
-    // const data = el.mock.find((user) => user.id === userId)
-    // // const bidule = new el.Model(data)
-    // console.log('data', data.data)
-  })
-
-  // if (typeData) {
-  //   try {
-  //     const response = await fetch(url)
-  //     const data = await response.json()
-  //     return new Model(data.data)
-  //   } catch (error) {
-  //     // console.log('error getData', error)
-  //     return error
-  //   }
-  // } else {
-  //   const data = mockUserMainData.find((user) => user.id === userId)
-  //   return data ? new ModelMain(data) : null
-  // }
-}
-
-getDataFunc(12)
 
 async function getDataMain(typeData, userId) {
   // const getDataMain = async (typeData, userId) => {
@@ -116,3 +67,57 @@ const getActivy = async (typeData, userId) => {
 }
 
 export { getDataMain, getPerformance, getAverageSessions, getActivy }
+// export { getDataMain, getPerformance }
+// export { getDataMain }
+
+// const urlModel = [
+//   {
+//     url: `http://localhost:3000/user/${userId}`,
+//     mock: mock_UserMainData,
+//     typeId: 'id',
+//     Model: ModelMain,
+//   },
+//   {
+//     url: `http://localhost:3000/user/${userId}/performance`,
+//     mock: mock_UserPerformance,
+//     typeId: 'userId',
+//     Model: ModelPerformance,
+//   },
+//   {
+//     url: `http://localhost:3000/user/${userId}/average-sessions`,
+//     mock: mock_UserAverageSessions,
+//     typeId: 'userId',
+//     Model: ModelAverageSessions,
+//   },
+//   {
+//     url: `http://localhost:3000/user/${userId}/activity`,
+//     mock: mock_UserActivity,
+//     typeId: 'userId',
+//     Model: ModelActivy,
+//   },
+// ]
+
+// function getDataFunc(typeData, userId) {
+//   urlModel.forEach((el) => {
+//     // console.log('el.mock', el.mock, userId)
+//     const data = el.mock.find((user) => user.userId === userId)
+//     const bidule = new el.Model(data)
+//     console.log('bidule', bidule)
+//   })
+// }
+
+// async function getDataFunc(typeData, urlModel, userId) {
+//   console.log('typeData', typeData)
+//   if (typeData) {
+//     // const response = await fetch(`http://localhost:3000/user/${userId}`)
+//     //   const data = await response.json()
+//     //   return new ModelMain(data.data)
+//   } else {
+//     const data = urlModel.mock.find((user) => user.userId === userId)
+//     const bidule = new urlModel.Model(data)
+//     console.log('bidule', bidule)
+//     return new urlModel.Model(data)
+//   }
+// }
+
+// const getPerformance = getDataFunc(false, urlModel[0], 12)
