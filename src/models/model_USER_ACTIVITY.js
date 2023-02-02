@@ -23,10 +23,10 @@ export default class ModelActivy {
       (element) => new ModelDataSessions(element)
     )
   }
-  get userId() {
-    return this._userId
-  }
-  get dataActivity() {
-    return this._dataActivity
-  }
+  // get userId() {
+  //   return this._userId
+  // }
+  // get dataActivity() {
+  //   return this._dataActivity
+  // }
 }

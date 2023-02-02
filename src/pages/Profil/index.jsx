@@ -21,7 +21,7 @@ import {
   getActivy,
 } from '../../service/getData'
 
-function Profil({ typeGetData }) {
+function Profil({ typeData }) {
   const navigate = useNavigate()
   const { userId } = useParams()
   const currentUserId = Number(userId)
@@ -32,39 +32,42 @@ function Profil({ typeGetData }) {
   const [dataActivity, setDataActivity] = useState({})
 
   const [isLoading, setIsLoading] = useState(true)
-  getDataMain(typeGetData, currentUserId)
+  getDataMain(typeData, currentUserId)
 
   useEffect(() => {
-    // async function getAllDatas() {
-    const getAllDatas = async () => {
+    async function getAllDatas() {
       try {
         const [dataMain, dataPerformance, dataAverage, dataActivity] =
           await Promise.all([
-            getDataMain(typeGetData, currentUserId),
-            getPerformance(typeGetData, currentUserId),
-            getAverageSessions(typeGetData, currentUserId),
-            getActivy(typeGetData, currentUserId),
+            getDataMain(typeData, currentUserId),
+            getPerformance(typeData, currentUserId),
+            getAverageSessions(typeData, currentUserId),
+            getActivy(typeData, currentUserId),
           ])
 
         setDataMain(dataMain)
-        setDataPerformance(dataPerformance.dataPerformance)
-        setDataAverage(dataAverage.dataAverage)
-        setDataActivity(dataActivity.dataActivity)
+        setDataPerformance(dataPerformance._dataPerformance)
+        setDataAverage(dataAverage._dataAverage)
+        setDataActivity(dataActivity._dataActivity)
         setIsLoading(false)
+        // console.log('Profil dataMain._calorie', dataMain._calorie)
       } catch (error) {
-        console.log('****Profil-error****', error.message)
+        console.log(
+          '****Profil-error****',
+          error.message.includes('fetch'),
+          error.message
+        )
         if (error.message.includes('fetch')) {
-          console.log('error fetch', error.message.includes('fetch'))
           navigate('/erreurAPI')
         }
         if (error.message.includes('null')) {
-          console.log('error null', error.message.includes('null'))
           navigate('/*')
         }
       }
     }
+
     getAllDatas()
-  }, [navigate, currentUserId, typeGetData])
+  }, [navigate, currentUserId, typeData])
 
   return isLoading ? (
     <div className="loader">
@@ -78,7 +81,7 @@ function Profil({ typeGetData }) {
       <div className="profil">
         <div className="profil__header">
           <h2>
-            Bonjour <span>{dataMain.firstName}</span>
+            Bonjour <span>{dataMain._firstName}</span>
           </h2>
           <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
         </div>
@@ -92,8 +95,8 @@ function Profil({ typeGetData }) {
 
             <div className="profil__dashboard__charts__threeCharts">
               <ChartLine dataAverage={dataAverage} />
-              <ChartRadar dataPerformance={dataPerformance} />
-              <ChartRadialBar score={dataMain.score} />
+              {/* <ChartRadar dataPerformance={dataPerformance} /> */}
+              <ChartRadialBar score={dataMain._score} />
             </div>
           </div>
 
@@ -105,7 +108,7 @@ function Profil({ typeGetData }) {
 }
 
 Profil.propTypes = {
-  typeGetData: PropTypes.bool,
+  typeData: PropTypes.bool,
 }
 
 export default Profil

@@ -10,7 +10,7 @@ import {
 } from 'recharts'
 
 function ChartRadar({ dataPerformance }) {
-  console.log('radialchart dataPerformance', typeof dataPerformance)
+  // console.log('radialchart dataPerformance', typeof dataPerformance)
   // console.log('Radar', dataPerformance.length)
   if (dataPerformance.length > 0) {
     return (
@@ -20,7 +20,6 @@ function ChartRadar({ dataPerformance }) {
             <PolarGrid radialLines={false} />
             <PolarAngleAxis
               dataKey="kind"
-              // tickFormatter={categoriesFrench}
               tickLine={false}
               stroke={'#fff'}
               fontSize={12}

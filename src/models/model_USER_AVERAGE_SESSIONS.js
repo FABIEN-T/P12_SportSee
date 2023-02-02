@@ -25,10 +25,10 @@ export default class ModelAverageSessions {
       (element) => new ModelDataSessions(element)
     )
   }
-  get userId() {
-    return this._userId
-  }
-  get dataAverage() {
-    return this._dataAverage
-  }
+  // get userId() {
+  //   return this._userId
+  // }
+  // get dataAverage() {
+  //   return this._dataAverage
+  // }
 }

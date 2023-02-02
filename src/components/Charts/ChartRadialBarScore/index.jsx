@@ -16,20 +16,19 @@ import {
 // ]
 
 function ChartRadialBar({ score }) {
-  // console.log(typeof score)
+  // console.log(score)
   const data = [
     {
       uv: score,
       fill: '#ff0101',
     },
   ]
+
   return (
     <div className="chartRadialBar">
       <h3>Score</h3>
       <ResponsiveContainer className="positionRadial">
         <RadialBarChart
-          // cx="50%"
-          // cy="50%"
           startAngle={90}
           endAngle={450}
           innerRadius={85}
@@ -42,13 +41,7 @@ function ChartRadialBar({ score }) {
             domain={[0, 100]}
             tick={false}
           />
-          <RadialBar
-            minAngle={1}
-            // background={'aaa'}
-            // background="transparent"
-            cornerRadius="10"
-            dataKey="uv"
-          />
+          <RadialBar minAngle={1} cornerRadius="10" dataKey="uv" />
           <text
             fontWeight="700"
             fontSize={26}

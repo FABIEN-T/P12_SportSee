@@ -4,24 +4,21 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import Home from './pages/Home'
 import Profil from './pages/Profil'
-// import Setting from './pages/Setting'
-// import Community from './pages/Community'
 import Error from './pages/Error'
-import ErrorAPI from './pages/ErrorAPI'
 
 export default function App() {
-  const [typeGetData, setTypeGetData] = useState(false)
+  const [typeData, setTypeData] = useState(false)
   return (
     <div className="app">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home setTypeGetData={setTypeGetData} />} />
+          <Route path="/" element={<Home setTypeData={setTypeData} />} />
           <Route
             path="/user/:userId"
-            element={<Profil typeGetData={typeGetData} />}
+            element={<Profil typeData={typeData} />}
           />
-          <Route path="/erreurAPI" element={<ErrorAPI />} />
-          <Route path="/*" element={<Error />} />
+          <Route path="/erreurAPI" element={<Error typeError={503} />} />
+          <Route path="/*" element={<Error typeError={404} />} />
         </Routes>
       </BrowserRouter>
     </div>

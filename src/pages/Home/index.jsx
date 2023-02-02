@@ -5,22 +5,20 @@ import PropTypes from 'prop-types'
 import Header from '../../components/Header'
 import NavSide from '../../components/NavSide'
 
-function Home({ setTypeGetData }) {
+function Home({ setTypeData }) {
   return (
     <>
       <Header />
       <NavSide />
       <main className="home">
-        <div className="typeGetData">
+        <div className="typeData">
           <h2>Choix</h2>
           <h2>du type de données : </h2>
-          <div className="typeGetData__groupButtons">
+          <div className="typeData__groupButtons">
             <button
-              // className=${`btn {activeButton === "1" && 'active'}`}
               className="btn"
               onClick={() => {
-                // setActiveButton(true)
-                setTypeGetData(false)
+                setTypeData(false)
                 console.log('Données Mock')
               }}
             >
@@ -28,9 +26,8 @@ function Home({ setTypeGetData }) {
             </button>
             <button
               className="btn"
-              // className={({ isActive }) => `btn ${isActive && 'active'}`}
               onClick={() => {
-                setTypeGetData(true)
+                setTypeData(true)
                 console.log('Données API')
               }}
             >
@@ -67,7 +64,7 @@ function Home({ setTypeGetData }) {
 }
 
 Home.propTypes = {
-  setTypeGetData: PropTypes.func,
+  setTypeData: PropTypes.func,
 }
 
 export default Home

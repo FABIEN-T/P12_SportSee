@@ -30,18 +30,18 @@ export default class ModelPerformance {
   constructor(data) {
     this._kind = data.kind
     // this._dataPerformance = data.data
-    this._dataPerformance = data.data.map(
-      (element) => new ModelDataPerformance(element)
-    )
+    // this._dataPerformance = data.data.map(
+    //   (element) => new ModelDataPerformance(element)
+    // )
   }
 
-  get kind() {
-    // console.log('typeof2', this._kind)
-    return this._kind
-  }
+  // get kind() {
+  //   // console.log('typeof2', this._kind)
+  //   return this._kind
+  // }
 
-  get dataPerformance() {
-    // console.log('CLASS dataPerf', this._dataPerformance)
-    return this._dataPerformance
-  }
+  // get dataPerformance() {
+  //   // console.log('CLASS dataPerf', this._dataPerformance)
+  //   return this._dataPerformance
+  // }
 }
