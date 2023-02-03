@@ -1,4 +1,3 @@
-// import React from 'react'
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
@@ -7,8 +6,8 @@ import Profil from './pages/Profil'
 import Error from './pages/Error'
 
 /**
- * The App component create route pages : Home, Profil, Error
- * @returns {JXS.Element} App
+ * Component creating the route pages : Home, Profil, Error
+ * @returns {JSX.Element} App
  */
 
 export default function App() {
@@ -22,8 +21,8 @@ export default function App() {
             path="/user/:userId"
             element={<Profil typeData={typeData} />}
           />
-          <Route path="/erreurAPI" element={<Error typeError={503} />} />
-          <Route path="/*" element={<Error typeError={404} />} />
+          <Route path="/erreurAPI" element={<Error errorNumber={503} />} />
+          <Route path="/*" element={<Error errorNumber={404} />} />
         </Routes>
       </BrowserRouter>
     </div>

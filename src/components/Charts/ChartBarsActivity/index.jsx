@@ -21,11 +21,8 @@ const CustomTooltip = ({ active, payload }) => {
   }
   return null
 }
-// }: any ????
 
 function ChartBars({ dataActivity }) {
-  // console.log('activity', typeof dataActivity)
-
   return (
     <div className="chartBars">
       <ResponsiveContainer width="100%" height="100%">
@@ -36,7 +33,6 @@ function ChartBars({ dataActivity }) {
             tickLine={false}
             padding={{ left: -23, right: -24 }}
             tickMargin={16}
-            // tickFormatter={customTickXaxis}
             minTickGap={30}
             domain={['dataMin', 'dataMax']}
           />
@@ -47,7 +43,6 @@ function ChartBars({ dataActivity }) {
             axisLine={false}
             tickMargin={42}
             tickCount={3}
-            // minTickGap={14}
             tick={{ fontSize: 14 }}
             domain={['dataMin-1', 'dataMax']}
           />
@@ -81,7 +76,13 @@ function ChartBars({ dataActivity }) {
 }
 
 ChartBars.propTypes = {
-  dataAverage: PropTypes.object,
+  dataActivity: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.number,
+      kilogram: PropTypes.number,
+      calories: PropTypes.number,
+    })
+  ),
 }
 
 export default ChartBars

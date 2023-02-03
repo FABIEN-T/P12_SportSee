@@ -1,6 +1,11 @@
 import OvalBlack from '../../../assets/ovalBlack.svg'
 import OvalRed from '../../../assets/ovalRed.svg'
 
+/**
+ * Component creating the header on top the BarChart
+ * @returns {JSX.Element} a header with a title and a legend
+ */
+
 function ChartBarsHeader() {
   return (
     <div className="chartBarsHeader">

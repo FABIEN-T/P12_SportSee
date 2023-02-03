@@ -3,7 +3,12 @@ import IconDumbbell from '../../assets/iconSportDumbbell.svg'
 import IconLotus from '../../assets/iconSportLotus.svg'
 import IconSwimming from '../../assets/iconSportSwimming.svg'
 
-function BarVertical() {
+/**
+ * Component creating the side navigation bar
+ * @returns {JSX.Element} a div with 4 logos and a pragraph for the copyright
+ */
+
+function NavSide() {
   return (
     <div className="navSide">
       <div className="navSide__icon">
@@ -33,4 +38,4 @@ function BarVertical() {
   )
 }
 
-export default BarVertical
+export default NavSide

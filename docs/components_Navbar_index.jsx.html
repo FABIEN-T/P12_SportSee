@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: components/Navbar/index.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,139 +17,42 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: components/Navbar/index.jsx</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { NavLink } from 'react-router-dom'
 
+/**
+ * Component creating the navigation menu
+ * @returns {JSX.Element} a navbar (only active Home link )
+ */
 
-    <h3> </h3>
+function Navbar() {
+  return (
+    &lt;nav className="navBar">
+      &lt;NavLink
+        to="/"
+        className={({ isActive }) => `navBarLink ${isActive &amp;&amp; 'active'}`}
+      >
+        Accueil
+      &lt;/NavLink>
+      &lt;p className="navBarLink">Profil&lt;/p>
+      &lt;p className="navBarLink"> Réglage&lt;/p>
+      &lt;p className="navBarLink"> Communauté&lt;/p>
+    &lt;/nav>
+  )
+}
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-<section>
-
-<header>
-    
-        <h2>index.jsx</h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>index.js –</p></div>
-        
-
-        
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li>Fabien_Varlet</li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.jsx.html">index.jsx</a>, <a href="index.jsx.html#line6">line 6</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a href="https://github.com/FABIEN-T/P12_SportSee/tree/main">Repo git</a></li>
-        </ul>
-    </dd>
-    
-
-    
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+export default Navbar
+</code></pre>
+        </article>
+    </section>
 
 
 

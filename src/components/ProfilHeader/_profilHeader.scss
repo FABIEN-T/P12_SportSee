@@ -1,0 +1,22 @@
+.profil__header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6%;
+  h2 {
+    margin: 0 0 2%;
+    font: {
+      size: 48px;
+      weight: 500;
+    }
+    span {
+      color: $primary;
+    }
+  }
+  p {
+    margin: 0;
+    font: {
+      size: 18px;
+      weight: 400;
+    }
+  }
+}

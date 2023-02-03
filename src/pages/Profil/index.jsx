@@ -5,13 +5,13 @@ import PropTypes from 'prop-types'
 import HeaderLogo from '../../components/HeaderLogo'
 import Header from '../../components/Header'
 import NavSide from '../../components/NavSide'
+import ProfilHeader from '../../components/ProfilHeader'
 
 import ChartLine from '../../components/Charts/ChartLineAverage'
 import ChartRadar from '../../components/Charts/ChartRadarPerformance'
+import ChartBarsHeader from '../../components/Charts/ChartBarsHeader'
 import ChartBars from '../../components/Charts/ChartBarsActivity'
 import ChartRadialBar from '../../components/Charts/ChartRadialBarScore'
-
-import ChartBarsHeader from '../../components/Charts/ChartBarsHeader'
 import NutritionAside from '../../components/NutritionAside'
 
 import {
@@ -22,9 +22,9 @@ import {
 } from '../../service/getData'
 
 /**
- * The profile component retrieves user data (Mock or API)
- * and displays it as graphs through components using rechart.
- * @returns { JXS.Element } Profil
+ * Component retrieving user data (Mock or API)
+ * and displaying them as graphs through components using rechart
+ * @returns { JSX.Element } Profil Page
  */
 
 function Profil({ typeData }) {
@@ -33,9 +33,9 @@ function Profil({ typeData }) {
   const currentUserId = Number(userId)
 
   const [dataMain, setDataMain] = useState({})
-  const [dataPerformance, setDataPerformance] = useState({})
-  const [dataAverage, setDataAverage] = useState({})
   const [dataActivity, setDataActivity] = useState({})
+  const [dataAverage, setDataAverage] = useState({})
+  const [dataPerformance, setDataPerformance] = useState({})
 
   const [isLoading, setIsLoading] = useState(true)
   getDataMain(typeData, currentUserId)
@@ -43,23 +43,23 @@ function Profil({ typeData }) {
   useEffect(() => {
     async function getAllDatas() {
       try {
-        const [dataMain, dataPerformance, dataAverage, dataActivity] =
+        const [dataMain, dataActivity, dataAverage, dataPerformance] =
           await Promise.all([
             getDataMain(typeData, currentUserId),
-            getPerformance(typeData, currentUserId),
-            getAverageSessions(typeData, currentUserId),
             getActivy(typeData, currentUserId),
+            getAverageSessions(typeData, currentUserId),
+            getPerformance(typeData, currentUserId),
           ])
 
         setDataMain(dataMain)
-        setDataPerformance(dataPerformance._dataPerformance)
-        setDataAverage(dataAverage._dataAverage)
         setDataActivity(dataActivity._dataActivity)
+        setDataAverage(dataAverage._dataAverage)
+        setDataPerformance(dataPerformance._dataPerformance)
         setIsLoading(false)
         // console.log('Profil dataMain._calorie', dataMain._calorie)
       } catch (error) {
         console.log(
-          '****Profil-error****',
+          '****Profil-Error****',
           error.message.includes('fetch'),
           error.message
         )
@@ -74,6 +74,8 @@ function Profil({ typeData }) {
 
     getAllDatas()
   }, [navigate, currentUserId, typeData])
+  // dataActivity.map((el) => console.log('Profil', el.day))
+  // console.log('Profil', dataActivity.day)
 
   return isLoading ? (
     <div className="loader">
@@ -85,12 +87,7 @@ function Profil({ typeData }) {
       <Header />
       <NavSide />
       <div className="profil">
-        <div className="profil__header">
-          <h2>
-            Bonjour <span>{dataMain._firstName}</span>
-          </h2>
-          <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
-        </div>
+        <ProfilHeader firstName={dataMain._firstName} />
 
         <div className="profil__dashboard">
           <div className="profil__dashboard__charts">

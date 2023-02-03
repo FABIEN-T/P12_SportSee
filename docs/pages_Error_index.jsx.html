@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: pages/Error/index.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,139 +17,54 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: pages/Error/index.jsx</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
+import HeaderLogo from '../../components/HeaderLogo'
 
-    <h3> </h3>
+/**
+ * Component displaying a page indicating
+ * that a web page does not exist (404) or a server error (503).
+ * @param { Number } errorNumber
+ * @returns {JSX.Element} Error page with a link redirecting to the Home page
+ */
 
+function Error({ errorNumber }) {
+  const text =
+    errorNumber === 404
+      ? "Oups! La page que vous demandez n'existe pas"
+      : "Oups! L'Api n'est pas disponible."
+  return (
+    &lt;>
+      &lt;HeaderLogo />
+      &lt;main className="error">
+        &lt;h2 className="error__titleError">{errorNumber}&lt;/h2>
+        &lt;p className="error__paragraph">{text}&lt;/p>
+        &lt;Link to="/" className="error__errorLink">
+          Retourner sur la page d’accueil
+        &lt;/Link>
+      &lt;/main>
+    &lt;/>
+  )
+}
 
+Error.propTypes = {
+  errorNumber: PropTypes.number,
+}
 
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-<section>
-
-<header>
-    
-        <h2>index.jsx</h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>index.js –</p></div>
-        
-
-        
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li>Fabien_Varlet</li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.jsx.html">index.jsx</a>, <a href="index.jsx.html#line6">line 6</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a href="https://github.com/FABIEN-T/P12_SportSee/tree/main">Repo git</a></li>
-        </ul>
-    </dd>
-    
-
-    
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+export default Error
+</code></pre>
+        </article>
+    </section>
 
 
 

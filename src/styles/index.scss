@@ -4,7 +4,8 @@
 
 @import '../components/Header/header';
 @import '../components/NavSide/navSide';
-@import '../components/Navbar/navbar';
+@import '../components/Navbar/navBar';
+@import '../components/ProfilHeader/profilHeader';
 
 @import '../components/Charts/ChartBarsHeader/chartBarsHeader';
 @import '../components/Charts/ChartBarsActivity/chartBars';
@@ -29,11 +30,11 @@ body {
     margin: auto;
     background-color: white;
     min-width: 1024px;
-    max-width: 1024px;
-    // max-width: 1440px;
-    min-height: 780px;
-    // height: 100vh;
-    max-height: 780px;
+    // max-width: 1024px;
+    max-width: 1440px;
     // max-height: 1024px;
+    min-height: 780px;
+    height: 100vh;
+    // max-height: 780px;
   }
 }

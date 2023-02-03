@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: App.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,139 +17,48 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: App.jsx</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
+import Home from './pages/Home'
+import Profil from './pages/Profil'
+import Error from './pages/Error'
 
-    <h3> </h3>
+/**
+ * Component creating the route pages : Home, Profil, Error
+ * @returns {JSX.Element} App
+ */
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-<section>
-
-<header>
-    
-        <h2>index.jsx</h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>index.js –</p></div>
-        
-
-        
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li>Fabien_Varlet</li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.jsx.html">index.jsx</a>, <a href="index.jsx.html#line6">line 6</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a href="https://github.com/FABIEN-T/P12_SportSee/tree/main">Repo git</a></li>
-        </ul>
-    </dd>
-    
-
-    
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+export default function App() {
+  const [typeData, setTypeData] = useState(false)
+  return (
+    &lt;div className="app">
+      &lt;BrowserRouter>
+        &lt;Routes>
+          &lt;Route path="/" element={&lt;Home setTypeData={setTypeData} />} />
+          &lt;Route
+            path="/user/:userId"
+            element={&lt;Profil typeData={typeData} />}
+          />
+          &lt;Route path="/erreurAPI" element={&lt;Error errorNumber={503} />} />
+          &lt;Route path="/*" element={&lt;Error errorNumber={404} />} />
+        &lt;/Routes>
+      &lt;/BrowserRouter>
+    &lt;/div>
+  )
+}
+</code></pre>
+        </article>
+    </section>
 
 
 

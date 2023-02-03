@@ -1,6 +1,12 @@
 import Navbar from '../../components/Navbar'
 import LogoSportSee from '../../assets/logoSportSee.svg'
 
+/**
+ * Component creating the application header,
+ * including the logo of SportSee and a navbar
+ * @returns {JSX.Element} a Header with a navbar
+ */
+
 function Header() {
   return (
     <header>

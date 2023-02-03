@@ -18,15 +18,8 @@ class ModelDataSessions {
 export default class ModelActivy {
   constructor(data) {
     this._userId = data.userId
-    // this._dataActivity = data.sessions
     this._dataActivity = data.sessions.map(
       (element) => new ModelDataSessions(element)
     )
   }
-  // get userId() {
-  //   return this._userId
-  // }
-  // get dataActivity() {
-  //   return this._dataActivity
-  // }
 }

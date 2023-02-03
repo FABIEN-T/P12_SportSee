@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: pages/Profil/index.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: pages/Profil/index.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useState, useEffect } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
+import PropTypes from 'prop-types'
+
+import HeaderLogo from '../../components/HeaderLogo'
+import Header from '../../components/Header'
+import NavSide from '../../components/NavSide'
+import ProfilHeader from '../../components/ProfilHeader'
+
+import ChartLine from '../../components/Charts/ChartLineAverage'
+import ChartRadar from '../../components/Charts/ChartRadarPerformance'
+import ChartBarsHeader from '../../components/Charts/ChartBarsHeader'
+import ChartBars from '../../components/Charts/ChartBarsActivity'
+import ChartRadialBar from '../../components/Charts/ChartRadialBarScore'
+import NutritionAside from '../../components/NutritionAside'
+
+import {
+  getDataMain,
+  getPerformance,
+  getAverageSessions,
+  getActivy,
+} from '../../service/getData'
+
+/**
+ * Component retrieving user data (Mock or API)
+ * and displaying them as graphs through components using rechart
+ * @returns { JSX.Element } Profil Page
+ */
+
+function Profil({ typeData }) {
+  const navigate = useNavigate()
+  const { userId } = useParams()
+  const currentUserId = Number(userId)
+
+  const [dataMain, setDataMain] = useState({})
+  const [dataActivity, setDataActivity] = useState({})
+  const [dataAverage, setDataAverage] = useState({})
+  const [dataPerformance, setDataPerformance] = useState({})
+
+  const [isLoading, setIsLoading] = useState(true)
+  getDataMain(typeData, currentUserId)
+
+  useEffect(() => {
+    async function getAllDatas() {
+      try {
+        const [dataMain, dataActivity, dataAverage, dataPerformance] =
+          await Promise.all([
+            getDataMain(typeData, currentUserId),
+            getActivy(typeData, currentUserId),
+            getAverageSessions(typeData, currentUserId),
+            getPerformance(typeData, currentUserId),
+          ])
+
+        setDataMain(dataMain)
+        setDataActivity(dataActivity._dataActivity)
+        setDataAverage(dataAverage._dataAverage)
+        setDataPerformance(dataPerformance._dataPerformance)
+        setIsLoading(false)
+        // console.log('Profil dataMain._calorie', dataMain._calorie)
+      } catch (error) {
+        console.log(
+          '****Profil-Error****',
+          error.message.includes('fetch'),
+          error.message
+        )
+        if (error.message.includes('fetch')) {
+          navigate('/erreurAPI')
+        }
+        if (error.message.includes('null')) {
+          navigate('/*')
+        }
+      }
+    }
+
+    getAllDatas()
+  }, [navigate, currentUserId, typeData])
+  // dataActivity.map((el) => console.log('Profil', el.day))
+  // console.log('Profil', dataActivity.day)
+
+  return isLoading ? (
+    &lt;div className="loader">
+      &lt;HeaderLogo />
+      &lt;h2>Données en chargement...&lt;/h2>
+    &lt;/div>
+  ) : (
+    &lt;>
+      &lt;Header />
+      &lt;NavSide />
+      &lt;div className="profil">
+        &lt;ProfilHeader firstName={dataMain._firstName} />
+
+        &lt;div className="profil__dashboard">
+          &lt;div className="profil__dashboard__charts">
+            &lt;div className="profil__dashboard__charts__activity">
+              &lt;ChartBarsHeader />
+              &lt;ChartBars dataActivity={dataActivity} />
+            &lt;/div>
+
+            &lt;div className="profil__dashboard__charts__threeCharts">
+              &lt;ChartLine dataAverage={dataAverage} />
+              &lt;ChartRadar dataPerformance={dataPerformance} />
+              &lt;ChartRadialBar score={dataMain._score} />
+            &lt;/div>
+          &lt;/div>
+
+          &lt;NutritionAside dataMain={dataMain} />
+        &lt;/div>
+      &lt;/div>
+    &lt;/>
+  )
+}
+
+Profil.propTypes = {
+  typeData: PropTypes.bool,
+}
+
+export default Profil
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#ChartBarsHeader">ChartBarsHeader</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HeaderLogo">HeaderLogo</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#NavSide">NavSide</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#NutritionAside">NutritionAside</a></li><li><a href="global.html#NutritionCard">NutritionCard</a></li><li><a href="global.html#Profil">Profil</a></li><li><a href="global.html#ProfilHeader">ProfilHeader</a></li><li><a href="global.html#getActivy">getActivy</a></li><li><a href="global.html#getAverageSessions">getAverageSessions</a></li><li><a href="global.html#getDataMain">getDataMain</a></li><li><a href="global.html#getPerformance">getPerformance</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Fri Feb 03 2023 23:37:36 GMT+0100 (heure normale d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

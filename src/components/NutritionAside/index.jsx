@@ -6,41 +6,48 @@ import IconProtein from '../../assets/iconNutriProtein.svg'
 import IconCarbs from '../../assets/iconNutriCarbs.svg'
 import IconFat from '../../assets/iconNutriFat.svg'
 
+/**
+ * Component generating the cards of the energetic substrates,
+ * by formatting the user data necessary for their creation.
+ * @param {object} dataMain - data of the user
+ * @returns {JSX.Element} a div with 4 cards of the energetic substrats
+ */
+
 function NutritionAside({ dataMain }) {
   // console.log('dataMain', typeof dataMain._calorie, typeof dataMain._protein)
   const nutritionData = [
     {
-      image: IconCalories,
+      nameImage: IconCalories,
       energeticValue: dataMain._calorie,
-      title: 'Calories',
+      name: 'Calories',
     },
     {
-      image: IconProtein,
+      nameImage: IconProtein,
       energeticValue: dataMain._protein,
-      title: 'Protéines',
+      name: 'Protéines',
     },
     {
-      image: IconCarbs,
+      nameImage: IconCarbs,
       energeticValue: dataMain._carbohydrate,
-      title: 'Glucides',
+      name: 'Glucides',
     },
     {
-      image: IconFat,
+      nameImage: IconFat,
       energeticValue: dataMain._lipid,
-      title: 'Lipides',
+      name: 'Lipides',
     },
   ]
-  // nutritionData.map((el) => console.log(el.image, el.typeValue, el.title))
+  // nutritionData.map((el) => console.log(el.nameImage, el.typeValue, el.name))
   // nutritionData.map((el) => console.log(el.typeValue))
   return (
     <div className="nutrition">
       {nutritionData.map((object) => {
         return (
           <NutritionCard
-            key={object.title}
-            image={object.image}
+            key={object.name}
+            nameImage={object.nameImage}
             energeticValue={object.energeticValue}
-            title={object.title}
+            name={object.name}
           />
         )
       })}
@@ -49,8 +56,7 @@ function NutritionAside({ dataMain }) {
 }
 
 NutritionAside.propTypes = {
-  dataMain: PropTypes.object,
-  datMain: PropTypes.shape({
+  dataMain: PropTypes.shape({
     _calorie: PropTypes.number,
     _protein: PropTypes.number,
     _carbohydrate: PropTypes.number,
