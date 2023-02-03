@@ -1,6 +1,14 @@
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 import HeaderLogo from '../../components/HeaderLogo'
+
+/**
+ * The Error component displays a page indicating
+ * that a web page does not exist (404) or a server error (503).
+ * @param { Number } typeError
+ * @returns {JXS.Element} Error
+ */
 
 function Error({ typeError }) {
   const text =
@@ -19,6 +27,10 @@ function Error({ typeError }) {
       </main>
     </>
   )
+}
+
+Error.propTypes = {
+  typeError: PropTypes.number,
 }
 
 export default Error

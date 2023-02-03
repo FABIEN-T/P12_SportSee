@@ -4,7 +4,12 @@ let unit = 'KCal'
 function NutritionCard({ image, energeticValue, title }) {
   // console
   // console.log('typeof', typeof image, typeof typeValue, typeof title)
-  energeticValue.includes(',') ? (unit = 'kCal') : (unit = 'g')
+  Number.isInteger(energeticValue) ? (unit = 'g') : (unit = 'kCal')
+  let energeticValueFormat = ''
+  Number.isInteger(energeticValue)
+    ? (energeticValueFormat = energeticValue)
+    : (energeticValueFormat = energeticValue.toFixed(3).replace('.', ','))
+
   return (
     <div className="nutrition__card">
       <div className="nutrition__card__icon">
@@ -12,7 +17,7 @@ function NutritionCard({ image, energeticValue, title }) {
       </div>
       <div className="nutrition__card__text">
         <h3>
-          {energeticValue}
+          {energeticValueFormat}
           {unit}
         </h3>
         <p>{title}</p>
@@ -21,9 +26,15 @@ function NutritionCard({ image, energeticValue, title }) {
   )
 }
 
+// NutritionCard.propTypes = {
+//   image: PropTypes.string,
+//   typeValue: PropTypes.string,
+//   title: PropTypes.string,
+// }
+
 NutritionCard.propTypes = {
   image: PropTypes.string,
-  typeValue: PropTypes.string,
+  typeValue: PropTypes.number,
   title: PropTypes.string,
 }
 

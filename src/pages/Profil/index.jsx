@@ -21,6 +21,12 @@ import {
   getActivy,
 } from '../../service/getData'
 
+/**
+ * The profile component retrieves user data (Mock or API)
+ * and displays it as graphs through components using rechart.
+ * @returns { JXS.Element } Profil
+ */
+
 function Profil({ typeData }) {
   const navigate = useNavigate()
   const { userId } = useParams()

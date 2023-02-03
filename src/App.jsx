@@ -1,10 +1,15 @@
-import React from 'react'
+// import React from 'react'
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import Home from './pages/Home'
 import Profil from './pages/Profil'
 import Error from './pages/Error'
+
+/**
+ * The App component create route pages : Home, Profil, Error
+ * @returns {JXS.Element} App
+ */
 
 export default function App() {
   const [typeData, setTypeData] = useState(false)

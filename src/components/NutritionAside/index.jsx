@@ -7,7 +7,7 @@ import IconCarbs from '../../assets/iconNutriCarbs.svg'
 import IconFat from '../../assets/iconNutriFat.svg'
 
 function NutritionAside({ dataMain }) {
-  console.log('dataMain', typeof dataMain._calorie, typeof dataMain._protein)
+  // console.log('dataMain', typeof dataMain._calorie, typeof dataMain._protein)
   const nutritionData = [
     {
       image: IconCalories,
@@ -51,10 +51,10 @@ function NutritionAside({ dataMain }) {
 NutritionAside.propTypes = {
   dataMain: PropTypes.object,
   datMain: PropTypes.shape({
-    _calorie: PropTypes.string,
-    _protein: PropTypes.string,
-    _carbohydrate: PropTypes.string,
-    _lipid: PropTypes.string,
+    _calorie: PropTypes.number,
+    _protein: PropTypes.number,
+    _carbohydrate: PropTypes.number,
+    _lipid: PropTypes.number,
   }),
 }
 

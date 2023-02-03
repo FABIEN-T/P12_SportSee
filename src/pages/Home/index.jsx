@@ -5,6 +5,13 @@ import PropTypes from 'prop-types'
 import Header from '../../components/Header'
 import NavSide from '../../components/NavSide'
 
+/**
+ * The Home component allows to choose the user
+ * for the Profil page and the type of data (Mock or API)
+ * @param { Function(setTypeData<Booleen>) } callback
+ * @returns { JXS.Element } Home
+ */
+
 function Home({ setTypeData }) {
   return (
     <>
