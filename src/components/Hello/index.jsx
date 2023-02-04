@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
  * @returns {JSX.Element} a div with the message hello and the firstname of the user
  */
 
-function ProfilHeader({ firstName }) {
+function Hello({ firstName }) {
   return (
     <div className="profil__header">
       <h2>
@@ -17,8 +17,8 @@ function ProfilHeader({ firstName }) {
   )
 }
 
-ProfilHeader.propTypes = {
+Hello.propTypes = {
   firstName: PropTypes.string,
 }
 
-export default ProfilHeader
+export default Hello

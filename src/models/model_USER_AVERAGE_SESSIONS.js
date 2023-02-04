@@ -1,8 +1,22 @@
+/**
+ * User session data formatting
+ * @class
+ * @param { Object } data
+ * @param { Number } data.day
+ * @param { Number } data.sessionLength
+ */
+
 class ModelDataSessions {
   constructor(data) {
     this._day = data.day
     this._sessionLength = data.sessionLength
   }
+
+  /**
+   * Method converting numbers to initials of days of the week
+   * @returns { String } a initial of a day ('L')
+   */
+
   get day() {
     const daysWeek = (item) => {
       let week = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
@@ -15,6 +29,14 @@ class ModelDataSessions {
   }
 }
 
+/**
+ * User session averages data formatting
+ * @class
+ * @param { Object } data
+ * @param { Number } data.userId
+ * @param { Object[] } data.sessions - array
+ */
+
 export default class ModelAverageSessions {
   constructor(data) {
     this._userId = data.userId
@@ -22,10 +44,4 @@ export default class ModelAverageSessions {
       (element) => new ModelDataSessions(element)
     )
   }
-  // get userId() {
-  //   return this._userId
-  // }
-  // get dataAverage() {
-  //   return this._dataAverage
-  // }
 }

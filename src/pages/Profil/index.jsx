@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import HeaderLogo from '../../components/HeaderLogo'
 import Header from '../../components/Header'
 import NavSide from '../../components/NavSide'
-import ProfilHeader from '../../components/ProfilHeader'
+import Hello from '../../components/Hello'
 
 import ChartLine from '../../components/Charts/ChartLineAverage'
 import ChartRadar from '../../components/Charts/ChartRadarPerformance'
@@ -42,8 +42,8 @@ function Profil({ typeData }) {
 
   useEffect(() => {
     /**
-     * Function recovering all data
-     * @returns
+     * Function recovering all datas
+     * @returns the fetched datas
      */
     async function getAllDatas() {
       try {
@@ -88,7 +88,7 @@ function Profil({ typeData }) {
       <Header />
       <NavSide />
       <div className="profil">
-        <ProfilHeader firstName={dataMain._firstName} />
+        <Hello firstName={dataMain._firstName} />
 
         <div className="profil__dashboard">
           <div className="profil__dashboard__charts">

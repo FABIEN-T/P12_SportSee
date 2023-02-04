@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: models/model_USER_PERFORMANCE.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,139 +17,72 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: models/model_USER_PERFORMANCE.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * User performance (value) data formatting
+ * @class
+ * @param { Object } data
+ * @param { Number } data.value
+ * @param { Number } data.kind
+ */
 
+class ModelDataPerformance {
+  constructor(data) {
+    this._value = data.value
+    this._kind = data.kind
+  }
+  get value() {
+    return this._value
+  }
 
-    <h3> </h3>
+  /**
+   * Method converting kind numbers to categories in French
+   * @returns { String } french categorie
+   */
 
+  get kind() {
+    const categoriesFrench = (item) => {
+      let categories = [
+        'Intensité',
+        'Vitesse',
+        'Force',
+        'Endurance',
+        'Energie',
+        'Cardio',
+      ]
+      return `${categories[item - 1]}`
+    }
+    return categoriesFrench(this._kind)
+  }
+}
 
+/**
+ * User peformances data formatting
+ * @class
+ * @param { Object } data
+ * @param { Number } data.kind
+ * @param { Object[] } data.data - array
+ */
 
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-<section>
-
-<header>
-    
-        <h2>index.jsx</h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>index.js –</p></div>
-        
-
-        
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li>Fabien_Varlet</li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.jsx.html">index.jsx</a>, <a href="index.jsx.html#line6">line 6</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a href="https://github.com/FABIEN-T/P12_SportSee/tree/main">Repo git</a></li>
-        </ul>
-    </dd>
-    
-
-    
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+export default class ModelPerformance {
+  constructor(data) {
+    this._kind = data.kind
+    this._dataPerformance = data.data.map(
+      (element) => new ModelDataPerformance(element)
+    )
+  }
+}
+</code></pre>
+        </article>
+    </section>
 
 
 

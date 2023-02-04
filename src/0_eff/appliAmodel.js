@@ -1,6 +1,6 @@
 // import React from 'react'
 // import mockUserMainData from '../data/mock_USER_MAIN_DATA.json'
-// import ModelUserData from './model_USER_MAIN_DATA'
+// import ModelMainData from './model_USER_MAIN_DATA'
 import fetch_USER_MAIN_DATA from '../service/mockFetch'
 
 const currentUserId = 12
@@ -14,7 +14,7 @@ export default function ListData() {
   // SERVICES
   // const fetchUSER_MAIN_DATA = async (userId) => {
   //   const user = mockUserMainData.find((user) => user.id === userId)
-  //   return new ModelUserData(user)
+  //   return new ModelMainData(user)
   // }
 
   fetch_USER_MAIN_DATA(currentUserId).then((data) => {
@@ -56,7 +56,7 @@ export default function ListData() {
 //   <>
 //     <h1>CLASS</h1>
 //     {data.map((users, index) => {
-//       const user = new ModelUserData(users)
+//       const user = new ModelMainData(users)
 //       console.log(user)
 //     return (
 //       <React.Fragment key={index}>

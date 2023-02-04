@@ -4,7 +4,7 @@ import mock_UserAverageSessions from '../data/mock_USER_AVERAGE_SESSIONS.json'
 import mock_UserPerformance from '../data/mock_USER_PERFORMANCE.json'
 
 import ModelMain from '../models/model_USER_MAIN_DATA'
-import ModelActivy from '../models/model_USER_ACTIVITY'
+import ModelActivity from '../models/model_USER_ACTIVITY'
 import ModelAverageSessions from '../models/model_USER_AVERAGE_SESSIONS'
 import ModelPerformance from '../models/model_USER_PERFORMANCE'
 
@@ -23,7 +23,6 @@ const getDataMain = async (typeData, userId) => {
       const data = await response.json()
       return new ModelMain(data.data)
     } catch (error) {
-      // console.log('error getData', error)
       return error
     }
   } else {
@@ -33,7 +32,6 @@ const getDataMain = async (typeData, userId) => {
 }
 
 /**
- * @async function
  * Function allowing to fetch the data of activity (API or mock)
  * and return it via a modeling class that formats the data.
  * @param {Boolean} typeData - if true : data from Api else from Mock
@@ -47,10 +45,10 @@ const getActivy = async (typeData, userId) => {
       `http://localhost:3000/user/${userId}/activity`
     )
     const data = await response.json()
-    return new ModelActivy(data.data)
+    return new ModelActivity(data.data)
   } else {
     const data = mock_UserActivity.find((user) => user.userId === userId)
-    return data ? new ModelActivy(data) : null
+    return data ? new ModelActivity(data) : null
   }
 }
 
@@ -124,7 +122,7 @@ export { getDataMain, getActivy, getAverageSessions, getPerformance }
 //     url: `http://localhost:3000/user/${userId}/activity`,
 //     mock: mock_UserActivity,
 //     typeId: 'userId',
-//     Model: ModelActivy,
+//     Model: ModelActivity,
 //   },
 // ]
 

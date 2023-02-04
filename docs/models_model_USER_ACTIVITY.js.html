@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: models/model_USER_ACTIVITY.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,139 +17,53 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: models/model_USER_ACTIVITY.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * User sessions data formatting
+ * @class
+ * @param { Object } data
+ * @param { String } data.day
+ * @param { Number } data.kilogram
+ * @param { Number } data.calories
+ */
 
+class ModelDataActivitySessions {
+  constructor(data) {
+    this._day = Number(data.day.slice(8))
+    // 2020-07-02 : keep the last digit and return a number : 2
+    // 2020-07-12 : keep the last two digits and return a number : 12
+    this._kilogram = data.kilogram
+    this._calories = data.calories
+  }
+}
 
-    <h3> </h3>
+/**
+ * User activity data formatting
+ * @class
+ * @param { Object } data
+ * @param { Number } data.userId
+ * @param { Object[] } data.sessions - array
+ */
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-<section>
-
-<header>
-    
-        <h2>index.jsx</h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>index.js –</p></div>
-        
-
-        
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li>Fabien_Varlet</li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.jsx.html">index.jsx</a>, <a href="index.jsx.html#line6">line 6</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a href="https://github.com/FABIEN-T/P12_SportSee/tree/main">Repo git</a></li>
-        </ul>
-    </dd>
-    
-
-    
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+export default class ModelActivity {
+  constructor(data) {
+    this._userId = data.userId
+    this._dataActivity = data.sessions.map(
+      (element) => new ModelDataActivitySessions(element)
+    )
+  }
+}
+</code></pre>
+        </article>
+    </section>
 
 
 
