@@ -3,7 +3,7 @@ import LogoSportSee from '../../assets/logoSportSee.svg'
 /**
  * Component creating the application header,
  * including the logo of SportSee but without the navbar
- * @returns {JSX.Element} a Header with the logo
+ * @returns { JSX.Element } a Header with only the logo
  */
 
 function HeaderLogo() {

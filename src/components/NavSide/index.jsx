@@ -5,7 +5,7 @@ import IconSwimming from '../../assets/iconSportSwimming.svg'
 
 /**
  * Component creating the side navigation bar
- * @returns {JSX.Element} a div with 4 logos and a pragraph for the copyright
+ * @returns { JSX.Element } a div with 4 logos and a pragraph for the copyright
  */
 
 function NavSide() {

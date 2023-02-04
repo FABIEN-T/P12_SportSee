@@ -9,12 +9,15 @@ import IconFat from '../../assets/iconNutriFat.svg'
 /**
  * Component generating the cards of the energetic substrates,
  * by formatting the user data necessary for their creation.
- * @param {object} dataMain - data of the user
- * @returns {JSX.Element} a div with 4 cards of the energetic substrats
+ * @param { Object } dataMain - data of the user
+ * @param { Number } dataMain._calorie
+ * @param { Number } dataMain._protein
+ * @param { Number } dataMain._carbohydrate
+ * @param { Number } dataMain._lipid
+ * @returns { JSX.Element } a div with 4 cards of the energetic substrats
  */
 
 function NutritionAside({ dataMain }) {
-  // console.log('dataMain', typeof dataMain._calorie, typeof dataMain._protein)
   const nutritionData = [
     {
       nameImage: IconCalories,
@@ -37,8 +40,7 @@ function NutritionAside({ dataMain }) {
       name: 'Lipides',
     },
   ]
-  // nutritionData.map((el) => console.log(el.nameImage, el.typeValue, el.name))
-  // nutritionData.map((el) => console.log(el.typeValue))
+
   return (
     <div className="nutrition">
       {nutritionData.map((object) => {

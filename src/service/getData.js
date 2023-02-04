@@ -9,13 +9,11 @@ import ModelAverageSessions from '../models/model_USER_AVERAGE_SESSIONS'
 import ModelPerformance from '../models/model_USER_PERFORMANCE'
 
 /**
- * @async function
- * Function allowing to fetch the main data
- * either in the API or in the mock and return it
- * via a modeling class that formats the data.
- * @param {boolean} typeData - if true : data from Api else from Mock
- * @param {number} userId - allows to select the data of the user
- * @returns {(object | null)} ModelMain(data) - formated data
+ * Function allowing to fetch the main data (API or mock)
+ * and return it via a modeling class that formats the data.
+ * @param {Boolean} typeData - if true : data from Api else from Mock
+ * @param {Number} userId - allows to select the data of the user
+ * @returns {(?Object)} ModelMain(data) - formate the datas
  */
 
 const getDataMain = async (typeData, userId) => {
@@ -36,12 +34,11 @@ const getDataMain = async (typeData, userId) => {
 
 /**
  * @async function
- * This function allows to fetch the data of activity
- * either in the API or in the mock and return it
- * via a modeling class that formats the data.
- * @param {boolean} typeData - if true : data from Api else from Mock
- * @param {number} userId - allows to select the data of the user
- * @returns {(object | null)} ModelActivity(data) - formated data
+ * Function allowing to fetch the data of activity (API or mock)
+ * and return it via a modeling class that formats the data.
+ * @param {Boolean} typeData - if true : data from Api else from Mock
+ * @param {Number} userId - allows to select the data of the user
+ * @returns {(?Object)} ModelActivity(data) - formate the datas
  */
 
 const getActivy = async (typeData, userId) => {
@@ -58,13 +55,11 @@ const getActivy = async (typeData, userId) => {
 }
 
 /**
- * @async function
- *  * This function allows to fetch the data of average sessions
- * either in the API or in the mock and return it
- * via a modeling class that formats the data.
- * @param {boolean} typeData - if true : data from Api else from Mock
- * @param {number} userId - allows to select the data of the user
- * @returns {(object | null)} ModelAverageSessions(data) - formated data
+ * Function allowing to fetch the data of average sessions (API or mock)
+ * and return it via a modeling class that formats the data.
+ * @param {Boolean} typeData - if true : data from Api else from Mock
+ * @param {Number} userId - allows to select the data of the user
+ * @returns {(?Object)} ModelAverageSessions(data) - formate the datas
  */
 
 const getAverageSessions = async (typeData, userId) => {
@@ -81,13 +76,11 @@ const getAverageSessions = async (typeData, userId) => {
 }
 
 /**
- * @async function
- * This function allows to fetch the data of performance
- * either in the API or in the mock and return it
- * via a modeling class that formats the data.
- * @param {boolean} typeData - if true : data from Api else from Mock
- * @param {number} userId - allows to select the data of the user
- * @returns {(object | null)} ModelPerformance(data) - formated data
+ * Function allowing to fetch the data of performance (API or mock)
+ * and return it via a modeling class that formats the data.
+ * @param {Boolean} typeData - if true : data from Api else from Mock
+ * @param {Number} userId - allows to select the data of the user
+ * @returns {(?Object)} ModelPerformance(data) - formate the datas
  */
 
 const getPerformance = async (typeData, userId) => {

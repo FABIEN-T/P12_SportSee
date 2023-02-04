@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/Charts/ChartBarsActivity/index.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/Charts/ChartBarsActivity/index.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import PropTypes from 'prop-types'
+
+import {
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+} from 'recharts'
+
+/**
+ * Component customizing the Tooltip of the bar chart
+ * @param { Boolean } active - true when hover
+ * @param { Object[] } payload - array with properties : fill, dataKey...
+ * @returns { JSX.Element } a Tooltip with the values in "kg" and "cal" when active
+ */
+
+function CustomTooltip({ active, payload }) {
+  if (active &amp;&amp; payload &amp;&amp; payload.length) {
+    return (
+      &lt;div className="customTooltip">
+        &lt;p className="label">{`${payload[0].value}kg`}&lt;/p>
+        &lt;p className="label">{`${payload[1].value}cal`}&lt;/p>
+      &lt;/div>
+    )
+  }
+  return null
+}
+
+/**
+ * Rechart component displaying graph of user activity
+ * @param { Object[] } dataActivity - array of activity datas
+ * @param { Number } dataActivity[]._day
+ * @param { Number } dataActivity[]._kilogram
+ * @param { Number } dataActivity[]._calories
+ * @returns { JSX.Element } a bar chart of the user performance
+ */
+
+function ChartBars({ dataActivity }) {
+  return (
+    &lt;div className="chartBars">
+      &lt;ResponsiveContainer width="100%" height="100%">
+        &lt;BarChart data={dataActivity} barGap={8}>
+          &lt;CartesianGrid strokeDasharray="3 3" vertical={false} />
+          &lt;XAxis
+            dataKey="_day"
+            tickLine={false}
+            padding={{ left: -23, right: -24 }}
+            tickMargin={16}
+            minTickGap={30}
+            domain={['dataMin', 'dataMax']}
+          />
+          &lt;YAxis
+            orientation="right"
+            yAxisId="kilogram"
+            tickLine={false}
+            axisLine={false}
+            tickMargin={42}
+            tickCount={3}
+            tick={{ fontSize: 14 }}
+            domain={['dataMin-1', 'dataMax']}
+          />
+
+          &lt;YAxis orientation="left" yAxisId="calories" hide />
+          &lt;Tooltip
+            cursor={{ opacity: 0.6 }}
+            content={&lt;CustomTooltip />}
+            fill="#E6eeee"
+            offset={21}
+            wrapperStyle={{ outlineStyle: 'none' }}
+          />
+
+          &lt;Bar
+            yAxisId="kilogram"
+            dataKey="_kilogram"
+            fill="#000"
+            barSize={7}
+            radius={[4, 4, 0, 0]}
+          />
+          &lt;Bar
+            yAxisId="calories"
+            dataKey="_calories"
+            fill="#E60000"
+            barSize={7}
+            radius={[4, 4, 0, 0]}
+          />
+        &lt;/BarChart>
+      &lt;/ResponsiveContainer>
+    &lt;/div>
+  )
+}
+
+ChartBars.propTypes = {
+  dataActivity: PropTypes.arrayOf(
+    PropTypes.shape({
+      _day: PropTypes.number,
+      _kilogram: PropTypes.number,
+      _calories: PropTypes.number,
+    })
+  ),
+}
+
+export default ChartBars
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#ChartBars">ChartBars</a></li><li><a href="global.html#ChartBarsHeader">ChartBarsHeader</a></li><li><a href="global.html#ChartLine">ChartLine</a></li><li><a href="global.html#ChartRadar">ChartRadar</a></li><li><a href="global.html#ChartRadialBar">ChartRadialBar</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#CustomizedCursor">CustomizedCursor</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HeaderLogo">HeaderLogo</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#NavSide">NavSide</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#NutritionAside">NutritionAside</a></li><li><a href="global.html#NutritionCard">NutritionCard</a></li><li><a href="global.html#Profil">Profil</a></li><li><a href="global.html#ProfilHeader">ProfilHeader</a></li><li><a href="global.html#getActivy">getActivy</a></li><li><a href="global.html#getAverageSessions">getAverageSessions</a></li><li><a href="global.html#getDataMain">getDataMain</a></li><li><a href="global.html#getPerformance">getPerformance</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Sat Feb 04 2023 19:56:44 GMT+0100 (heure normale d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

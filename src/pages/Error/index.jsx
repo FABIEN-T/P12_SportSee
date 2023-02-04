@@ -7,7 +7,7 @@ import HeaderLogo from '../../components/HeaderLogo'
  * Component displaying a page indicating
  * that a web page does not exist (404) or a server error (503).
  * @param { Number } errorNumber
- * @returns {JSX.Element} Error page with a link redirecting to the Home page
+ * @returns { JSX.Element } Error page with a link redirecting to the Home page
  */
 
 function Error({ errorNumber }) {

@@ -9,9 +9,15 @@ import {
   PolarRadiusAxis,
 } from 'recharts'
 
+/**
+ * Rechart component displaying user performance chart
+ * @param { Object[] } dataPerformance - array of performance datas
+ * @param { Number } dataPerformance[].value
+ * @param { String } dataPerformance[].kind
+ * @returns { JSX.Element } a radar chart of the user performance
+ */
+
 function ChartRadar({ dataPerformance }) {
-  // console.log('radialchart dataPerformance', typeof dataPerformance)
-  // console.log('Radar', dataPerformance.length)
   if (dataPerformance.length > 0) {
     return (
       <div className="chartRadar">
@@ -35,7 +41,12 @@ function ChartRadar({ dataPerformance }) {
 }
 
 ChartRadar.propTypes = {
-  dataPerformance: PropTypes.array,
+  dataPerformance: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.number,
+      kind: PropTypes.string,
+    })
+  ),
 }
 
 export default ChartRadar

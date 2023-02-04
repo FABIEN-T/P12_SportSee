@@ -7,16 +7,13 @@ import {
   PolarAngleAxis,
 } from 'recharts'
 
-// const score = 30
-// const data = [
-//   {
-//     uv: score,
-//     fill: '#ff0101',
-//   },
-// ]
+/**
+ * Rechart component displaying graph of user score
+ * @param { Number } score - user score number
+ * @returns { JSX.Element } a radial bar chart of the user score
+ */
 
 function ChartRadialBar({ score }) {
-  // console.log(score)
   const data = [
     {
       uv: score,

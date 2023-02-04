@@ -3,7 +3,7 @@ import OvalRed from '../../../assets/ovalRed.svg'
 
 /**
  * Component creating the header on top the BarChart
- * @returns {JSX.Element} a header with a title and a legend
+ * @returns { JSX.Element } a header with a title and a legend
  */
 
 function ChartBarsHeader() {

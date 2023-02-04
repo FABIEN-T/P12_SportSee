@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/ProfilHeader/index.jsx</title>
+    <title>JSDoc: Source: components/Charts/ChartRadarPerformance/index.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/ProfilHeader/index.jsx</h1>
+    <h1 class="page-title">Source: components/Charts/ChartRadarPerformance/index.jsx</h1>
 
     
 
@@ -26,30 +26,58 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import PropTypes from 'prop-types'
+            <pre class="prettyprint source linenums"><code>import React from 'react'
+import PropTypes from 'prop-types'
+import {
+  ResponsiveContainer,
+  Radar,
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  PolarRadiusAxis,
+} from 'recharts'
 
 /**
- * Component displaying the hello message with the firstname of the user
- * @param { string } firstName - data displayed
- * @returns {JSX.Element} a div with the message hello and the firstname of the user
+ * Rechart component displaying user performance chart
+ * @param { Object[] } dataPerformance - array of performance datas
+ * @param { Number } dataPerformance[].value
+ * @param { String } dataPerformance[].kind
+ * @returns { JSX.Element } a radar chart of the user performance
  */
 
-function ProfilHeader({ firstName }) {
-  return (
-    &lt;div className="profil__header">
-      &lt;h2>
-        Bonjour &lt;span>{firstName}&lt;/span>
-      &lt;/h2>
-      &lt;p>Félicitation ! Vous avez explosé vos objectifs hier 👏&lt;/p>
-    &lt;/div>
-  )
+function ChartRadar({ dataPerformance }) {
+  if (dataPerformance.length > 0) {
+    return (
+      &lt;div className="chartRadar">
+        &lt;ResponsiveContainer width="100%" height="100%">
+          &lt;RadarChart outerRadius="53%" data={dataPerformance}>
+            &lt;PolarGrid radialLines={false} />
+            &lt;PolarAngleAxis
+              dataKey="kind"
+              tickLine={false}
+              stroke={'#fff'}
+              fontSize={12}
+              strokeWidth={0.5}
+            />
+            &lt;PolarRadiusAxis axisLine={false} tick={false} />
+            &lt;Radar dataKey="value" fill="#ff0101" fillOpacity={0.6} />
+          &lt;/RadarChart>
+        &lt;/ResponsiveContainer>
+      &lt;/div>
+    )
+  }
 }
 
-ProfilHeader.propTypes = {
-  firstName: PropTypes.string,
+ChartRadar.propTypes = {
+  dataPerformance: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.number,
+      kind: PropTypes.string,
+    })
+  ),
 }
 
-export default ProfilHeader
+export default ChartRadar
 </code></pre>
         </article>
     </section>

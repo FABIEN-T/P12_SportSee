@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/Charts/ChartLineAverage/index.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/Charts/ChartLineAverage/index.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import PropTypes from 'prop-types'
+
+import {
+  ResponsiveContainer,
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Rectangle,
+} from 'recharts'
+
+/**
+ * Component customizing the Tooltip of the line chart
+ * @param { Boolean } active - true when hover
+ * @param { Object[] } payload - array with properties : fill, dataKey...
+ * @returns { JSX.Element } a Tooltip with the values in "minutes" when active
+ */
+
+function CustomTooltip({ active, payload }) {
+  if (active &amp;&amp; payload &amp;&amp; payload.length) {
+    return (
+      &lt;div className="customTooltip2">
+        &lt;p className="label">{`${payload[0].value}min`}&lt;/p>
+      &lt;/div>
+    )
+  }
+  return null
+}
+
+/**
+ * Component customizing the cursor
+ * @param { Object[] } points - array of coordinates of the cursor
+ * @returns a semi-transparent gray rectangle moving to the right
+ * of a point on the curve over which the pointer passes
+ */
+
+function CustomizedCursor({ points }) {
+  console.log('df', points)
+  return (
+    &lt;Rectangle
+      fill="black"
+      opacity={0.1}
+      x={points[0].x}
+      width={1000}
+      height={200}
+    />
+  )
+}
+
+/**
+ * Rechart component displaying graph of user session averages
+ * @param { Object[] } dataAverage - array of session averages datas
+ * @param { Number } dataAverage[]._day
+ * @param { Number } dataAverage[]._sessionLength
+ * @returns { JSX.Element } a line chart of the user performance
+ */
+
+function ChartLine({ dataAverage }) {
+  return (
+    &lt;div className="chartLine">
+      &lt;h3>Durée moyenne des sessions&lt;/h3>
+      &lt;ResponsiveContainer
+        width="100%"
+        height="100%"
+        className="responsiveContainer"
+      >
+        &lt;LineChart data={dataAverage}>
+          &lt;Line
+            type="natural"
+            dataKey="sessionLength"
+            stroke="white"
+            strokeWidth={2}
+            dot={false}
+            activeDot={{
+              stroke: 'red',
+              strokeOpacity: 0.7,
+              strokeWidth: 6,
+              r: 8,
+            }}
+            opacity={0.5}
+          />
+          &lt;XAxis
+            dataKey="day"
+            axisLine={false}
+            tickLine={false}
+            opacity={0.5}
+            style={{
+              transform: 'scaleX(0.9)',
+              transformOrigin: 'bottom',
+              fontSize: '12px',
+              stroke: 'white',
+            }}
+            padding={{ left: -3, right: -3 }}
+            interval={'preserveStartEnd'}
+          />
+          &lt;YAxis
+            hide={true}
+            padding={{ top: 40, bottom: 0 }}
+            domain={['dataMin-10', 'dataMax-10']}
+          />
+          &lt;Tooltip content={&lt;CustomTooltip />} cursor={&lt;CustomizedCursor />} />
+        &lt;/LineChart>
+      &lt;/ResponsiveContainer>
+    &lt;/div>
+  )
+}
+
+ChartLine.propTypes = {
+  dataAverage: PropTypes.arrayOf(
+    PropTypes.shape({
+      _day: PropTypes.number,
+      _sessionLength: PropTypes.number,
+    })
+  ),
+}
+
+export default ChartLine
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#ChartBars">ChartBars</a></li><li><a href="global.html#ChartBarsHeader">ChartBarsHeader</a></li><li><a href="global.html#ChartLine">ChartLine</a></li><li><a href="global.html#ChartRadar">ChartRadar</a></li><li><a href="global.html#ChartRadialBar">ChartRadialBar</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#CustomizedCursor">CustomizedCursor</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HeaderLogo">HeaderLogo</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#NavSide">NavSide</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#NutritionAside">NutritionAside</a></li><li><a href="global.html#NutritionCard">NutritionCard</a></li><li><a href="global.html#Profil">Profil</a></li><li><a href="global.html#ProfilHeader">ProfilHeader</a></li><li><a href="global.html#getActivy">getActivy</a></li><li><a href="global.html#getAverageSessions">getAverageSessions</a></li><li><a href="global.html#getDataMain">getDataMain</a></li><li><a href="global.html#getPerformance">getPerformance</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Sat Feb 04 2023 19:56:44 GMT+0100 (heure normale d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

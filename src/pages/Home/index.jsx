@@ -7,8 +7,8 @@ import NavSide from '../../components/NavSide'
 /**
  * Component for choosing the user for the Profil page
  * and the type of data (Mock or API)
- * @param { Function(setTypeData<Booleen>) } - allows to switch data (Mock or API)
- * @returns { JSX.Element } Home page
+ * @param { Function } setTypeData - allows to switch data (Mock or API)
+ * @returns { JSX.Element } Home Page
  */
 
 function Home({ setTypeData }) {

@@ -7,7 +7,7 @@ import Error from './pages/Error'
 
 /**
  * Component creating the route pages : Home, Profil, Error
- * @returns {JSX.Element} App
+ * @returns { JSX.Element } App
  */
 
 export default function App() {

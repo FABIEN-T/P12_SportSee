@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 
 /**
  * Component creating the navigation menu
- * @returns {JSX.Element} a navbar (only active Home link )
+ * @returns { JSX.Element } a navbar (Home: only active link)
  */
 
 function Navbar() {

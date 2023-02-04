@@ -22,9 +22,10 @@ import {
 } from '../../service/getData'
 
 /**
- * Component retrieving user data (Mock or API)
- * and displaying them as graphs through components using rechart
- * @returns { JSX.Element } Profil Page
+ * Component retrieving user data (Mock or API) and displaying them
+ * as graphs through components using Recharts library
+ * @param { Boolean } typeData - if true : data from Api else from Mock
+ * @returns { JSX.Element } Profil Page with charts
  */
 
 function Profil({ typeData }) {
@@ -38,9 +39,12 @@ function Profil({ typeData }) {
   const [dataPerformance, setDataPerformance] = useState({})
 
   const [isLoading, setIsLoading] = useState(true)
-  getDataMain(typeData, currentUserId)
 
   useEffect(() => {
+    /**
+     * Function recovering all data
+     * @returns
+     */
     async function getAllDatas() {
       try {
         const [dataMain, dataActivity, dataAverage, dataPerformance] =
@@ -55,8 +59,7 @@ function Profil({ typeData }) {
         setDataActivity(dataActivity._dataActivity)
         setDataAverage(dataAverage._dataAverage)
         setDataPerformance(dataPerformance._dataPerformance)
-        setIsLoading(false)
-        // console.log('Profil dataMain._calorie', dataMain._calorie)
+        setIsLoading(false) // indicates that data loading is complete
       } catch (error) {
         console.log(
           '****Profil-Error****',
@@ -74,8 +77,6 @@ function Profil({ typeData }) {
 
     getAllDatas()
   }, [navigate, currentUserId, typeData])
-  // dataActivity.map((el) => console.log('Profil', el.day))
-  // console.log('Profil', dataActivity.day)
 
   return isLoading ? (
     <div className="loader">

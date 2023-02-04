@@ -10,7 +10,14 @@ import {
   Rectangle,
 } from 'recharts'
 
-const CustomTooltip = ({ active, payload }) => {
+/**
+ * Component customizing the Tooltip of the line chart
+ * @param { Boolean } active - true when hover
+ * @param { Object[] } payload - array with properties : fill, dataKey...
+ * @returns { JSX.Element } a Tooltip with the values in "minutes" when active
+ */
+
+function CustomTooltip({ active, payload }) {
   if (active && payload && payload.length) {
     return (
       <div className="customTooltip2">
@@ -21,7 +28,15 @@ const CustomTooltip = ({ active, payload }) => {
   return null
 }
 
+/**
+ * Component customizing the cursor
+ * @param { Object[] } points - array of coordinates of the cursor
+ * @returns a semi-transparent gray rectangle moving to the right
+ * of a point on the curve over which the pointer passes
+ */
+
 function CustomizedCursor({ points }) {
+  console.log('df', points)
   return (
     <Rectangle
       fill="black"
@@ -33,24 +48,27 @@ function CustomizedCursor({ points }) {
   )
 }
 
-function ChartLine({ dataAverage }) {
-  // console.log('ChartLine dataAverage', typeof dataAverage)
+/**
+ * Rechart component displaying graph of user session averages
+ * @param { Object[] } dataAverage - array of session averages datas
+ * @param { Number } dataAverage[]._day
+ * @param { Number } dataAverage[]._sessionLength
+ * @returns { JSX.Element } a line chart of the user performance
+ */
 
+function ChartLine({ dataAverage }) {
   return (
     <div className="chartLine">
       <h3>Durée moyenne des sessions</h3>
       <ResponsiveContainer
-        // width="100%"
-        // height="100%"
+        width="100%"
+        height="100%"
         className="responsiveContainer"
       >
         <LineChart data={dataAverage}>
           <Line
-            // yAxisId="left-axis"
-            // width="120"
             type="natural"
             dataKey="sessionLength"
-            // unit={'min'}
             stroke="white"
             strokeWidth={2}
             dot={false}
@@ -60,18 +78,13 @@ function ChartLine({ dataAverage }) {
               strokeWidth: 6,
               r: 8,
             }}
-            // activeDot={<CustomizedActiveDot />}
             opacity={0.5}
           />
           <XAxis
             dataKey="day"
-            // tickFormatter={daysWeek}
             axisLine={false}
             tickLine={false}
             opacity={0.5}
-            // tick={{ stroke: 'white' }}
-            // tick={false}
-            // padding={{ right: 20, left: 20 }}
             style={{
               transform: 'scaleX(0.9)',
               transformOrigin: 'bottom',
@@ -79,30 +92,14 @@ function ChartLine({ dataAverage }) {
               stroke: 'white',
             }}
             padding={{ left: -3, right: -3 }}
-            // width={350}
-            // domain={['dataMin+30', 'dataMax+30']}
             interval={'preserveStartEnd'}
-            // hide={true}
           />
           <YAxis
-            // yAxisId="left-axis"
             hide={true}
             padding={{ top: 40, bottom: 0 }}
             domain={['dataMin-10', 'dataMax-10']}
           />
-          <Tooltip
-            // wrapperStyle={{
-            //   background: '#FFF',
-            //   outline: 'none',
-            // }}
-            content={<CustomTooltip />}
-            // cursor={{
-            //   stroke: 'black',
-            //   strokeOpacity: 0.1,
-            //   strokeWidth: 60,
-            // }}
-            cursor={<CustomizedCursor />}
-          />
+          <Tooltip content={<CustomTooltip />} cursor={<CustomizedCursor />} />
         </LineChart>
       </ResponsiveContainer>
     </div>
@@ -110,7 +107,12 @@ function ChartLine({ dataAverage }) {
 }
 
 ChartLine.propTypes = {
-  dataAverage: PropTypes.array,
+  dataAverage: PropTypes.arrayOf(
+    PropTypes.shape({
+      _day: PropTypes.number,
+      _sessionLength: PropTypes.number,
+    })
+  ),
 }
 
 export default ChartLine

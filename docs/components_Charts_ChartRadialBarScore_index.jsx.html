@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/ProfilHeader/index.jsx</title>
+    <title>JSDoc: Source: components/Charts/ChartRadialBarScore/index.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/ProfilHeader/index.jsx</h1>
+    <h1 class="page-title">Source: components/Charts/ChartRadialBarScore/index.jsx</h1>
 
     
 
@@ -26,30 +26,88 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import PropTypes from 'prop-types'
+            <pre class="prettyprint source linenums"><code>import React from 'react'
+import PropTypes from 'prop-types'
+import {
+  ResponsiveContainer,
+  RadialBarChart,
+  RadialBar,
+  PolarAngleAxis,
+} from 'recharts'
 
 /**
- * Component displaying the hello message with the firstname of the user
- * @param { string } firstName - data displayed
- * @returns {JSX.Element} a div with the message hello and the firstname of the user
+ * Rechart component displaying graph of user score
+ * @param { Number } score - user score number
+ * @returns { JSX.Element } a radial bar chart of the user score
  */
 
-function ProfilHeader({ firstName }) {
+function ChartRadialBar({ score }) {
+  const data = [
+    {
+      uv: score,
+      fill: '#ff0101',
+    },
+  ]
+
   return (
-    &lt;div className="profil__header">
-      &lt;h2>
-        Bonjour &lt;span>{firstName}&lt;/span>
-      &lt;/h2>
-      &lt;p>Félicitation ! Vous avez explosé vos objectifs hier 👏&lt;/p>
+    &lt;div className="chartRadialBar">
+      &lt;h3>Score&lt;/h3>
+      &lt;ResponsiveContainer className="positionRadial">
+        &lt;RadialBarChart
+          startAngle={90}
+          endAngle={450}
+          innerRadius={85}
+          barSize={9}
+          data={data}
+        >
+          &lt;PolarAngleAxis
+            type="number"
+            fill="#ff0101"
+            domain={[0, 100]}
+            tick={false}
+          />
+          &lt;RadialBar minAngle={1} cornerRadius="10" dataKey="uv" />
+          &lt;text
+            fontWeight="700"
+            fontSize={26}
+            fill="#282D30"
+            x="50%"
+            y="48%"
+            textAnchor="middle"
+          >
+            {score}%
+          &lt;/text>
+          &lt;text
+            fontSize="16"
+            fontWeight="500"
+            fill="#74798C"
+            x="50%"
+            y="57%"
+            textAnchor="middle"
+          >
+            de votre
+          &lt;/text>
+          &lt;text
+            fontSize="16"
+            fontWeight="500"
+            fill="#74798C"
+            x="50%"
+            y="66%"
+            textAnchor="middle"
+          >
+            objectif
+          &lt;/text>
+        &lt;/RadialBarChart>
+      &lt;/ResponsiveContainer>
     &lt;/div>
   )
 }
 
-ProfilHeader.propTypes = {
-  firstName: PropTypes.string,
+ChartRadialBar.propTypes = {
+  score: PropTypes.number,
 }
 
-export default ProfilHeader
+export default ChartRadialBar
 </code></pre>
         </article>
     </section>
