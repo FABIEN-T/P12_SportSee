@@ -1,17 +1,19 @@
 /**
  * User main data formatting
  * @class
- * @param { Object } data
- * @param { String } data.userInfos.firstName
- * @param { Number } data.userInfos.age
- * @param { Number } data.score
- * @param { Number } data.keyData.calorieCount
- * @param { Number } data.keyData.proteinCount
- * @param { Number } data.keyData.carbohydrateCount
- * @param { Number } data.keyData.lipidCount
  */
 
-export default class ModelMainData {
+class ModelMain {
+  /**
+   * @param { Object } data
+   * @param { String } data.userInfos.firstName
+   * @param { Number } data.userInfos.age
+   * @param { Number } data.score
+   * @param { Number } data.keyData.calorieCount
+   * @param { Number } data.keyData.proteinCount
+   * @param { Number } data.keyData.carbohydrateCount
+   * @param { Number } data.keyData.lipidCount
+   */
   constructor(data) {
     this.data = data
     this._firstName = data.userInfos.firstName
@@ -25,3 +27,5 @@ export default class ModelMainData {
     this._lipid = data.keyData.lipidCount
   }
 }
+
+export { ModelMain }

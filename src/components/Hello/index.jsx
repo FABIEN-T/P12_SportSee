@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 /**
  * Component displaying the hello message with the firstname of the user
  * @param { string } firstName - data displayed
- * @returns {JSX.Element} a div with the message hello and the firstname of the user
+ * @returns {JSX.Element} Bonjour (firstname of the user)
  */
 
 function Hello({ firstName }) {

@@ -3,10 +3,10 @@ import mock_UserActivity from '../data/mock_USER_ACTIVITY.json'
 import mock_UserAverageSessions from '../data/mock_USER_AVERAGE_SESSIONS.json'
 import mock_UserPerformance from '../data/mock_USER_PERFORMANCE.json'
 
-import ModelMain from '../models/model_USER_MAIN_DATA'
-import ModelActivity from '../models/model_USER_ACTIVITY'
-import ModelAverageSessions from '../models/model_USER_AVERAGE_SESSIONS'
-import ModelPerformance from '../models/model_USER_PERFORMANCE'
+import { ModelMain } from '../models/model_USER_MAIN_DATA'
+import { ModelActivity } from '../models/model_USER_ACTIVITY'
+import { ModelAverageSessions } from '../models/model_USER_AVERAGE_SESSIONS'
+import { ModelPerformance } from '../models/model_USER_PERFORMANCE'
 
 /**
  * Function allowing to fetch the main data (API or mock)
@@ -16,7 +16,7 @@ import ModelPerformance from '../models/model_USER_PERFORMANCE'
  * @returns {(?Object)} ModelMain(data) - formate the datas
  */
 
-const getDataMain = async (typeData, userId) => {
+const getMain = async (typeData, userId) => {
   if (typeData) {
     try {
       const response = await fetch(`http://localhost:3000/user/${userId}`)
@@ -94,7 +94,7 @@ const getPerformance = async (typeData, userId) => {
   }
 }
 
-export { getDataMain, getActivy, getAverageSessions, getPerformance }
+export { getMain, getActivy, getAverageSessions, getPerformance }
 // export { getDataMain, getPerformance }
 // export { getDataMain }
 

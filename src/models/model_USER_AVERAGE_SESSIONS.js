@@ -1,19 +1,41 @@
+// import { ModelAverageSessionsLength } from './subClass'
+
 /**
- * User session data formatting
+ * User session averages data formatting
  * @class
- * @param { Object } data
- * @param { Number } data.day
- * @param { Number } data.sessionLength
  */
 
-class ModelDataSessions {
+class ModelAverageSessions {
+  /**
+   * @param { Object } data
+   * @param { Object[] } data.sessions - day, sessionLength
+   */
   constructor(data) {
+    this._dataAverage = data.sessions.map(
+      (element) => new ModelAverageSessionsLength(element)
+    )
+  }
+}
+
+export { ModelAverageSessions }
+
+/**
+ * User session data formatting (Average sessions)
+ * @class
+ */
+class ModelAverageSessionsLength {
+  constructor(data) {
+    /**
+     * @param { Object } data
+     * @param { Number } data.day
+     * @param { Number } data.sessionLength
+     */
     this._day = data.day
     this._sessionLength = data.sessionLength
   }
 
   /**
-   * Method converting numbers to initials of days of the week
+   * @property {Function} day() converting numbers to initials of days of the week
    * @returns { String } a initial of a day ('L')
    */
 
@@ -24,24 +46,8 @@ class ModelDataSessions {
     }
     return daysWeek(this._day)
   }
+
   get sessionLength() {
     return this._sessionLength
-  }
-}
-
-/**
- * User session averages data formatting
- * @class
- * @param { Object } data
- * @param { Number } data.userId
- * @param { Object[] } data.sessions - array
- */
-
-export default class ModelAverageSessions {
-  constructor(data) {
-    this._userId = data.userId
-    this._dataAverage = data.sessions.map(
-      (element) => new ModelDataSessions(element)
-    )
   }
 }

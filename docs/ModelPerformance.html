@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: models/model_USER_MAIN_DATA.js</title>
+    <title>JSDoc: Class: ModelPerformance</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,49 +17,235 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: models/model_USER_MAIN_DATA.js</h1>
+    <h1 class="page-title">Class: ModelPerformance</h1>
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/**
- * User main data formatting
- * @class
- */
+        <h2><span class="attribs"><span class="type-signature"></span></span>ModelPerformance<span class="signature">(data)</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description"><p>User peformances data formatting</p></div>
+        
+    
+</header>
 
-class ModelMain {
-  /**
-   * @param { Object } data
-   * @param { String } data.userInfos.firstName
-   * @param { Number } data.userInfos.age
-   * @param { Number } data.score
-   * @param { Number } data.keyData.calorieCount
-   * @param { Number } data.keyData.proteinCount
-   * @param { Number } data.keyData.carbohydrateCount
-   * @param { Number } data.keyData.lipidCount
-   */
-  constructor(data) {
-    this.data = data
-    this._firstName = data.userInfos.firstName
-    this._age = data.userInfos.age
-    // Using a ternary condition to solve the problem of changing
-    // the name of the property from one object to another("todayScore" vs "score").
-    this._score = data.todayScore ? data.todayScore * 100 : data.score * 100
-    this._calorie = data.keyData.calorieCount / 1000
-    this._protein = data.keyData.proteinCount
-    this._carbohydrate = data.keyData.carbohydrateCount
-    this._lipid = data.keyData.lipidCount
-  }
-}
+<article>
+    <div class="container-overview">
+    
+        
 
-export { ModelMain }
-</code></pre>
-        </article>
-    </section>
+    
+    <h2>Constructor</h2>
+    
+
+    
+    <h4 class="name" id="ModelPerformance"><span class="type-signature"></span>new ModelPerformance<span class="signature">(data)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>value and kind</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="models_model_USER_PERFORMANCE.js.html">models/model_USER_PERFORMANCE.js</a>, <a href="models_model_USER_PERFORMANCE.js.html#line8">line 8</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

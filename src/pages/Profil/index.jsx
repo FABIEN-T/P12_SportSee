@@ -15,7 +15,7 @@ import ChartRadialBar from '../../components/Charts/ChartRadialBarScore'
 import NutritionAside from '../../components/NutritionAside'
 
 import {
-  getDataMain,
+  getMain,
   getPerformance,
   getAverageSessions,
   getActivy,
@@ -49,7 +49,7 @@ function Profil({ typeData }) {
       try {
         const [dataMain, dataActivity, dataAverage, dataPerformance] =
           await Promise.all([
-            getDataMain(typeData, currentUserId),
+            getMain(typeData, currentUserId),
             getActivy(typeData, currentUserId),
             getAverageSessions(typeData, currentUserId),
             getPerformance(typeData, currentUserId),
