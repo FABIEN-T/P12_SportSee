@@ -1,3 +1,64 @@
+# SPORTSEE : analytics dashboard
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Sass](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
+![js](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![REACT](https://img.shields.io/badge/React-303540?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Recharts](https://img.shields.io/badge/<Recharts%20/>-22b5bf?style=for-the-badge&logo=recharts&logoColor=white)
+
+![Author](<https://img.shields.io/badge/Author-Fabien Varlet-"?style=for-the-badge&color=darkgoldenrod>)
+![size](https://img.shields.io/github/repo-size/FABIEN-T/P12_SportSee?style=for-the-badge)
+
+![SNAPSHOT](/src/assets/readme/Snapshot_Readme2.png "Titre de l'image")
+
+## Presentation
+
+This is the new version of the profile page of the SportSee app.
+
+It allows the user to track daily progress (weight, number of calories burned, etc.) via an analytics dashboard.
+
+## Installing the app
+
+### 1/ Backend
+
+You must first fork and clone the backend at the following address:
+https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard
+
+Then run the application in development mode with the <code>yarn start</code> command on the terminal which opens the port [http://localhost:3000](http://localhost:3000).
+
+### 2/ Front-end
+
+You must execute the <code>yarn start</code> command on the terminal to launch the opening of the home page.
+
+This allows you to select the type of data (API or Mock) and the user.
+When you select a user, you are directed to their profile page.
+
+## Prerequisites
+
+![Node.js](https://img.shields.io/badge/Node.js-16.14.0-43853D?style=flat-square&logo=node.js&logoColor=white)
+![npm](https://img.shields.io/badge/npm-9.1.3-%23000000?style=flat-square&logo=npm&logoColor=white)
+![yarn](https://img.shields.io/badge/yarn-1.22.19-%232C8EBB?style=flat-square&logo=yarn&logoColor=white)
+
+## Dependencies
+
+![GitHub package.json dependencies (dev)](https://img.shields.io/github/package-json/dependency-version/FABIEN-T/P12_SportSee/react?label=REACT&logo=react&logoColor=61DAFB&color=blue&style=flat-square)
+![GitHub package.json dependency version (dev)](https://img.shields.io/github/package-json/dependency-version/FABIEN-T/P12_SportSee/react-dom?label=React-dom&color=blue&style=flat-square)
+![GitHub package.json dependency version (dev)](https://img.shields.io/github/package-json/dependency-version/FABIEN-T/P12_SportSee/react-scripts?label=React-scripts&color=blue&style=flat-square)
+
+![GitHub package.json dependency version (dev)](https://img.shields.io/github/package-json/dependency-version/FABIEN-T/P12_SportSee/recharts?label=Recharts&color=blue&style=flat-square)
+
+![GitHub package.json dependency version (dev)](https://img.shields.io/github/package-json/dependency-version/FABIEN-T/P12_SportSee/sass?label=SASS&color=blue&style=flat-square)
+
+### DevDependencies
+
+![jsDoc](https://img.shields.io/badge/jsDoc-^4.0.0-blue?style=flat-square)
+
+![Prettier](https://img.shields.io/badge/Prettier-^2.8.2-blue?style=flat-square)
+
+<br>
+<br>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
