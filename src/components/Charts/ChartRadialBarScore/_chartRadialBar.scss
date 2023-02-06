@@ -1,6 +1,7 @@
 .chartRadialBar {
   position: relative;
-  width: $widthChart;
+  // width: $widthChart;
+  aspect-ratio: 0.98/1;
   height: 100%;
   border-radius: 5px;
   overflow: hidden;

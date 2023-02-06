@@ -20,7 +20,7 @@ import {
 function CustomTooltip({ active, payload }) {
   if (active && payload && payload.length) {
     return (
-      <div className="customTooltip2">
+      <div className="customTooltipLine">
         <p className="label">{`${payload[0].value}min`}</p>
       </div>
     )
@@ -43,7 +43,7 @@ function CustomizedCursor({ points }) {
       opacity={0.1}
       x={points[0].x}
       width={1000}
-      height={200}
+      height={300}
     />
   )
 }

@@ -1,7 +1,8 @@
 .chartRadar {
-  width: 100%;
+  // width: 20%;
+  aspect-ratio: 0.98/1;
   height: 100%;
-  width: $widthChart;
+  // width: $widthChart;
   border-radius: 5px;
   overflow: hidden;
   font-size: 10px;

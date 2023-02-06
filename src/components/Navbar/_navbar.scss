@@ -1,5 +1,7 @@
 .navBar {
   display: flex;
+  justify-content: space-between;
+  width: 100%;
 
   font: {
     size: 24px;
@@ -7,7 +9,7 @@
   }
 
   .navBarLink {
-    margin: 0 0 0 100px;
+    margin: 0;
     display: flex;
     color: white;
     text-decoration: none;

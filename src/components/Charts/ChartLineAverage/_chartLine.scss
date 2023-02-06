@@ -1,7 +1,8 @@
 .chartLine {
   position: relative;
   display: flex;
-  width: $widthChart;
+  // width: $widthChart;
+  aspect-ratio: 0.98/1;
   height: 100%;
   border-radius: 5px;
   padding: 0;
@@ -23,7 +24,7 @@
   }
 }
 
-.customTooltip2 {
+.customTooltipLine {
   display: flex;
   background-color: white;
   width: 39px;
