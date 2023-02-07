@@ -10,6 +10,8 @@ import {
   Tooltip,
 } from 'recharts'
 
+let a = 40
+
 /**
  * Component customizing the Tooltip of the bar chart
  * @param { Boolean } active - true when hover
@@ -42,24 +44,38 @@ function ChartBars({ dataActivity }) {
   return (
     <div className="chartBars">
       <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={dataActivity} barGap={8}>
-          <CartesianGrid strokeDasharray="3 3" vertical={false} />
+        <BarChart data={dataActivity} barGap={8} barSize={7}>
+          <CartesianGrid
+            strokeDasharray="3 3"
+            vertical={false}
+            stroke={'#DEDEDE'}
+          />
           <XAxis
             dataKey="_day"
+            // type="number"
             tickLine={false}
-            padding={{ left: -23, right: -24 }}
             tickMargin={16}
-            minTickGap={30}
+            // minTickGap={10}
+            tick={{ fill: '#9B9EAC', fontWeight: 500, fontSize: 14 }}
+            // tickCount={dataActivity.length}
+            // padding={{ left: -23, right: -23 }}
+            // padding={{ left: 0, right: 0 }}
+            padding={{ left: -30, right: -46 }}
+            // padding="gap"
+            // padding="no-gap"
             domain={['dataMin', 'dataMax']}
+            stroke="#DEDEDE"
+            // textAnchor="middle"
           />
           <YAxis
             orientation="right"
             yAxisId="kilogram"
-            tickLine={false}
             axisLine={false}
+            // type="number"
+            tickLine={false}
             tickMargin={42}
             tickCount={3}
-            tick={{ fontSize: 14 }}
+            tick={{ fill: '#9B9EAC', fontWeight: 500, fontSize: 14 }}
             domain={['dataMin-1', 'dataMax']}
           />
 
@@ -76,14 +92,14 @@ function ChartBars({ dataActivity }) {
             yAxisId="kilogram"
             dataKey="_kilogram"
             fill="#000"
-            barSize={7}
+            // barSize={7}
             radius={[4, 4, 0, 0]}
           />
           <Bar
             yAxisId="calories"
             dataKey="_calories"
             fill="#E60000"
-            barSize={7}
+            // barSize={7}
             radius={[4, 4, 0, 0]}
           />
         </BarChart>

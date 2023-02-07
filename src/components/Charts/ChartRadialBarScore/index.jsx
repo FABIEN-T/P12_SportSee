@@ -24,53 +24,60 @@ function ChartRadialBar({ score }) {
   return (
     <div className="chartRadialBar">
       <h3>Score</h3>
-      <ResponsiveContainer className="positionRadial">
-        <RadialBarChart
-          startAngle={90}
-          endAngle={450}
-          innerRadius={85}
-          barSize={9}
-          data={data}
-        >
-          <PolarAngleAxis
-            type="number"
-            fill="#ff0101"
-            domain={[0, 100]}
-            tick={false}
-          />
-          <RadialBar minAngle={1} cornerRadius="10" dataKey="uv" />
-          <text
-            fontWeight="700"
-            fontSize={26}
-            fill="#282D30"
-            x="50%"
-            y="48%"
-            textAnchor="middle"
+      <div className="chartRadialBar__small">
+        <ResponsiveContainer width="100%" height="100%" className="container">
+          <RadialBarChart
+            startAngle={90}
+            endAngle={450}
+            innerRadius={80}
+            outerRadius={260}
+            barSize={9}
+            data={data}
           >
-            {score}%
-          </text>
-          <text
-            fontSize="16"
-            fontWeight="500"
-            fill="#74798C"
-            x="50%"
-            y="57%"
-            textAnchor="middle"
-          >
-            de votre
-          </text>
-          <text
-            fontSize="16"
-            fontWeight="500"
-            fill="#74798C"
-            x="50%"
-            y="66%"
-            textAnchor="middle"
-          >
-            objectif
-          </text>
-        </RadialBarChart>
-      </ResponsiveContainer>
+            <circle cx="50%" cy="50%" fill="white" r="75"></circle>
+
+            <PolarAngleAxis
+              type="number"
+              fill="#ff0101"
+              domain={[0, 100]}
+              tick={false}
+              angleAxisId={0}
+            />
+            {/* <RadialBar minAngle={1} cornerRadius="10" dataKey="uv" /> */}
+            <RadialBar cornerRadius="10" dataKey="uv" />
+            <text
+              fontWeight="700"
+              fontSize={26}
+              fill="#282D30"
+              x="50%"
+              y="48%"
+              textAnchor="middle"
+            >
+              {score}%
+            </text>
+            <text
+              fontSize="16"
+              fontWeight="500"
+              fill="#74798C"
+              x="50%"
+              y="60%"
+              textAnchor="middle"
+            >
+              de votre
+            </text>
+            <text
+              fontSize="16"
+              fontWeight="500"
+              fill="#74798C"
+              x="50%"
+              y="70%"
+              textAnchor="middle"
+            >
+              objectif
+            </text>
+          </RadialBarChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   )
 }

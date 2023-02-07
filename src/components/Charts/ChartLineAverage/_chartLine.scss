@@ -1,8 +1,7 @@
 .chartLine {
   position: relative;
   display: flex;
-  // width: $widthChart;
-  aspect-ratio: 0.98/1;
+  aspect-ratio: 0.98;
   height: 100%;
   border-radius: 5px;
   padding: 0;
@@ -12,8 +11,9 @@
 
   h3 {
     position: absolute;
-    top: 4%;
-    left: 5%;
+    top: 11%;
+    left: 13.1%;
+    width: 135px;
     margin: 0;
     font: {
       size: 15px;
