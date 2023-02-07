@@ -44,7 +44,12 @@ function ChartBars({ dataActivity }) {
   return (
     <div className="chartBars">
       <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={dataActivity} barGap={8} barSize={7}>
+        <BarChart
+          data={dataActivity}
+          barGap={8}
+          barSize={7}
+          margin={{ top: 0, right: 20, bottom: 20, left: 6 }}
+        >
           <CartesianGrid
             strokeDasharray="3 3"
             vertical={false}
@@ -52,20 +57,18 @@ function ChartBars({ dataActivity }) {
           />
           <XAxis
             dataKey="_day"
-            // type="number"
             tickLine={false}
             tickMargin={16}
-            // minTickGap={10}
+            // minTickGap={50}
             tick={{ fill: '#9B9EAC', fontWeight: 500, fontSize: 14 }}
-            // tickCount={dataActivity.length}
             // padding={{ left: -23, right: -23 }}
-            // padding={{ left: 0, right: 0 }}
+            // padding={{ left: 0, right: 0, top: 0, bottom: 0 }}
             padding={{ left: -30, right: -46 }}
             // padding="gap"
             // padding="no-gap"
             domain={['dataMin', 'dataMax']}
             stroke="#DEDEDE"
-            // textAnchor="middle"
+            textAnchor="middle"
           />
           <YAxis
             orientation="right"

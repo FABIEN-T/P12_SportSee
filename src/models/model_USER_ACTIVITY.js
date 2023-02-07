@@ -1,5 +1,3 @@
-// import { ModelActivitySessions } from './subClass'
-
 /**
  * User activity data formatting
  * @class

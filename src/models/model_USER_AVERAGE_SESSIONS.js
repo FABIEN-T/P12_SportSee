@@ -1,5 +1,3 @@
-// import { ModelAverageSessionsLength } from './subClass'
-
 /**
  * User session averages data formatting
  * @class

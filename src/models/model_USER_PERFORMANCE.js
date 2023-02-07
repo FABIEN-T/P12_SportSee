@@ -1,5 +1,3 @@
-// import { ModelPerformanceValue } from './subClass'
-
 /**
  * User peformances data formatting
  * @class
