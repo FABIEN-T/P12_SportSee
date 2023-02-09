@@ -74,7 +74,6 @@ function Profil({ typeData }) {
         }
       }
     }
-
     getAllDatas()
   }, [navigate, currentUserId, typeData])
 

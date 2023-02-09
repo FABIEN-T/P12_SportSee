@@ -15,10 +15,9 @@ class ModelMain {
    * @param { Number } data.keyData.lipidCount
    */
   constructor(data) {
-    this.data = data
     this._firstName = data.userInfos.firstName
     this._age = data.userInfos.age
-    // todayScore : Using a ternary condition to solve the problem of changing
+    // "todayScore" : Using a ternary condition to solve the problem of changing
     // the name of the property from one object to another("todayScore" vs "score").
     this._score = data.todayScore ? data.todayScore * 100 : data.score * 100
     this._calorie = data.keyData.calorieCount / 1000
