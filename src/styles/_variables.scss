@@ -1,13 +1,15 @@
 // Couleur principale
-$primary: #e60000;
+$redLogotext: #e60000;
+$redLogo: #ff0101;
+$redChart: #ff0000;
 
 $grey1: #74798c;
 $grey2: #9b9eac;
 
 // Couleurs de fond
-// $backgroundClear: #fbfbfb;
 $backgroundClear: #f6f5f5; // !!! remettre bonne valeur !!!
+$backgroundClear: #fbfbfb;
 $backgroundDark: #282d30;
 
-// Largeur des trois charts du bas
-$widthChart: 30.9%;
+//@media screen
+$breakPoint: 840px;

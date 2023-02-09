@@ -31,8 +31,10 @@ class ModelActivitySessions {
    */
   constructor(data) {
     this._day = Number(data.day.slice(8))
-    // 2020-07-02 : keep the last digit and return a number : 2
-    // 2020-07-12 : keep the last two digits and return a number : 12
+    // data.day is in date format
+    // Number (data.day.slice(8)) :
+    // keep the last digit of '2020-07-02' and return a number : 2
+    // keep the last two digits '2020-07-12' and return a number : 12
     this._kilogram = data.kilogram
     this._calories = data.calories
   }

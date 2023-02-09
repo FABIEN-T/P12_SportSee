@@ -36,7 +36,10 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
+  Legend,
 } from 'recharts'
+
+let a = 40
 
 /**
  * Component customizing the Tooltip of the bar chart
@@ -67,27 +70,47 @@ function CustomTooltip({ active, payload }) {
  */
 
 function ChartBars({ dataActivity }) {
+  console.log(dataActivity)
   return (
+    // &lt;div className="daily-activity">
     &lt;div className="chartBars">
       &lt;ResponsiveContainer width="100%" height="100%">
-        &lt;BarChart data={dataActivity} barGap={8}>
-          &lt;CartesianGrid strokeDasharray="3 3" vertical={false} />
+        &lt;BarChart
+          data={dataActivity}
+          barGap={8}
+          barSize={7}
+          // margin={{ top: 0, right: 20, bottom: 20, left: 6 }}
+        >
+          &lt;CartesianGrid
+            strokeDasharray="3 3"
+            vertical={false}
+            stroke={'#DEDEDE'}
+          />
           &lt;XAxis
             dataKey="_day"
             tickLine={false}
-            padding={{ left: -23, right: -24 }}
             tickMargin={16}
-            minTickGap={30}
-            domain={['dataMin', 'dataMax']}
+            // minTickGap={50}
+            tick={{ fill: '#9B9EAC', fontWeight: 500, fontSize: 14 }}
+            // padding={{ left: -23, right: -23 }}
+            // padding={{ left: 0, right: 0, top: 0, bottom: 0 }}
+            // padding={{ left: -30, right: -46 }}
+            padding={{ left: -46, right: -46 }}
+            // padding="gap"
+            // padding="no-gap"
+            // domain={['dataMin' + 10, 'dataMax' + 10]}
+            stroke="#DEDEDE"
+            textAnchor="middle"
           />
           &lt;YAxis
             orientation="right"
             yAxisId="kilogram"
-            tickLine={false}
             axisLine={false}
+            // type="number"
+            tickLine={false}
             tickMargin={42}
             tickCount={3}
-            tick={{ fontSize: 14 }}
+            tick={{ fill: '#9B9EAC', fontWeight: 500, fontSize: 14 }}
             domain={['dataMin-1', 'dataMax']}
           />
 
@@ -104,18 +127,107 @@ function ChartBars({ dataActivity }) {
             yAxisId="kilogram"
             dataKey="_kilogram"
             fill="#000"
-            barSize={7}
+            // barSize={7}
             radius={[4, 4, 0, 0]}
           />
           &lt;Bar
             yAxisId="calories"
             dataKey="_calories"
             fill="#E60000"
-            barSize={7}
+            // barSize={7}
             radius={[4, 4, 0, 0]}
           />
         &lt;/BarChart>
       &lt;/ResponsiveContainer>
+
+      {/* &lt;ResponsiveContainer
+        width="100%"
+        height="100%"
+        className="daily-activity-chart"
+      >
+        &lt;BarChart
+          width={500}
+          height={300}
+          data={dataActivity}
+          margin={{
+            top: 80,
+            right: 50,
+            left: 45,
+            bottom: 20,
+          }}
+          barSize={7}
+          barGap={8}
+        >
+          &lt;CartesianGrid strokeDasharray="3 3" vertical={false} />
+          &lt;XAxis
+            dataKey="_day"
+            tickLine={false}
+            stroke=" #DEDEDE"
+            tick={{ fill: '#9B9BAC', fontWeight: 500, fontSize: 14 }}
+            padding={{ left: -50, right: -50 }}
+            tickMargin={16}
+          />
+          &lt;YAxis
+            yAxisId="kilogram"
+            domain={['dataMin -1', 'dataMax +2']}
+            tickLine={false}
+            orientation="right"
+            axisLine={false}
+            tick={{ fill: '#9B9BAC', fontWeight: 500, fontSize: 14 }}
+            tickMargin={40}
+            minTickGap={30}
+          />
+          &lt;YAxis yAxisId="calories" hide />
+          &lt;Tooltip content={&lt;CustomTooltip />} />
+          &lt;Legend
+            className="activityLegend"
+            verticalAlign="top"
+            align="right"
+            iconType={'circle'}
+            iconSize={8}
+            width={300}
+            height={25}
+            wrapperStyle={{ top: 38, right: 32 }}
+            formatter={(value) => {
+              return (
+                &lt;span
+                  style={{
+                    color: '#74798C',
+                    fontSize: 14,
+                    fontWeight: 500,
+                  }}
+                >
+                  {value}
+                &lt;/span>
+              )
+            }}
+          />
+          &lt;Bar
+            yAxisId="kilogram"
+            dataKey="_kilogram"
+            name="Poids (kg)"
+            fill="#282D30"
+            radius={[4, 4, 0, 0]}
+          />
+          &lt;Bar
+            yAxisId="calories"
+            dataKey="_calories"
+            name="Calories brûlées (kCal)"
+            fill="#E60000"
+            radius={[4, 4, 0, 0]}
+          />
+          &lt;text
+            className="graphTitle"
+            x="5%"
+            y="15%"
+            dominantBaseline="middle"
+            fill="#20253A"
+            style={{ fontWeight: 700 }}
+          >
+            Activité quotidienne
+          &lt;/text>
+        &lt;/BarChart>
+      &lt;/ResponsiveContainer> */}
     &lt;/div>
   )
 }
@@ -141,13 +253,13 @@ export default ChartBars
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ModelActivity.html">ModelActivity</a></li><li><a href="ModelActivitySessions.html">ModelActivitySessions</a></li><li><a href="ModelAverageSessions.html">ModelAverageSessions</a></li><li><a href="ModelAverageSessionsLength.html">ModelAverageSessionsLength</a></li><li><a href="ModelMain.html">ModelMain</a></li><li><a href="ModelPerformance.html">ModelPerformance</a></li><li><a href="ModelPerformanceValue.html">ModelPerformanceValue</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ChartBars">ChartBars</a></li><li><a href="global.html#ChartBarsHeader">ChartBarsHeader</a></li><li><a href="global.html#ChartLine">ChartLine</a></li><li><a href="global.html#ChartRadar">ChartRadar</a></li><li><a href="global.html#ChartRadialBar">ChartRadialBar</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#CustomizedCursor">CustomizedCursor</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HeaderLogo">HeaderLogo</a></li><li><a href="global.html#Hello">Hello</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#NavSide">NavSide</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#NutritionAside">NutritionAside</a></li><li><a href="global.html#NutritionCard">NutritionCard</a></li><li><a href="global.html#Profil">Profil</a></li><li><a href="global.html#getActivy">getActivy</a></li><li><a href="global.html#getAverageSessions">getAverageSessions</a></li><li><a href="global.html#getMain">getMain</a></li><li><a href="global.html#getPerformance">getPerformance</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ModelActivity.html">ModelActivity</a></li><li><a href="ModelActivitySessions.html">ModelActivitySessions</a></li><li><a href="ModelAverageSessions.html">ModelAverageSessions</a></li><li><a href="ModelAverageSessionsLength.html">ModelAverageSessionsLength</a></li><li><a href="ModelMain.html">ModelMain</a></li><li><a href="ModelPerformance.html">ModelPerformance</a></li><li><a href="ModelPerformanceValue.html">ModelPerformanceValue</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ChartBars">ChartBars</a></li><li><a href="global.html#ChartBarsHeader">ChartBarsHeader</a></li><li><a href="global.html#ChartLine">ChartLine</a></li><li><a href="global.html#ChartRadar">ChartRadar</a></li><li><a href="global.html#ChartRadialBar">ChartRadialBar</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#CustomizedCursor">CustomizedCursor</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#HeaderLogo">HeaderLogo</a></li><li><a href="global.html#Hello">Hello</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#NavSide">NavSide</a></li><li><a href="global.html#Navbar">Navbar</a></li><li><a href="global.html#NutritionAside">NutritionAside</a></li><li><a href="global.html#NutritionCard">NutritionCard</a></li><li><a href="global.html#Profil">Profil</a></li><li><a href="global.html#getActivy">getActivy</a></li><li><a href="global.html#getAverageSessions">getAverageSessions</a></li><li><a href="global.html#getMain">getMain</a></li><li><a href="global.html#getPerformance">getPerformance</a></li><li><a href="global.html#legendScore">legendScore</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Mon Feb 06 2023 14:45:08 GMT+0100 (heure normale d’Europe centrale)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Wed Feb 08 2023 17:22:41 GMT+0100 (heure normale d’Europe centrale)
 </footer>
 
 <script> prettyPrint(); </script>

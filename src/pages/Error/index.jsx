@@ -14,7 +14,7 @@ function Error({ errorNumber }) {
   const text =
     errorNumber === 404
       ? "Oups! La page que vous demandez n'existe pas"
-      : "Oups! L'Api n'est pas disponible."
+      : "Oups! L'API n'est pas disponible."
   return (
     <>
       <HeaderLogo />

@@ -36,19 +36,27 @@ When you select a user, you are directed to their profile page.
 
 ## Prerequisites
 
-![Node.js](https://img.shields.io/badge/Node.js-16.14.0-43853D?style=flat-square&logo=node.js&logoColor=white)
 ![npm](https://img.shields.io/badge/npm-9.1.3-%23000000?style=flat-square&logo=npm&logoColor=white)
+
 ![yarn](https://img.shields.io/badge/yarn-1.22.19-%232C8EBB?style=flat-square&logo=yarn&logoColor=white)
+
+Back-end :
+
+![Node.js](https://img.shields.io/badge/Node.js-16.14.0-43853D?style=flat-square&logo=node.js&logoColor=white)
 
 ## Dependencies
 
-![GitHub package.json dependencies (dev)](https://img.shields.io/github/package-json/dependency-version/FABIEN-T/P12_SportSee/react?label=REACT&logo=react&logoColor=61DAFB&color=blue&style=flat-square)
-![GitHub package.json dependency version (dev)](https://img.shields.io/github/package-json/dependency-version/FABIEN-T/P12_SportSee/react-dom?label=React-dom&color=blue&style=flat-square)
-![GitHub package.json dependency version (dev)](https://img.shields.io/github/package-json/dependency-version/FABIEN-T/P12_SportSee/react-scripts?label=React-scripts&color=blue&style=flat-square)
+![GitHub package.json dependency version (dev)](https://img.shields.io/github/package-json/dependency-version/FABIEN-T/P12_SportSee/react-scripts?label=React-scripts&color=303540&style=flat-square)
 
-![GitHub package.json dependency version (dev)](https://img.shields.io/github/package-json/dependency-version/FABIEN-T/P12_SportSee/recharts?label=Recharts&color=blue&style=flat-square)
+![GitHub package.json dependencies (dev)](https://img.shields.io/github/package-json/dependency-version/FABIEN-T/P12_SportSee/react?label=REACT&logo=react&logoColor=61DAFB&color=303540&style=flat-square)
 
-![GitHub package.json dependency version (dev)](https://img.shields.io/github/package-json/dependency-version/FABIEN-T/P12_SportSee/sass?label=SASS&color=blue&style=flat-square)
+![GitHub package.json dependency version (dev)](https://img.shields.io/github/package-json/dependency-version/FABIEN-T/P12_SportSee/react-router-dom?label=React-router-dom&color=303540&style=flat-square)
+
+![GitHub package.json dependency version (dev)](https://img.shields.io/github/package-json/dependency-version/FABIEN-T/P12_SportSee/prop-types?label=prop-types&color=303540&style=flat-square)
+
+![GitHub package.json dependency version (dev)](https://img.shields.io/github/package-json/dependency-version/FABIEN-T/P12_SportSee/recharts?label=Recharts&color=22b5bf&style=flat-square)
+
+![GitHub package.json dependency version (dev)](https://img.shields.io/github/package-json/dependency-version/FABIEN-T/P12_SportSee/sass?label=SASS&color=CC6699&style=flat-square)
 
 ### DevDependencies
 

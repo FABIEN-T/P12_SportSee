@@ -8,10 +8,13 @@ import {
   Legend,
 } from 'recharts'
 
-function displayTitle() {
-  return (
-    <div style={{ color: 'blue', marginLeft: '13%', marginTop: 11 }}>Score</div>
-  )
+/**
+ * Function displaying the legend
+ * @returns "Score" - String
+ */
+
+function legendScore() {
+  return <h3 className="legendScore">Score</h3>
 }
 
 /**
@@ -30,8 +33,6 @@ function ChartRadialBar({ score }) {
 
   return (
     <div className="chartRadialBar">
-      {/* <h3>Score</h3> */}
-      {/* <div className="chartRadialBar__small"> */}
       <ResponsiveContainer width="100%" height="100%">
         <RadialBarChart
           startAngle={90}
@@ -41,15 +42,15 @@ function ChartRadialBar({ score }) {
           barSize={9}
           data={data}
         >
+          <circle cx="50%" cy="50%" fill="white" r="75"></circle>
           <PolarAngleAxis
             type="number"
-            // fill="#ff0101"
+            fill="#ff0101"
             domain={[0, 100]}
             tick={false}
             angleAxisId={0}
-            axisLineType="polygon"
+            axisLineType="circle"
           />
-          {/* <RadialBar minAngle={1} cornerRadius="10" dataKey="uv" /> */}
           <RadialBar cornerRadius="10" dataKey="uv" />
           <text
             fontWeight="700"
@@ -81,10 +82,9 @@ function ChartRadialBar({ score }) {
           >
             objectif
           </text>
-          <Legend verticalAlign="top" align="left" content={displayTitle} />
+          <Legend verticalAlign="top" align="left" content={legendScore} />
         </RadialBarChart>
       </ResponsiveContainer>
-      {/* </div> */}
     </div>
   )
 }

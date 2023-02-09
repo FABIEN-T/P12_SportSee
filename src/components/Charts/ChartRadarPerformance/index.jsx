@@ -32,7 +32,7 @@ function ChartRadar({ dataPerformance }) {
               strokeWidth={0.5}
             />
             <PolarRadiusAxis axisLine={false} tick={false} />
-            <Radar dataKey="value" fill="#ff0101" fillOpacity={0.6} />
+            <Radar dataKey="value" fill="#ff0101" fillOpacity={0.7} />
           </RadarChart>
         </ResponsiveContainer>
       </div>

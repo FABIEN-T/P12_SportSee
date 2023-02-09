@@ -4,7 +4,7 @@
   box-sizing: border-box;
   padding-top: 160px;
   &__titleError {
-    color: $primary;
+    color: $redLogotext;
     margin: 0 auto;
     font: {
       size: 200px;
@@ -27,7 +27,7 @@
       weight: 500;
     }
     &:hover {
-      color: $primary;
+      color: $redLogotext;
     }
   }
 }

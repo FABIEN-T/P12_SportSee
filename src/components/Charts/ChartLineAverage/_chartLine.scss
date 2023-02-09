@@ -6,7 +6,7 @@
   border-radius: 5px;
   padding: 0;
   overflow: hidden;
-  background-color: #ff0000;
+  background-color: $redChart;
   font-size: 10px;
 
   h3 {
@@ -21,6 +21,10 @@
     }
     color: white;
     opacity: 0.5;
+    @media screen and (max-height: 870px) {
+      top: 7%;
+      left: 8%;
+    }
   }
 }
 

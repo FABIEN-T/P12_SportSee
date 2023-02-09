@@ -36,7 +36,6 @@ function CustomTooltip({ active, payload }) {
  */
 
 function CustomizedCursor({ points }) {
-  console.log('df', points)
   return (
     <Rectangle
       fill="black"

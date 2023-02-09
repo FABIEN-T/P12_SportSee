@@ -33,9 +33,9 @@
         }
         margin: 10px;
         text-decoration: none;
-        color: $primary;
+        color: $redLogotext;
         &:hover {
-          text-decoration: underline 2px $primary;
+          text-decoration: underline 2px $redLogotext;
         }
       }
     }
@@ -68,12 +68,12 @@
           weight: 500;
         }
         &:hover {
-          color: $primary;
-          border: 3px solid $primary;
+          color: $redLogotext;
+          border: 3px solid $redLogotext;
         }
       }
       button.active {
-        color: $primary;
+        color: $redLogotext;
       }
     }
   }
